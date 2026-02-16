@@ -1,6 +1,6 @@
 ## Cahier des charges sprint 0
 
-- [ ]  La **présentation** du projet
+- [x]  La **présentation** du projet
 - [ ]  La définition des **besoins** (problèmes auxquels répond le projet) et des **objectifs** (solutions qu'apporte le projet) du projet
 - Les **fonctionnalités** du projet (spécifications fonctionnelles)
     - [ ]  Le [**MVP (Minimum Viable Product)**](https://kourou.oclock.io/content/uploads/2024/08/mvp.png) :
