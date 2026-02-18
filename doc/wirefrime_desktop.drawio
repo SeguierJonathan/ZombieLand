@@ -1,0 +1,54 @@
+<mxfile host="65bd71144e">
+    <diagram id="sYpx4sWdJWKa8hdP-HwA" name="Page-1">
+        <mxGraphModel dx="686" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="30" width="590" height="670" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="30" width="590" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Connexion" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="40" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Logo" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="35" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="TITRE" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="40" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Information légale / Contact / Horraire / Reseaux sociaux&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="620" width="590" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Menu" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="130" width="120" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Description du parc et de ses principales activitées" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="130" width="420" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="3 Dernières activitées" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="230" y="450" width="130" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="3 Dernières activitées" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="375" y="450" width="130" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="3 Dernières activitées" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="450" width="130" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Reservation" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="80" width="130" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="0F1vAc0IlI7xeVWoWoS7" name="Page-2">
+        <mxGraphModel dx="686" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
