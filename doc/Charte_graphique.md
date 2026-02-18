@@ -1,26 +1,38 @@
-1. Identité visuelle
+# Charte graphique
 
-Logo : version principale, version secondaire, favicon.
+## 1. Identité visuelle
+
+Logo :
+ - version principale : 
+ - version secondaire : 
+ - favicon : 
 
 Variantes du logo : noir/blanc, monochrome, avec slogan, sans slogan.
 
 Signatures ou icônes associées : favicon, icônes pour réseaux sociaux.
 
-2. Palette de couleurs
+## 2. Palette de couleurs
 
 Couleur principale : utilisée pour les éléments principaux (boutons, liens).
+- Rouille/orangé → rouge sang ( #8B0000, #CC0000, #3D0000)
 
 Couleurs secondaires : pour les éléments secondaires ou surlignages.
+- Pour le surlignages : #CE0000
 
 Couleurs neutres : fond, textes, bordures, backgrounds.
+- Pour les textes: #8A7663
+- Pour le fond : #000000
 
 Couleurs d’accent : pour attirer l’attention (alertes, call-to-action).
 
 Codes couleurs : hex, RGB, CMJN si nécessaire pour print.
 
-3. Typographie
+## 3. Typographie
 
-Polices de caractères : titres, sous-titres, corps de texte.
+Polices de caractères : 
+- titres: 'Bungee Shade', cursive;
+- sous-titres: 'Bungee', cursive;
+- corps de texte: 'Turret Road', sans-serif
 
 Styles et variantes : normal, gras, italique, capitales, petites capitales.
 
@@ -28,7 +40,7 @@ Tailles de police : h1, h2, h3… p, labels, boutons.
 
 Interlignage (line-height) et espacement des lettres (letter-spacing).
 
-4. Iconographie
+## 4. Iconographie
 
 Style des icônes : flat, outline, filled…
 
@@ -36,7 +48,7 @@ Taille standard et échelle responsive.
 
 Couleurs ou dégradés appliqués aux icônes.
 
-5. Images et illustrations
+## 5. Images et illustrations
 
 Style d’illustration : réaliste, flat, vectoriel, photographique.
 
