@@ -43,7 +43,7 @@ Table categories {
 }
 
 
-Table reservations {
+Table bookings {
   id integer [primary key]
   user_id integer
   date_reservation date
@@ -63,7 +63,7 @@ table prices {
 
 Ref: "users"."role_id" < "roles"."id"
 
-Ref: "reservations"."user_id" < "users"."id"
+Ref: "bookings"."user_id" < "users"."id"
 
 Ref: "attractions"."categorie_id" < "categories"."id"
 
