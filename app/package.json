@@ -12,8 +12,9 @@
   "description": "",
   "dependencies": {
     "dotenv": "^17.3.1",
-    "ejs": "^4.0.1",
+    "ejs": "^3.0.2",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "joi": "^18.0.2",
     "pg": "^8.18.0",
     "sequelize": "^6.37.7"
