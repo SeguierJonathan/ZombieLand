@@ -1,5 +1,0 @@
-# MCD du projet ZombieLand
- 
-![MCD](images/MCD.svg)
-
-## [Lien vers Mocodo](https://www.mocodo.net/?mcd=eNpVj8FtBCEMRe9UQQEcdq9TRFpAzoyzsgQYGTNKSZk6prEYVsnsCgkjvv3-d4XWziP424fvSokaKHZp4X73gg1lByUuzb2Ky8obhsI5VMFRMAOlkFnjhrEaEV1l4_5YmzfSG9mchBM2N-9_llvsQK0gSlh0BABVgXX6j6nVAA8WstHrufgJ8IPgXhM_wX6zzql-Cs50KI1Lsb8q9B2VFZJTEPr6mxgLTXEmmqmuHNfqlOGBQW3xhDFTodxzKLQj9LjF86jcdyhmvnU5DyvYVqE6KG75BT0BioI=)
