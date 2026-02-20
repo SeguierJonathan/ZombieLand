@@ -1,12 +1,17 @@
-# ZombieLand
+# ZombieLand 
 
-## Présentation Générale
+## Présentation Générale 
 
-- **Quoi ?** Un site internet dynamique et engageant qui mettra en avant les attractions et l'expérience unique proposées par ZombieLand afin de se faire connaître.
-L'objectif principal est de fournir aux visiteurs un aperçu captivant du parc, tout en leur offrant la possibilité de réserver leurs billets en ligne de manière pratique et sécurisée.  
-Le gérant doit pouvoir être autonome, il y a aura donc une partie back-office pour lui laisser la main sur le site.
-- **Qui ?** ZombieLand, un parc d'attractions fictif immersif post-apocalyptique
-- **Pour qui ?** Les adolescents et jeunes adultes (16-30 ans), plus enclins à apprécier les attractions effrayantes, les spectacles horrifiques et les interactions avec des acteurs zombies.
-- **Comment ?** En équipe à définir (positionnement via un formulaire de voeux) par l'équipe pédagogique. Organisation en méthode agile pour la gestion de projet.
-- **Quand ?** En plusieurs sprints qui inclueront des tâches de : conception, code, déploiement, recettage, etc.
-- **Pourquoi ?** Pour la réalisation d'un projet fictif à but pédagogique visant l'obtention du Titre Professionnel.
+Création d’un site internet dynamique et engageant pour notre client, lui permettant de mettre en 
+avant les attractions et l'expérience unique proposées par ZombieLand. L'objectif principal est de se 
+faire connaître et fournir aux visiteurs un aperçu captivant du parc, tout en leur offrant la possibilité 
+de réserver leurs billets en ligne de manière pratique et sécurisée.  
+Le gérant pourra être autonome et aura un rôle unique (administrateur) pour lui laisser la main sur le 
+site et avoir sa propre interface.  
+ZombieLand, un parc d'attractions immersif post-apocalyptique pour adolescents jusqu’à 
+transformation en zombie afin d’apprécier les attractions effrayantes, les spectacles horrifiques et 
+les interactions avec des acteurs zombies.  
+Nous développerons le site en équipe de 3 et nous utiliserons la méthode agile pour la gestion du 
+projet.  
+Nous livrerons le projet pour le 06/03/26 
+La réalisation de ce projet a pour but de lancer notre carrière de développeur web débutant.
