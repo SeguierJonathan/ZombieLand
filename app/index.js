@@ -10,4 +10,4 @@ app.get("/", (req,res) => {
 
 app.listen(PORT, () => {
     console.log(`Serveur is running at http://localhost:${PORT}`)
-});
+}) ;
