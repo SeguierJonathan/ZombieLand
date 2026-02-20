@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="sYpx4sWdJWKa8hdP-HwA" name="Home page">
-        <mxGraphModel dx="2984" dy="2060" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2149" dy="1889" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -70,7 +70,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Connexion" id="QL4R06bkAlUdkfOLn2S2">
-        <mxGraphModel dx="2131" dy="1471" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="752" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="G5c59z3Ao6dK8PFD_o1v-0"/>
                 <mxCell id="G5c59z3Ao6dK8PFD_o1v-1" parent="G5c59z3Ao6dK8PFD_o1v-0"/>
