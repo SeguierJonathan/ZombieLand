@@ -1,7 +1,6 @@
 import sequelize from "../config/sequelize-client.js";
 import Category from "./category.model.js";
 import Activity from "./Activity.model.js";
-import Booking from "./booking.model.js";
 
 Category.hasMany(Activity, {
     foreignKey: 'categoryId',
@@ -15,4 +14,4 @@ Activity.belongsTo(Category, {
 
 
 
-export { sequelize, Category, Activity, Booking };
+export { sequelize, Category, Activity };
