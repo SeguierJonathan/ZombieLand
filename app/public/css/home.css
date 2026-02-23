@@ -1,7 +1,3 @@
-h1 {
-    color: blue;
-}/* ======== About Section ======== */
-
 #about {
     display: flex;
     justify-content: space-between;
