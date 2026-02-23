@@ -26,5 +26,14 @@ User.belongsTo(Role, {
     as: 'user'
 })
 
-export { sequelize, Category, Activity, User, Booking, Role, Tarif };
+User.hasMany(Booking, {
+    foreignKey: 'userId',
+    as: 'bookings'
+});
 
+Booking.belongsTo(User, {
+    foreignKey: 'userId',
+    as: 'user'
+});
+
+export { sequelize, Category, Activity, User, Booking, Role, Tarif };
