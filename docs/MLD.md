@@ -21,7 +21,7 @@ Table attractions {
   min_height integer
   horror_level integer
   duration integer
-  description varchar
+  description text
   categorie_id integer
   created_at timestamp
   update_at timestamp
@@ -38,6 +38,7 @@ Table roles {
 Table categories {
   id integer [primary key]
   name varchar
+  description text
   created_at timestamp
   update_at timestamp
 }
