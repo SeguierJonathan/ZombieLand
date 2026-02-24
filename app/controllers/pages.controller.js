@@ -1,5 +1,4 @@
 import  Activity  from "../models/Activity.model.js"
-import { User } from "../models/index.js";
 
 export async function getAll(req,res) {
     const activities = await Activity.findAll();
