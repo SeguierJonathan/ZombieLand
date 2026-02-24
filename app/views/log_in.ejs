@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland</title>
+        <link rel="stylesheet" href="./css/home.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <main>
+
+            <h2>Se connecter</h2>
+
+            <form method="post">
+
+                <p>
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" name="email" placeholder="E-mail" required>
+                </p>
+
+                <p>
+                    <label for="password">Mot de passe</label>
+                    <input id="password" type="password" name="password" placeholder="Mot de passe" required>
+                </p>
+
+                <button type="submit">Connexion</button>
+
+            </form>
+
+        </main>
+        <%- include('partials/footer') %>
+</body>
+
+</html>
