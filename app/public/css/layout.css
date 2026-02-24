@@ -1,0 +1,126 @@
+/* ====== General ======= */
+
+html {
+    position: relative;
+}
+
+body {
+    padding: var(--header-height) 2rem 2rem 2rem;
+    min-height: 100vh;
+    background: linear-gradient(var(--color-brown) 0%, var(--color-dark) 100%);
+    color: var(--color-cream);
+    font-family: 'Turret Road', sans-serif;
+}
+
+section {
+    margin: 1.5rem 0;
+}
+
+/* ======== Header ======== */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    padding: 2rem;
+    background: linear-gradient(var(--color-brown) 0%, var(--color-dark) 100%);
+}
+
+
+/*mobile first default value*/
+
+header button {
+    background-color: inherit;
+    color: var(--color-cream);
+    height: 4rem;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+header ul {
+    display: none;
+}
+
+/* When navbar is expanded, re-order stuff */
+header nav.expanded {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 200px;
+    padding: 2rem;
+    gap: 2rem;
+
+    color: var(--color-cream);
+    background-color: var(--color-dark);
+
+    animation: menu-open 0.3s;
+}
+
+header nav.expanded ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+}
+
+/* Bonus : extra animation */
+@keyframes menu-open {
+    from {
+        width: 0vw;
+    }
+
+    to {
+        width: 200px;
+        color: var(--color-dark);
+    }
+}
+
+
+/* ===========  Footer =========== */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+footer .social {
+    display: flex;
+    gap: 2rem;
+}
+
+footer .social img {
+    width: 40px;
+}
+
+
+@media (min-width: 481px) {
+    /* tablette et plus */
+}
+
+@media (min-width: 1280px) {
+    /* desktop */
+
+    /* Hide "menu button" on large screen by default */
+    header button {
+        display: none;
+    }
+
+    header ul {
+        display: flex;
+        gap: 1rem;
+    }
+
+}

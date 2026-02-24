@@ -3,6 +3,7 @@ import { getAll } from '../controllers/pages.controller.js';
 
 const router = Router();
 
-router.get('/', getAll);
+router.get("/", homePage);
+router.get('/activitées', getAll);
 
-export default router
+export default router;

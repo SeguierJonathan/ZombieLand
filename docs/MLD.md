@@ -8,20 +8,19 @@ Table users {
   last_name varchar
   email varchar
   password varchar
-  age integer
   role_id integer
   created_at timestamp
   update_at timestamp
 }
 
-Table attractions {
+Table activities {
   id integer [primary key]
   name varchar
   image varchar
-  min_height integer
+  min_height_cm integer
   horror_level integer
-  duration integer
-  description varchar
+  duration_seconds integer
+  description text
   categorie_id integer
   created_at timestamp
   update_at timestamp
@@ -38,6 +37,7 @@ Table roles {
 Table categories {
   id integer [primary key]
   name varchar
+  description text
   created_at timestamp
   update_at timestamp
 }
@@ -57,6 +57,7 @@ table prices {
   id integer [primary key]
   name varchar
   price integer
+  current bool
   created_at timestamp
   update_at timestamp
 }
@@ -65,7 +66,7 @@ Ref: "users"."role_id" < "roles"."id"
 
 Ref: "bookings"."user_id" < "users"."id"
 
-Ref: "attractions"."categorie_id" < "categories"."id"
+Ref: "activities"."categorie_id" < "categories"."id"
 
 ```
 
