@@ -1,19 +1,13 @@
 import express from 'express';
 import "dotenv/config";
 import path from 'node:path';
-<<<<<<< HEAD
 import session from "express-session"
-=======
-import pageRouter from "./routes/pages.router.js";
-
->>>>>>> implement_users_route_and_controller
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const __dirname = import.meta.dirname;
 
 app.set("view engine", "ejs");
-<<<<<<< HEAD
 app.use(express.urlencoded({ extended: true })); //Récupérer les données envoyer depuis un formulaire
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -30,10 +24,6 @@ app.use(session({
     }
 }))
 
-=======
-app.use(express.static(path.join(__dirname, "public")));
-
->>>>>>> implement_users_route_and_controller
 app.use(pageRouter);
 
 app.listen(PORT, () => {
