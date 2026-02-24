@@ -3,7 +3,7 @@ import Joi from "joi";
 export function validateAuthRegister(req, res, next) {
 
     const shemaUser = Joi.object({
-        firtName: Joi.string().min(2).required(),
+        firstName: Joi.string().min(2).required(),
         lastName: Joi.string().min(2).required(),
         email: Joi.string().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).required(),
         password: Joi.string().min(8).pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/).required(),
@@ -13,14 +13,15 @@ export function validateAuthRegister(req, res, next) {
     const validation = shemaUser.validate(req.body);
 
     if (validation.error) {
-        res.status(400).send(validation.error);
+        return res.status(400).send(validation.error.details[0].message);
     }
-
     next();
 
 }
 
 export function validateAuthLogin(req, res, next) {
+
+    console.log(req.body);
 
     const shemaUser = Joi.object({
         email: Joi.string().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).required(),
@@ -31,9 +32,8 @@ export function validateAuthLogin(req, res, next) {
     const validation = shemaUser.validate(req.body);
 
     if (validation.error) {
-        res.status(400).send(validation.error);
+        return res.status(400).send(validation.error.details[0].message);
     }
-
     next();
 
 }

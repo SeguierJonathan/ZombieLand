@@ -1,7 +1,8 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import { createAccount, inscriptionPage } from '../controllers/createAccount.controller.js';
 import { connected, logInPage } from '../controllers/log_in.controller.js';
 import { getAll, homePage, accountPage } from '../controllers/pages.controller.js';
+import { validateAuthLogin, validateAuthRegister } from '../middlewares/auth.middleware.js';
 
 
 const router = Router();
@@ -10,15 +11,15 @@ router.get("/", homePage);
 
 // Liste des activitées
 router.get('/activitées', getAll);
-router.get('/mon-compte', accountPage );
+router.get('/mon-compte', accountPage);
 
 //Page de création de compte 
 router.get('/inscription', inscriptionPage);
-router.post('/inscription', createAccount );
+router.post('/inscription', validateAuthRegister, createAccount);
 
 //Page pour se Connecter à son compte
 router.get('/connexion', logInPage);
-router.post('/connexion', connected);
+router.post('/connexion', validateAuthLogin, connected);
 
 
 export default router;

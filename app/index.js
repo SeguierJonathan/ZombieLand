@@ -1,8 +1,10 @@
 import express from 'express';
-import "dotenv/config";
 import path from 'node:path';
-import session from "express-session"
+import session from './config/express-session.js';
+import "dotenv/config";
+
 import pageRouter from "./routes/pages.router.js"
+import { log } from 'node:console';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,17 +15,7 @@ app.use(express.urlencoded({ extended: true })); //Récupérer les données envo
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
-        maxAge: 60 * 1000 //temps d'expiration en milliseconde
-    }
-}))
+app.use(session);
 
 app.use(pageRouter);
 
