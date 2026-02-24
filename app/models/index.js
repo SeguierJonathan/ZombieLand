@@ -17,12 +17,12 @@ Activity.belongsTo(Category, {
 });
 
 Role.hasMany(User, {
-    foreignKey: 'userId',
+    foreignKey: 'roleId',
     as: 'users'
 });
 
 User.belongsTo(Role, {
-    foreignKey: 'userId',
+    foreignKey: 'roleId',
     as: 'user'
 })
 

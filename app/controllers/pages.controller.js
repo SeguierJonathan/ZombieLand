@@ -1,4 +1,5 @@
-import  Activity  from "../models/Activity.model.js";
+import  Activity  from "../models/Activity.model.js"
+import { User } from "../models/index.js";
 
 export async function getAll(req,res) {
     const activities = await Activity.findAll();
@@ -6,4 +7,14 @@ export async function getAll(req,res) {
 }
 export function homePage(req, res) {
     res.render("home")
+};
+
+export async function accountPage(req, res) {
+    // const user = await User.findByPk(userId); 
+    const user = {
+        firstName: "JoJo",
+        lastName: "Barjo",
+        email: "Jojo@outlook.fr"
+    }
+    res.render("account", {user})
 };
