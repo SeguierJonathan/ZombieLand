@@ -1,7 +1,8 @@
 import {Router} from 'express';
-import { getAll, homePage } from '../controllers/pages.controller.js';
 import { createAccount, inscriptionPage } from '../controllers/createAccount.controller.js';
 import { connected, logInPage } from '../controllers/log_in.controller.js';
+import { getAll, homePage, accountPage } from '../controllers/pages.controller.js';
+
 
 const router = Router();
 // Home page
@@ -9,6 +10,7 @@ router.get("/", homePage);
 
 // Liste des activitées
 router.get('/activitées', getAll);
+router.get('/mon-compte', accountPage );
 
 //Page de création de compte 
 router.get('/inscription', inscriptionPage);

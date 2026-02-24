@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+    <title>Zombieland - Mon compte</title>
+    <link rel="stylesheet" href="/css/account.css">
+    
+    <script defer src="/js/btnFormPassword.js"></script>
+</head>
+
+<body>
+
+<%- include('partials/header') %>
+
+<main>
+    <h1>Mon compte</h1>
+
+    <h2>Informations personnelles</h2>
+    <p>Nom : <%= user.lastName %></p>
+    <p>Prénom : <%= user.firstName %></p>
+    <p>Email : <%= user.email %></p>
+
+    <!-- Bouton pour afficher le formulaire -->
+    <button type="button" id="togglePasswordBtn">
+        Modifier mon mot de passe
+    </button>
+
+    <!-- Formulaire caché au départ -->
+    <form action="/update-password" method="POST" 
+          class="hidden" 
+          id="passwordForm">
+
+        <h3>Modifier le mot de passe</h3>
+
+        <div class="form-group">
+            <label for="oldPassword">Ancien mot de passe</label>
+            <input type="password" id="oldPassword" name="oldPassword" required>
+        </div>
+
+        <div class="form-group">
+            <label for="newPassword">Nouveau mot de passe</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirmation du nouveau mot de passe</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+
+        <button type="submit">Enregistrer</button>
+    </form>
+
+    <br>
+
+    <a href="/connexion">
+        <button type="button">Me déconnecter</button>
+    </a>
+
+</main>
+
+<%- include('partials/footer') %>
+
+
+</body>
+</html>
