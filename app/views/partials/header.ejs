@@ -20,7 +20,11 @@
     </button>
 
     <ul>
-      <li><a href="/connexion">Connexion</a></li>
+      <% if(firstName){%>
+        <li><a href="">Bonjour <%= firstName %></a></li>
+        <%}else{%>
+          <li><a href="/connexion">Connexion</a></li>
+          <%}%>
     </ul>
   </nav>
 

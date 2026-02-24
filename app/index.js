@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'node:path';
 import session from './config/express-session.js';
+import { setUserInLocals } from './middlewares/users.middleware.js';
 import "dotenv/config";
 
 import pageRouter from "./routes/pages.router.js"
@@ -15,8 +16,11 @@ app.use(express.urlencoded({ extended: true })); //Récupérer les données envo
 
 app.use(express.static(path.join(__dirname, "public")));
 
+//use express-session
 app.use(session);
 
+//use middleware pour exposer firstName
+app.use(setUserInLocals);
 app.use(pageRouter);
 
 app.listen(PORT, () => {
