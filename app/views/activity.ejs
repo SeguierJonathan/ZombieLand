@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombieland</title>
+</head>
+
+<body>
+    <header>
+        <h1>Liste des activitées</h1>
+    </header>
+
+    <main>
+        <% activities.forEach(activity=> { %>
+            <article>
+                <h2>Nom de l'activitée: <%= activity.name %></h2>
+                <p>Image de l'activitée: <img src="/app/public/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
+                <p>Taille minimum en CM pour faire l'activitée: <%= activity.minHeightCM %></p>
+                <p>Niveau d'horreur: <%= activity.horrorLevel %></p>
+                <p>Durée en seconde: <%= activity.durationSeconds %></p>
+                <p>Description de l'activitée: <%= activity.description %></p>
+            </article>
+            <% }) %>
+</body>
+</html>
