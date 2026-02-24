@@ -24,7 +24,7 @@ export async function connected(req, res) {
 
             // Stocker l'utilisateur dans la nouvelle session
             req.session.user = { id: user.id, firstName: user.firstName };
-            res.redirect('/mon-compte');
+            res.redirect('/');
         });
     }
     else {
