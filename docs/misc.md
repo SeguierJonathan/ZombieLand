@@ -12,3 +12,7 @@ git push origin --delete nom_de_la_branche
 ```
 git branch -d nom_de_la_branche
 ```
+3 - Récupérer une branche non visible
+```
+git fetch
+```
