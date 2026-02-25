@@ -13,51 +13,36 @@
 
     <%- include('partials/header') %>
 
-<<<<<<< HEAD
-<main>
-    <h1>Mon compte</h1>
-    <fieldset>
-        <form action="/mon-compte" method="POST">
-            <div>
-                <label for="firstName">Prénom :</label>
-                <input type="text" name="firstName" value="<%= user.firstName %>">
-            </div>
-
-            <div>
-                <label for="lastName">Nom :</label>
-                <input type="text" name="lastName" value="<%= user.lastName %>">
-            </div>
-
-            <div>
-                <label for="email">Email :</label>
-                <input type="email" name="email" value="<%= user.email %>">
-            </div>
-
-            <button type="submit">Modifier</button>
-
-    </fieldset>
-        </form>
-    <!-- Bouton pour afficher le formulaire -->
-    <button type="button" id="togglePasswordBtn">
-        Modifier mon mot de passe
-    </button>
-=======
         <main>
             <h1>Mon compte</h1>
 
-            <h2>Informations personnelles</h2>
-            <p>Nom : <%= user.lastName %>
-            </p>
-            <p>Prénom : <%= user.firstName %>
-            </p>
-            <p>Email : <%= user.email %>
-            </p>
+            <fieldset>
+                <legend>Information personelle</legend>
+                <form action="/mon-compte" method="POST">
+                    <div>
+                        <label for="firstName">Prénom :</label>
+                        <input type="text" name="firstName" value="<%= user.firstName %>">
+                    </div>
 
+                    <div>
+                        <label for="lastName">Nom :</label>
+                        <input type="text" name="lastName" value="<%= user.lastName %>">
+                    </div>
+
+                    <div>
+                        <label for="email">Email :</label>
+                        <input type="email" name="email" value="<%= user.email %>">
+                    </div>
+
+                    <button type="submit">Modifier</button>
+
+            </fieldset>
+            </form>
             <!-- Bouton pour afficher le formulaire -->
             <button type="button" id="togglePasswordBtn">
                 Modifier mon mot de passe
             </button>
->>>>>>> 15f2cc059441da6798b8a73e5a146d0f50396306
+
 
             <!-- Formulaire caché au départ -->
             <form action="/update-password" method="POST" class="hidden" id="passwordForm">
@@ -82,16 +67,15 @@
                 <button type="submit">Enregistrer</button>
             </form>
 
-            <br>
 
             <a href="/connexion">
                 <button type="button">Me déconnecter</button>
             </a>
 
             <form action="/user/delete" method="post">
-            <button type="submit">
-                Supprimer mon compte
-            </button>
+                <button type="submit">
+                    Supprimer mon compte
+                </button>
             </form>
 
         </main>
