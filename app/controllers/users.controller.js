@@ -58,7 +58,7 @@ export async function createAccount(req, res) {
     });
 };
 
-export async function updateAccount(req,res) {
+export async function updateAccount(req, res) {
     const user = await User.findByPk(req.session.user.id);
 
     if (!user) {
@@ -81,19 +81,22 @@ export async function updateAccount(req,res) {
 
     await user.save();
     req.session.firstName = user.firstName;
-    res.redirect ('/mon-compte');
+    res.redirect('/mon-compte');
 };
 
 export async function deleteAccount(req, res) {
-    const deletedAccount = await User.destroy({
+    const result = await User.destroy({
         where: {
             id: req.session.user.id
         }
     });
-    if (deletedAccount === 0) {
-        return res.status(404).send("Not found");
+    if (result === 0) {
+        res.redirect("/mon-compte");
     }
-    res.status(204).send("No content");
+    req.session.destroy(function (err) {
+        res.redirect("/");
+    })
+
 };
 
 export async function inscriptionPage(req, res) {

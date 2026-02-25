@@ -1,7 +1,6 @@
 import { Router } from 'express';
-import { connected, createAccount, updateAccount, deleteAccount } from '../controllers/users.controller.js';
-
-import { validateAuthLogin, validateAuthRegister, isAuth, preventIfLoggedIn } from '../middlewares/auth.middleware.js';
+import { connected, createAccount, updateAccount, deleteAccount } from '../../controllers/users.controller.js';
+import { validateAuthLogin, validateAuthRegister, isAuth } from '../../middlewares/auth.middleware.js';
 
 const router = Router();
 

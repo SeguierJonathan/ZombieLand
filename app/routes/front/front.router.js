@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { accountPage, connected, logInPage, createAccount, inscriptionPage, updateAccount, deleteAccount } from '../controllers/users.controller.js';
-import { getAll } from '../controllers/activities.controller.js'
-import { homePage } from '../controllers/pages.controller.js';
-import { isAuth, preventIfLoggedIn } from '../middlewares/auth.middleware.js';
+import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
+import { getAll } from '../../controllers/activities.controller.js'
+import { homePage } from '../../controllers/pages.controller.js';
+import { isAuth, preventIfLoggedIn } from '../../middlewares/auth.middleware.js';
 
 const router = Router();
 
