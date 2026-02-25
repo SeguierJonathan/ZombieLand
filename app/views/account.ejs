@@ -3,16 +3,17 @@
 
 <head>
     <%- include('partials/head') %>
-    <title>Zombieland - Mon compte</title>
-    <link rel="stylesheet" href="/css/account.css">
-    
-    <script defer src="/js/btnFormPassword.js"></script>
+        <title>Zombieland - Mon compte</title>
+        <link rel="stylesheet" href="/css/account.css">
+
+        <script defer src="/js/btnFormPassword.js"></script>
 </head>
 
 <body>
 
-<%- include('partials/header') %>
+    <%- include('partials/header') %>
 
+<<<<<<< HEAD
 <main>
     <h1>Mon compte</h1>
     <fieldset>
@@ -40,42 +41,64 @@
     <button type="button" id="togglePasswordBtn">
         Modifier mon mot de passe
     </button>
+=======
+        <main>
+            <h1>Mon compte</h1>
 
-    <!-- Formulaire caché au départ -->
-    <form action="/update-password" method="POST" 
-          class="hidden" 
-          id="passwordForm">
+            <h2>Informations personnelles</h2>
+            <p>Nom : <%= user.lastName %>
+            </p>
+            <p>Prénom : <%= user.firstName %>
+            </p>
+            <p>Email : <%= user.email %>
+            </p>
 
-        <h3>Modifier le mot de passe</h3>
+            <!-- Bouton pour afficher le formulaire -->
+            <button type="button" id="togglePasswordBtn">
+                Modifier mon mot de passe
+            </button>
+>>>>>>> 15f2cc059441da6798b8a73e5a146d0f50396306
 
-        <div class="form-group">
-            <label for="oldPassword">Ancien mot de passe</label>
-            <input type="password" id="oldPassword" name="oldPassword" required>
-        </div>
+            <!-- Formulaire caché au départ -->
+            <form action="/update-password" method="POST" class="hidden" id="passwordForm">
 
-        <div class="form-group">
-            <label for="newPassword">Nouveau mot de passe</label>
-            <input type="password" id="newPassword" name="newPassword" required>
-        </div>
+                <h3>Modifier le mot de passe</h3>
 
-        <div class="form-group">
-            <label for="confirmPassword">Confirmation du nouveau mot de passe</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
-        </div>
+                <div class="form-group">
+                    <label for="oldPassword">Ancien mot de passe</label>
+                    <input type="password" id="oldPassword" name="oldPassword" required>
+                </div>
 
-        <button type="submit">Enregistrer</button>
-    </form>
+                <div class="form-group">
+                    <label for="newPassword">Nouveau mot de passe</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
 
-    <br>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmation du nouveau mot de passe</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
 
-    <a href="/connexion">
-        <button type="button">Me déconnecter</button>
-    </a>
+                <button type="submit">Enregistrer</button>
+            </form>
 
-</main>
+            <br>
 
-<%- include('partials/footer') %>
+            <a href="/connexion">
+                <button type="button">Me déconnecter</button>
+            </a>
+
+            <form action="/user/delete" method="post">
+            <button type="submit">
+                Supprimer mon compte
+            </button>
+            </form>
+
+        </main>
+
+        <%- include('partials/footer') %>
 
 
 </body>
+
 </html>
