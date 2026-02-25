@@ -2,7 +2,7 @@ import express from 'express';
 import "dotenv/config";
 import path from 'node:path';
 import session from "express-session"
-import pageRouter from "./routes/pages.router.js"
+import pageRouter from "./routes/pages.router.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;

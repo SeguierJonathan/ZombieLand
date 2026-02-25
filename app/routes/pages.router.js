@@ -9,7 +9,7 @@ const router = Router();
 router.get("/", homePage);
 
 // Liste des activitées
-router.get('/activitées', getAll);
+router.get('/activites', getAll);
 router.get('/mon-compte', accountPage );
 
 //Page de création de compte 
