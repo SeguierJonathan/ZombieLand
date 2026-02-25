@@ -6,7 +6,7 @@ export async function getAll(req, res) {
 }
 
 export function homePage(req, res) {
-    res.render("home",)
+    res.render("home")
 };
 
 export async function accountPage(req, res) {

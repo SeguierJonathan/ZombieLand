@@ -15,6 +15,7 @@ export async function connected(req, res) {
         return res.send('Mauvais Email ou Mot de passe')
     }
     if (argon2.verify(user.password, req.body.password)) {
+
         // regenere id-session pour eviter la faille de session fixation
         req.session.regenerate((err) => {
             if (err) {
@@ -26,6 +27,7 @@ export async function connected(req, res) {
             req.session.user = { id: user.id, firstName: user.firstName };
             res.redirect('/');
         });
+        
     }
     else {
         res.send("Mauvais Email ou Mot de passe")
