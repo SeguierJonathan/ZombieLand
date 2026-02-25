@@ -1,6 +1,6 @@
 import sequelize from "../config/sequelize-client.js";
 import Category from "./category.model.js";
-import Activity from "./Activity.model.js";
+import Activity from "./activity.model.js";
 import User from "./user.model.js";
 import Booking from "./booking.model.js";
 import Role from "./role.js";
@@ -17,12 +17,12 @@ Activity.belongsTo(Category, {
 });
 
 Role.hasMany(User, {
-    foreignKey: 'userId',
+    foreignKey: 'roleId',
     as: 'users'
 });
 
 User.belongsTo(Role, {
-    foreignKey: 'userId',
+    foreignKey: 'roleId',
     as: 'user'
 })
 

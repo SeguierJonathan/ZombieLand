@@ -14,7 +14,7 @@ await Category.bulkCreate([
     { name: "Événements spéciaux", description: "Halloween, festivals zombies et soirées nocturnes" }
 ]);
 
-// Crée des activitées par défaut avec l'ID d'une catégorie
+// Crée des activités par défaut avec l'ID d'une catégorie
 await Activity.bulkCreate([
     {
         name: "Zombie Run",

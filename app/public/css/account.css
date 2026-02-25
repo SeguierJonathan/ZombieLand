@@ -1,0 +1,13 @@
+#passwordForm.hidden {
+    display: none;
+}
+
+#passwordForm {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
