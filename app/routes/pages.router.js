@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { accountPage, connected, logInPage, createAccount, inscriptionPage } from '../controllers/users.controller.js';
+import { accountPage, connected, logInPage, createAccount, inscriptionPage, updateAccount } from '../controllers/users.controller.js';
 import { getAll } from '../controllers/activities.controller.js'
 import { homePage } from '../controllers/pages.controller.js';
 import { validateAuthLogin, validateAuthRegister, isAuth, preventIfLoggedIn } from '../middlewares/auth.middleware.js';
@@ -12,6 +12,7 @@ router.get("/", homePage);
 // Liste des activitées
 router.get('/activitées', getAll);
 router.get('/mon-compte', isAuth, accountPage);
+router.post('/mon-compte', updateAccount);
 
 //Page de création de compte 
 router.get('/inscription', preventIfLoggedIn, inscriptionPage);

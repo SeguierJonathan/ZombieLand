@@ -58,6 +58,32 @@ export async function createAccount(req, res) {
     });
 };
 
+export async function updateAccount(req,res) {
+    const user = await User.findByPk(req.session.user.id);
+
+    if (!user) {
+        return res.status(404).send("Utilisateur introuvable");
+    }
+
+    const { firstName, lastName, email } = req.body;
+
+    if (firstName && firstName.trim() !== "") {
+        user.firstName = firstName;
+    }
+
+    if (lastName && lastName.trim() !== "") {
+        user.lastName = lastName;
+    }
+
+    if (email && email.trim() !== "") {
+        user.email = email;
+    }
+
+    await user.save();
+    req.session.firstName = user.firstName;
+    res.redirect ('/mon-compte');
+};
+
 export async function inscriptionPage(req, res) {
     return res.render('inscription')
 };
