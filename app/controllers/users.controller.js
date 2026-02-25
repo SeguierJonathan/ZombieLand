@@ -58,6 +58,18 @@ export async function createAccount(req, res) {
     });
 };
 
+export async function deleteAccount(req, res) {
+    const deletedAccount = await User.destroy({
+        where: {
+            id: req.session.user.id
+        }
+    });
+    if (deletedAccount === 0) {
+        return res.status(404).send("Not found");
+    }
+    res.status(204).send("No content");
+};
+
 export async function inscriptionPage(req, res) {
     return res.render('inscription')
 };
