@@ -21,4 +21,8 @@ router.post('/inscription', validateAuthRegister, createAccount);
 router.get('/connexion', preventIfLoggedIn, logInPage);
 router.post('/connexion', validateAuthLogin, connected);
 
+router.get('/500', (req, res) => {
+
+})
+
 export default router;

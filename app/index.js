@@ -2,10 +2,9 @@ import express from 'express';
 import path from 'node:path';
 import session from './config/express-session.js';
 import { setUserInLocals } from './middlewares/users.middleware.js';
-import "dotenv/config";
-
 import pageRouter from "./routes/pages.router.js"
-import { log } from 'node:console';
+import { errorHandler } from './middlewares/common.middleware.js';
+import "dotenv/config";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,6 +21,8 @@ app.use(session);
 //use middleware pour exposer firstName
 app.use(setUserInLocals);
 app.use(pageRouter);
+
+app.use(errorHandler);
 
 app.listen(PORT, () => {
     console.log(`Serveur is running at http://localhost:${PORT}`)
