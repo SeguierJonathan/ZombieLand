@@ -3,10 +3,10 @@ import Joi from "joi";
 export function validateAuthRegister(req, res, next) {
 
     const shemaUser = Joi.object({
-        firstName: Joi.string().min(2).required(),
-        lastName: Joi.string().min(2).required(),
-        email: Joi.string().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).required(),
-        password: Joi.string().min(8).pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/).required(),
+        firstName: Joi.string().trim().min(2).required(),
+        lastName: Joi.string().trim().min(2).required(),
+        email: Joi.string().trim().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).required(),
+        password: Joi.string().trim().min(8).pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/).required(),
         confirmPassword: Joi.string().valid(Joi.ref("password")).required()
     })
 
@@ -25,8 +25,8 @@ export function validateAuthLogin(req, res, next) {
     console.log(req.body);
 
     const shemaUser = Joi.object({
-        email: Joi.string().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).required(),
-        password: Joi.string().min(8).pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/).required(),
+        email: Joi.string().trim().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).required(),
+        password: Joi.string().trim().min(8).pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/).required(),
 
     })
 
