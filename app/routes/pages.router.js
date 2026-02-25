@@ -10,13 +10,8 @@ const router = Router();
 router.get("/", homePage);
 
 // Liste des activitées
-<<<<<<< HEAD
-router.get('/activites', getAll);
-router.get('/mon-compte', accountPage );
-=======
 router.get('/activitées', getAll);
 router.get('/mon-compte', isAuth, accountPage);
->>>>>>> 7a9190841ff435dbf2c08148b161cc6f39c575dd
 
 //Page de création de compte 
 router.get('/inscription', preventIfLoggedIn, inscriptionPage);
