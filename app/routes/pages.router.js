@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { createAccount, inscriptionPage } from '../controllers/createAccount.controller.js';
-import { connected, logInPage } from '../controllers/log_in.controller.js';
-import { getAll, homePage, accountPage } from '../controllers/pages.controller.js';
+import { accountPage, connected, logInPage, createAccount, inscriptionPage } from '../controllers/users.controller.js';
+import { getAll } from '../controllers/activities.controller.js'
+import { homePage } from '../controllers/pages.controller.js';
 import { validateAuthLogin, validateAuthRegister, isAuth, preventIfLoggedIn } from '../middlewares/auth.middleware.js';
 
-
 const router = Router();
+
 // Home page
 router.get("/", homePage);
 
