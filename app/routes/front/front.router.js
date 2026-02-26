@@ -18,7 +18,6 @@ router.get('/mon-compte', isAuth, accountPage);
 router.get('/inscription', preventIfLoggedIn, inscriptionPage);
 //Page pour se Connecter à son compte
 router.get('/connexion', preventIfLoggedIn, logInPage);
-<<<<<<< HEAD
 //Page pour de réservation
 router.get('/reservation', isAuth, bookingPage);
 //Page pour mes réservations
@@ -28,13 +27,6 @@ router.get('/404', (req, res) => { res.status(404).render("404") });
 //Page d'erreur 500
 router.get('/500', (req, res) => { res.status(500).render("500") });
 
-=======
-//Page 404
-router.get('/404', (req, res) => { res.status(404).render("404") });
-//Page d'erreur 500
-router.get('/500', (req, res) => { res.status(500).render("500") });
-
->>>>>>> dev
 
 
 export default router;
