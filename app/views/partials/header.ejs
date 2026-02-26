@@ -1,44 +1,44 @@
 <header>
   <h1><a href="/">Zombieland</a></h1>
 
-  <nav id="menu-navbar" class="closed">
-
-    <button id="menu-button" aria-label="Ouvrir le menu">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-        <g fill="none" stroke="currentColor" stroke-dasharray="16" stroke-linecap="round" stroke-linejoin="round"
-          stroke-width="2">
-          <path d="M5 5h14">
-            <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="16;0" />
-          </path>
-          <path stroke-dashoffset="16" d="M5 12h14">
-            <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.3s" dur="0.3s" to="0" />
-          </path>
-          <path stroke-dashoffset="16" d="M5 19h14">
-            <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.3s" to="0" />
-          </path>
-        </g>
-      </svg>
-    </button>
-
-    <% if(firstName){%>
-      <p><a href="/mon-compte">Bonjour <%= firstName %></a>
-      <p>
+  <nav>
+    <ul>
+      <li><a class="button" href="/reservation">Réserver</a></li>
+      <%if(firstName){%>
+        <li><a class="button" href="/mes-reservations">Mes réservations</a></li>
         <%}%>
-
-          <ul>
-            <% if(firstName){%>
-              <li><a class="button" href="/mes-reservation">Mes réservations</a></li>
-              <%}else{%>
-                <li><a class="button" href="/connexion">Connexion</a></li>
-                <%}%>
-
-                  <li><a class="button" href="/reserver">Réserver</a></li>
-                  <li><a class="button" href="/activites">Activités</a></li>
-                  <li><a class="button" href="/information">Information</a></li>
-                  <li><a class="button" href="/plan">Plan du parc</a></li>
-                  <li><a class="button" href="/a-propos">A propos</a></li>
-
-          </ul>
+          <li><a class="button" href="/activites">Activités</a></li>
+          <li><a class="button" href="/plan">Plan du parc</a></li>
+          <li><a class="button" href="/information">Information</a></li>
+          <li><a class="button" href="/a-propos">A propos</a></li>
+    </ul>
   </nav>
 
+  <button id="menu-button" class="button-icon" aria-label="Ouvrir le menu">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-dasharray="16" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2">
+        <path d="M5 5h14">
+          <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="16;0" />
+        </path>
+        <path stroke-dashoffset="16" d="M5 12h14">
+          <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.3s" dur="0.3s" to="0" />
+        </path>
+        <path stroke-dashoffset="16" d="M5 19h14">
+          <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.3s" to="0" />
+        </path>
+      </g>
+    </svg>
+  </button>
+
+  <div class="greeting">
+    <%if(!firstName){%>
+      <a class="button" href="/connexion">Se connecter</a>
+      <%}else{%>
+        <a href="/mon-compte">Bonjour, <span>
+            <%= firstName%>
+          </span></a>
+        <a href="/auth/logout">Se déconnecter</a>
+        <%}%>
+  </div>
 </header>

@@ -43,3 +43,12 @@
 
     transition: all 0.3s ease-in-out;
 }
+
+.button-icon {
+    background-color: inherit;
+    color: var(--color-cream);
+    height: 4rem;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}

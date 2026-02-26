@@ -16,9 +16,11 @@ router.get('/mon-compte', isAuth, accountPage);
 router.get('/inscription', preventIfLoggedIn, inscriptionPage);
 //Page pour se Connecter à son compte
 router.get('/connexion', preventIfLoggedIn, logInPage);
+//Page 404
+router.get('/404', (req, res) => { res.status(404).render("404") });
 //Page d'erreur 500
 router.get('/500', (req, res) => { res.status(500).render("500") });
-router.get('/404', (req, res) => { res.status(404).render("404") });
+
 
 
 export default router;
