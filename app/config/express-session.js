@@ -9,7 +9,7 @@ const sessionMiddleware = session({
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
-        maxAge: 60 * 1000 //temps d'expiration en milliseconde
+        maxAge: 60 * 60 * 1000 //temps d'expiration en milliseconde
     }
 })
 
