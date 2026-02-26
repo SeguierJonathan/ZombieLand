@@ -52,3 +52,12 @@
     border: none;
     cursor: pointer;
 }
+
+.button-trans {
+    background-color: inherit;
+    color: var(--color-cream);
+    height: 4rem;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}

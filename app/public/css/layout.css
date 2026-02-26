@@ -114,9 +114,11 @@ footer .social img {
     /* desktop */
 
     /* Hide "menu button" on large screen by default */
-    header button {
+
+    header #menu-button {
         display: none;
     }
+
 
     /*Show nav link*/
     header ul {
