@@ -5,7 +5,7 @@
     <%- include('partials/head') %>
 
         <title>Zombieland</title>
-        <link rel="stylesheet" href="./css/activity.css">
+        <link rel="stylesheet" href="/css/activity.css">
 </head>
 
 <body>
@@ -18,18 +18,21 @@
                 <h3>
                     <%= activity.name %>
                 </h3>
-                <p><img src="img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
+                <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
                 <p>
-                    <%= activity.minHeightCM %>
+                    <strong>Taille minimum obligatoire</strong> : <%= activity.minHeightCM %>
                 </p>
                 <p>
-                    <%= activity.horrorLevel %>
+                    <strong>Niveau d'horreur</strong> : <%= activity.horrorLevel %>
                 </p>
                 <p>
-                    <%= activity.durationSeconds %>
+                    <strong>Durée</strong> : <%= activity.durationSeconds %>
                 </p>
                 <p>
-                    <%= activity.description %>
+                    <strong>Description</strong> : <%= activity.description %>
+                </p>
+                <p>
+                    <strong>Catégorie de l'activité</strong> : <%= activity.category.name %>
                 </p>
 
                 <a href="/activites" class="button">Retour à la liste des activitées</a>

@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
-import { getAll } from '../../controllers/activities.controller.js'
+import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
 import { homePage } from '../../controllers/pages.controller.js';
 import { isAuth, preventIfLoggedIn } from '../../middlewares/auth.middleware.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
@@ -20,7 +20,9 @@ router.get('/connexion', preventIfLoggedIn, logInPage);
 //Page d'erreur 500
 router.get('/500', (req, res) => { res.status(500).nrender("500") });
 // Détail d'une activité
-router.get('/activites/:id', renderActivityDetail)
+router.get('/activites/:id',renderActivityDetail)
+//Activités filtré par catégorie
+router.get('/activites/categories/:id', getAllByCategory)
 
 
 export default router;

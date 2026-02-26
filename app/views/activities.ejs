@@ -5,7 +5,8 @@
     <%- include('partials/head') %>
 
         <title>Zombieland</title>
-        <link rel="stylesheet" href="./css/activity.css">
+        <link rel="stylesheet" href="/css/activity.css">
+        <script defer src="/js/catActivity.js"></script>
 </head>
 
 <body>
@@ -14,15 +15,29 @@
 
             <h2>Liste des activités</h2>
 
-            <% activities.forEach(activity=> { %>
-                <article>
-                    <h3><%= activity.name %>
-                    </h3>
-                    <p><img src="img/<%= activity.image %>"
-                            alt="Image de l'activitée selectionnée"></p>
-                            <a href="/activites/<%= activity.id %>" class="button">Voir détails</a>
-                </article>
-                <% }) %>
+            <form id="categoryForm">
+                <select name="id" onchange="submitForm()" id="">
+                    <option value="">--Veuillez choisir une catégorie--</option>
+                    <% categories.forEach(category=> { %>
+                        <option value="<%= category.id %>">
+                            <%= category.name %>
+                        </option>
+                        <% }) %>
+                </select>
+            </form>
+
+            <section>
+                <% activities.forEach(activity=> { %>
+                    <article>
+                        <h3>
+                            <%= activity.name %>
+                        </h3>
+                        <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
+
+                        <a href="/activites/<%= activity.id %>" class="button">Voir détails</a>
+                    </article>
+                    <% }) %>
+            </section>
         </main>
         <%- include('partials/footer') %>
 

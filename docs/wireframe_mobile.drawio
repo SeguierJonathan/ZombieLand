@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="Ipu9PpkcHq7_fMKK_aFN" name="Home page">
-        <mxGraphModel dx="1321" dy="485" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1305" dy="431" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -118,7 +118,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Creation d&#39;un compte" id="CnmaBGS-d2Y9z1Ym8r2y">
-        <mxGraphModel dx="1321" dy="721" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1305" dy="431" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="FjkWuDSz5x-crs4NQ9ZN-0"/>
                 <mxCell id="FjkWuDSz5x-crs4NQ9ZN-1" parent="FjkWuDSz5x-crs4NQ9ZN-0"/>
@@ -277,7 +277,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Information" id="2N8IZWq2ibLHuy8fik5c">
-        <mxGraphModel dx="1321" dy="721" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1305" dy="742" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="hqC4sD37bgj3dIysxmli-0"/>
                 <mxCell id="hqC4sD37bgj3dIysxmli-1" parent="hqC4sD37bgj3dIysxmli-0"/>
@@ -418,7 +418,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Plan du parc" id="EDWFy_zGze8aJn2FBA9K">
-        <mxGraphModel dx="1321" dy="129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1305" dy="742" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="LdVcoYjW74YObc0k83DM-0"/>
                 <mxCell id="LdVcoYjW74YObc0k83DM-1" parent="LdVcoYjW74YObc0k83DM-0"/>

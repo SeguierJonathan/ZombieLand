@@ -1,10 +1,27 @@
-import { StatusCodes } from 'http-status-codes';
-
-export function checkBody(schema, body, res, next) {
-    const validation = schema.validate(body);
-    if (validation.error) {
-        res.status(StatusCodes.BAD_REQUEST).send(validation.error);
-        return;
+export function formatSecondes(secondes) {
+    const minutes = Math.floor(secondes / 60);
+    const resteSecondes = secondes % 60;
+    if (resteSecondes === 0) {
+        return `${minutes} min`
     }
-    next();
+    if (minutes === 0) {
+        return `${resteSecondes} s`
+    }
+    else {
+        eturn`${minutes} min ${resteSecondes} s`;
+    }
+}
+
+export function formatTaille(cm) {
+    const metres = Math.floor(cm / 100);
+    const centimetres = cm % 100;
+    if (centimetres === 0) {
+        return `${metres}m$`
+    }
+    if (metres === 0) {
+        return `${centimetres.toString().padStart(2, '0')}`
+    }
+    else {
+        return `${metres}m${centimetres.toString().padStart(2, '0')}`;
+    }
 }
