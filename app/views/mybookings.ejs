@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland - Réservations</title>
+
+        <link rel="stylesheet" href="./css/home.css">
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <main>
+    <h1>Mes réservations</h1>
+
+    <% if (reservations.length === 0) { %>
+        <p>Vous n'avez encore fait aucune réservation.</p>
+    <% } else { %>
+        <% reservations.forEach(reservation => { %>
+            <form action="/mes-reservations/<%= reservation.id %>/edit" method="POST">
+                <div>
+                    <label for="date-<%= reservation.id %>">Date :</label>
+                    <input type="date" id="date-<%= reservation.id %>" name="date" value="<%= reservation.date.toISOString().split('T')[0] %>" min="1" required>
+                </div>
+
+                <div>
+                    <label for="nombre-<%= reservation.id %>">Nombre de personnes :</label>
+                    <input type="number" id="nombre-<%= reservation.id %>" name="nombre_de_personne" value="<%= reservation.nombre_de_personne %>" required>
+                </div>
+
+                <div>
+                    <em>Prix total : <%= reservation.prix_total %> €</em>
+                </div>
+
+                <button type="submit" onclick="return confirm('Voulez-vous vraiment Modifier cette réservation ?')">Modifier</button>
+            </form>
+            <form action="/mes-reservations/<%= reservation.id %>/delete" method="POST">
+                <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cette réservation ?')">Supprimer</button>
+            </form>
+        <% }) %>
+    <% } %>
+</main>
+        <%- include('partials/footer') %>
+
+</body>
+
+</html>
