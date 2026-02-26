@@ -2,26 +2,42 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zombieland</title>
+    <%- include('partials/head') %>
+
+        <title>Zombieland</title>
+        <link rel="stylesheet" href="./css/activity.css">
 </head>
 
 <body>
-    <header>
-        <h1>Liste des activités</h1>
-    </header>
+    <%- include('partials/header') %>
+        <main>
 
-    <main>
-        <% activities.forEach(activity=> { %>
+            <h2>Détails de l'activité</h2>
+
             <article>
-                <h2>Nom de l'activitée: <%= activity.name %></h2>
-                <p>Image de l'activitée: <img src="/app/public/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
-                <p>Taille minimum en CM pour faire l'activitée: <%= activity.minHeightCM %></p>
-                <p>Niveau d'horreur: <%= activity.horrorLevel %></p>
-                <p>Durée en seconde: <%= activity.durationSeconds %></p>
-                <p>Description de l'activitée: <%= activity.description %></p>
+                <h3>
+                    <%= activity.name %>
+                </h3>
+                <p><img src="img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
+                <p>
+                    <%= activity.minHeightCM %>
+                </p>
+                <p>
+                    <%= activity.horrorLevel %>
+                </p>
+                <p>
+                    <%= activity.durationSeconds %>
+                </p>
+                <p>
+                    <%= activity.description %>
+                </p>
+
+                <a href="/activites" class="button">Retour à la liste des activitées</a>
             </article>
-            <% }) %>
+
+        </main>
+        <%- include('partials/footer') %>
+
 </body>
+
 </html>

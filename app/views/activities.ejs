@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland</title>
+        <link rel="stylesheet" href="./css/activity.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <main>
+
+            <h2>Liste des activités</h2>
+
+            <% activities.forEach(activity=> { %>
+                <article>
+                    <h3><%= activity.name %>
+                    </h3>
+                    <p><img src="img/<%= activity.image %>"
+                            alt="Image de l'activitée selectionnée"></p>
+                            <a href="/activites/<%= activity.id %>" class="button">Voir détails</a>
+                </article>
+                <% }) %>
+        </main>
+        <%- include('partials/footer') %>
+
+</body>
+
+</html>
