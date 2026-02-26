@@ -47,6 +47,15 @@ header ul {
     display: none;
 }
 
+header p {
+    display: none;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+}
+
 /* When navbar is expanded, re-order stuff */
 header nav.expanded {
     display: flex;
@@ -73,6 +82,10 @@ header nav.expanded ul {
     flex-direction: column;
     align-items: end;
     gap: 1rem;
+}
+
+header nav.expanded p {
+    display: block;
 }
 
 /* Bonus : extra animation */
@@ -121,6 +134,11 @@ footer .social img {
     header ul {
         display: flex;
         gap: 1rem;
+    }
+
+    header p {
+        display: block;
+        order: 1;
     }
 
 }
