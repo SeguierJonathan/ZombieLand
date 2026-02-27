@@ -1,6 +1,6 @@
 const toggleBtn = document.getElementById("togglePasswordBtn");
 const form = document.getElementById("passwordForm");
-console.log("load");
+
 
 
 function hideForm() {

@@ -1,9 +1,12 @@
 import { Router } from 'express';
 import { createAccount, updateAccount, deleteAccount } from '../../controllers/users.controller.js';
-import { validateAuthLogin, validateAuthRegister, isAuth, validateUpdateAccount } from '../../middlewares/auth.middleware.js';
+import { validateAuthLogin, validateAuthRegister, validateUpdateAccount } from '../../middlewares/auth.middleware.js';
 import { login, logout } from '../../controllers/auth.controller.js';
 import { createBooking, updateBooking, deleteBooking } from '../../controllers/bookings.controller.js';
 import { validateBooking } from '../../middlewares/bookings.middleware.js';
+import { isAuth } from '../../middlewares/common.middleware.js';
+
+
 
 const router = Router();
 
