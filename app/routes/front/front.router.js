@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
 import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
-import { errorPage, homePage, noFoundPage } from '../../controllers/pages.controller.js';
+import { homePage, informationsPage, errorPage, noFoundPage } from '../../controllers/pages.controller.js';
 import { isAuth, preventIfLoggedIn } from '../../middlewares/auth.middleware.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
+
 
 
 const router = Router();
@@ -23,6 +24,8 @@ router.get('/connexion', preventIfLoggedIn, logInPage);
 router.get('/reservation', isAuth, bookingPage);
 //Page pour mes réservations
 router.get('/mes-reservations', isAuth, getMesReservations);
+//Page pour informations
+router.get('/information', informationsPage);
 //Page 404
 router.get('/404', noFoundPage);
 //Page d'erreur 500
