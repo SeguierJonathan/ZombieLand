@@ -1,6 +1,4 @@
-function redirectToCategory(id) {
-    console.log("Text",id);
-    
+function redirectToCategory(id) {    
     if (id) {
         window.location.href = '/activites/categories/' + id;
     }
