@@ -1,4 +1,5 @@
-import { Category, Activity } from "../models/index.js";
+import { Category, Activity, User, Role } from "../models/index.js";
+import argon2 from "argon2";
 
 
 // Crée des catégories par défaut
@@ -151,4 +152,16 @@ await Activity.bulkCreate([
         categoryId: 9,
         description: "Plongez en réalité virtuelle dans une ville abandonnée où chaque rue cache une menace."
     }
+]);
+
+const roles = await Role.bulkCreate([{ name: "user" }, { name: "moderator" }, { name: "admin" }]);
+
+const role = roles.find(role => role.name === "admin");
+
+const password = argon2.hash("Admin.123456");
+
+await User.afterBulkCreate([
+    { firstName: "jonathan", lastName: "seguier", email: "jonathan@seguier.fr", password: password, roleId: role.id },
+    { firstName: "alexis", lastName: "buffa", email: "alexis@buffa.fr", password: password, roleId: role.id },
+    { firstName: "jonathan", lastName: "delporte", email: "jonathan@delporte.fr", password: password, roleId: role.id },
 ]);
