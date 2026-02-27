@@ -2,10 +2,10 @@ import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
 import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
 import { errorPage, homePage, noFoundPage } from '../../controllers/pages.controller.js';
-import { isAuth, preventIfLoggedIn } from '../../middlewares/auth.middleware.js';
+import { preventIfLoggedIn } from '../../middlewares/auth.middleware.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
-
+import { isAuth, preventIfLoggedIn } from '../../middlewares/common.middleware.js';
 
 const router = Router();
 
@@ -28,7 +28,7 @@ router.get('/404', noFoundPage);
 //Page d'erreur 500
 router.get('/500', errorPage);
 // Détail d'une activité
-router.get('/activites/:id',renderActivityDetail)
+router.get('/activites/:id', renderActivityDetail)
 //Activités filtré par catégorie
 router.get('/activites/categories/:id', getAllByCategory)
 

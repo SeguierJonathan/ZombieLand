@@ -58,23 +58,6 @@ export function validateUpdateAccount(req, res, next) {
 
 }
 
-export function isAuth(req, res, next) {
-    // verifie si req.session.user existe si oui alors connecter
-    if (!req.session.user) {
-        return res.redirect('/connexion');
-    }
-    next();
-}
-
-export function preventIfLoggedIn(req, res, next) {
-    //verifie si on est déjà connecter
-    if (req.session.user) {
-        // déjà connecter alors on redirect vers home
-        return res.redirect('/');
-    }
-    next();
-
-}
 
 
 
