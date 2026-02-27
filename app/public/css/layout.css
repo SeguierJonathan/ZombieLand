@@ -31,7 +31,6 @@ header {
     background: linear-gradient(var(--color-brown) 0%, var(--color-dark) 100%);
 }
 
-
 /*mobile first default value*/
 
 header .greeting,
@@ -107,16 +106,25 @@ footer .social img {
 
 
 @media (min-width: 481px) {
+
     /* tablette et plus */
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
 }
 
 @media (min-width: 1280px) {
     /* desktop */
 
     /* Hide "menu button" on large screen by default */
-    header button {
+
+    header #menu-button {
         display: none;
     }
+
 
     /*Show nav link*/
     header ul {
@@ -133,7 +141,6 @@ footer .social img {
     footer {
         flex-direction: row;
         justify-content: space-between;
-        align-items: start;
     }
 
 }

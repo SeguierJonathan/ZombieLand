@@ -11,13 +11,16 @@
 
 <body>
     <%- include('partials/header') %>
+        <%- include('partials/menu-slide') %>
 
-        <main>
-            <h1>Erreur 404</h1>
-            <p>Page non trouvée</p>
-            <a href="/">Retour à l'accueil</a>
-        </main>
-        <%- include('partials/footer') %>
+            <main>
+                <div class="card">
+                    <h1>Erreur 404</h1>
+                    <p>Page non trouvée</p>
+                    <a href="/">Retour à l'accueil</a>
+                </div>
+            </main>
+            <%- include('partials/footer') %>
 
 </body>
 
