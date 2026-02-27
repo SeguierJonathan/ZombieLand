@@ -1,4 +1,4 @@
-import { User } from "../models/index.js";
+import { Role, User } from "../models/index.js";
 import argon2 from "argon2";
 
 export async function accountPage(req, res) {
@@ -9,8 +9,14 @@ export async function accountPage(req, res) {
 }
 
 export async function createAccount(req, res) {
+
+    const role = await Role.findOne({ attributes: ["id"], where: { name: "user" } });
+
+    //hash password in body
     req.body.password = await argon2.hash(req.body.password);
-    //!\\ revoir pour integrer le role par default "user"
+    //insert in body roleId
+    req.body.roleId = role.id;
+
     const user = await User.create(req.body);
 
     if (!user) {
