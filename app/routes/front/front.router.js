@@ -4,6 +4,8 @@ import { getAll, getAllByCategory } from '../../controllers/activities.controlle
 import { homePage } from '../../controllers/pages.controller.js';
 import { isAuth, preventIfLoggedIn } from '../../middlewares/auth.middleware.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
+import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
+
 
 const router = Router();
 
@@ -17,12 +19,17 @@ router.get('/mon-compte', isAuth, accountPage);
 router.get('/inscription', preventIfLoggedIn, inscriptionPage);
 //Page pour se Connecter à son compte
 router.get('/connexion', preventIfLoggedIn, logInPage);
+//Page pour de réservation
+router.get('/reservation', isAuth, bookingPage);
+//Page pour mes réservations
+router.get('/mes-reservations', isAuth, getMesReservations);
+//Page 404
+router.get('/404', (req, res) => { res.status(404).render("404") });
 //Page d'erreur 500
 router.get('/500', (req, res) => { res.status(500).nrender("500") });
 // Détail d'une activité
 router.get('/activites/:id',renderActivityDetail)
 //Activités filtré par catégorie
 router.get('/activites/categories/:id', getAllByCategory)
-
 
 export default router;
