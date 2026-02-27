@@ -18,7 +18,7 @@ await Category.bulkCreate([
 await Activity.bulkCreate([
     {
         name: "Zombie Run",
-        image: "zombie-run.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 140,
         horrorLevel: 4,
         durationSeconds: 1200,
@@ -27,7 +27,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Maison Hantée",
-        image: "maison-hantee.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 130,
         horrorLevel: 5,
         durationSeconds: 900,
@@ -36,7 +36,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Apocalypse Coaster",
-        image: "apocalypse-coaster.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 150,
         horrorLevel: 3,
         durationSeconds: 300,
@@ -45,7 +45,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Zombie Shooting Arena",
-        image: "shooting-arena.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 120,
         horrorLevel: 2,
         durationSeconds: 600,
@@ -54,7 +54,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Le Tunnel des Ténèbres",
-        image: "tunnel-tenebres.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 135,
         horrorLevel: 4,
         durationSeconds: 480,
@@ -63,7 +63,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Zombie Escape Game",
-        image: "escape-game.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 125,
         horrorLevel: 3,
         durationSeconds: 3600,
@@ -72,7 +72,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Train de l'Apocalypse",
-        image: "train-apocalypse.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 110,
         horrorLevel: 2,
         durationSeconds: 420,
@@ -81,7 +81,7 @@ await Activity.bulkCreate([
     },
     {
         name: "La Forêt Infectée",
-        image: "foret-infectee.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 140,
         horrorLevel: 5,
         durationSeconds: 1500,
@@ -90,7 +90,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Tour de la Chute Mortelle",
-        image: "chute-mortelle.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 145,
         horrorLevel: 3,
         durationSeconds: 180,
@@ -99,11 +99,56 @@ await Activity.bulkCreate([
     },
     {
         name: "Le Laboratoire Secret",
-        image: "laboratoire-secret.jpg",
+        image: "Armee_de_zombie.png",
         minHeightCM: 130,
         horrorLevel: 4,
         durationSeconds: 900,
         categoryId: 1,
         description: "Découvrez l'origine du virus zombie dans un laboratoire abandonné rempli d'expériences ratées."
+    },
+    {
+        name: "Cimetière des Damnés",
+        image: "Armee_de_zombie.png",
+        minHeightCM: 135,
+        horrorLevel: 4,
+        durationSeconds: 840,
+        categoryId: 7,
+        description: "Traversez un ancien cimetière où les morts sortent de leurs tombes à la tombée de la nuit."
+    },
+    {
+        name: "Survival Bunker",
+        image: "Armee_de_zombie.png",
+        minHeightCM: 125,
+        horrorLevel: 3,
+        durationSeconds: 1500,
+        categoryId: 6,
+        description: "Réfugiez-vous dans un bunker militaire et survivez à des vagues successives de zombies affamés."
+    },
+    {
+        name: "La Crypte Interdite",
+        image: "Armee_de_zombie.png",
+        minHeightCM: 140,
+        horrorLevel: 5,
+        durationSeconds: 720,
+        categoryId: 4,
+        description: "Explorez une crypte ancienne remplie de secrets macabres et de créatures surgissant de l'ombre."
+    },
+    {
+        name: "Zombie Drop Tower",
+        image: "Armee_de_zombie.png",
+        minHeightCM: 145,
+        horrorLevel: 3,
+        durationSeconds: 200,
+        categoryId: 5,
+        description: "Une chute vertigineuse dans une tour infestée de zombies grimpant le long des parois."
+    },
+    {
+        name: "Ville Contaminée VR",
+        image: "Armee_de_zombie.png",
+        minHeightCM: 120,
+        horrorLevel: 4,
+        durationSeconds: 900,
+        categoryId: 9,
+        description: "Plongez en réalité virtuelle dans une ville abandonnée où chaque rue cache une menace."
     }
 ]);
