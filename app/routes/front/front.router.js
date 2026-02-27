@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
 import { getAll } from '../../controllers/activities.controller.js'
-import { homePage, informationPage } from '../../controllers/pages.controller.js';
+import { homePage, informationsPage } from '../../controllers/pages.controller.js';
 import { isAuth, preventIfLoggedIn } from '../../middlewares/auth.middleware.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
 
@@ -24,7 +24,7 @@ router.get('/reservation', isAuth, bookingPage);
 //Page pour mes réservations
 router.get('/mes-reservations', isAuth, getMesReservations);
 //Page pour informations
-router.get('/information', informationPage);
+router.get('/information', informationsPage);
 //Page 404
 router.get('/404', (req, res) => { res.status(404).render("404") });
 //Page d'erreur 500

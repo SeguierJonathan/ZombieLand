@@ -29,8 +29,21 @@
       </section>
 
       <section id="meteo">
-        <h2>🌤️ Météo du Parc</h2>
-      </section>
+  <h2>🌤️ Météo du Parc</h2>
+
+  <% if (meteo) { %>
+    <div class="meteo-card">
+      <h3><%= meteo.ville %></h3>
+      <img src="<%= meteo.iconeUrl %>" alt="<%= meteo.description %>">
+      <p>🌡️ Température actuelle : <%= meteo.temperature %>°C / Ressenti : <%= meteo.ressentie %>°C</p>
+      <p>💧 Humidité : <%= meteo.humidite %>%</p>
+      <p>💨 Vent : <%= meteo.vent %> km/h</p>
+    </div>
+  <% } else { %>
+    <p>Météo temporairement indisponible. 😢</p>
+  <% } %>
+
+</section>
 
       <section id="acces">
         <h2>🗺️ Comment venir ?</h2>
