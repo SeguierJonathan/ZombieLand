@@ -8,33 +8,6 @@ export async function accountPage(req, res) {
     res.render("account", { user })
 }
 
-export async function connected(req, res) {
-    const user = await User.findOne({
-        where: {
-            email: req.body.email
-        }
-    })
-    if (!user) {
-        return res.send('Mauvais Email ou Mot de passe')
-    }
-    if (argon2.verify(user.password, req.body.password)) {
-
-        // regenere id-session pour eviter la faille de session fixation
-        req.session.regenerate((err) => {
-            if (err) {
-                console.error(err);
-                return res.status(500).send("Erreur de session");
-            }
-            // Stocker l'utilisateur dans la nouvelle session
-            req.session.user = { id: user.id, firstName: user.firstName };
-            res.redirect('/');
-        });
-    }
-    else {
-        res.send("Mauvais Email ou Mot de passe")
-    }
-}
-
 export async function createAccount(req, res) {
     req.body.password = await argon2.hash(req.body.password);
     //!\\ revoir pour integrer le role par default "user"
@@ -58,17 +31,19 @@ export async function createAccount(req, res) {
     });
 };
 
-export async function updateAccount(req,res) {
+export async function updateAccount(req, res) {
     const { firstName, lastName, email } = req.body;
     const [affectedCount, affectedRows] = await User.update(
         { firstName, lastName, email },
-        { where: {id: req.session.user.id},
-    returning: true }
+        {
+            where: { id: req.session.user.id },
+            returning: true
+        }
     );
     if (affectedCount === 0) {
         res.redirect('/mon-compte')
     }
-    req.session.user.firstName = affectedRows[0].firstName; 
+    req.session.user.firstName = affectedRows[0].firstName;
     res.redirect('/mon-compte');
 };
 

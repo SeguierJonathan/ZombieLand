@@ -10,31 +10,32 @@
 
 <body>
     <%- include('partials/header') %>
+        <%- include('partials/menu-slide') %>
 
-        <main>
+            <main>
 
-            <h2>Se connecter</h2>
+                <h2>Se connecter</h2>
 
-            <form method="post">
+                <form action="/auth/login" method="post">
 
-                <p>
-                    <label for="email">E-mail</label>
-                    <input id="email" type="email" name="email" placeholder="E-mail" required>
-                </p>
+                    <div>
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" name="email" placeholder="E-mail" required>
+                    </div>
 
-                <p>
-                    <label for="password">Mot de passe</label>
-                    <input id="password" type="password" name="password" placeholder="Mot de passe" required>
-                </p>
+                    <div>
+                        <label for="password">Mot de passe</label>
+                        <input id="password" type="password" name="password" placeholder="Mot de passe" required>
+                    </div>
 
-                <button type="submit">Connexion</button>
-                <button type="button" onclick="window.location.href='/inscription'">Créer mon compte</button>
+                    <button type="submit">Connexion</button>
+                    <button type="button" onclick="window.location.href='/inscription'">Créer mon compte</button>
 
 
-            </form>
+                </form>
 
-        </main>
-        <%- include('partials/footer') %>
+            </main>
+            <%- include('partials/footer') %>
 </body>
 
 </html>

@@ -2,7 +2,6 @@ export function homePage(req, res) {
     res.render("home")
 };
 
-
 export async function informationsPage(req, res) {
   try {
     const apiKey = process.env.OPENWEATHER_API_KEY;
@@ -28,4 +27,12 @@ export async function informationsPage(req, res) {
     console.error("Erreur météo :", error.message);
     res.render("information", { meteo: null });
   }
+}
+
+export function noFoundPage(req, res) {
+    res.status(404).render("404");
+}
+
+export function errorPage(req, res) {
+    res.status(500).render("500");
 }
