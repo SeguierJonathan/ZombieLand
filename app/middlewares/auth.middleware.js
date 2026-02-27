@@ -22,8 +22,6 @@ export function validateAuthRegister(req, res, next) {
 
 export function validateAuthLogin(req, res, next) {
 
-    console.log(req.body);
-
     const shemaUser = Joi.object({
         email: Joi.string().trim().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).required(),
         password: Joi.string().trim().min(8).pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/).required(),

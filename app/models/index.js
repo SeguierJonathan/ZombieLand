@@ -23,7 +23,7 @@ Role.hasMany(User, {
 
 User.belongsTo(Role, {
     foreignKey: 'roleId',
-    as: 'user'
+    as: 'role'
 })
 
 User.hasMany(Booking, {

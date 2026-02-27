@@ -156,11 +156,11 @@ await Activity.bulkCreate([
 
 const roles = await Role.bulkCreate([{ name: "user" }, { name: "moderator" }, { name: "admin" }]);
 
-const role = roles.find(role => role.name === "admin");
+const role = await roles.find(role => role.name === "admin");
 
-const password = argon2.hash("Admin.123456");
+const password = await argon2.hash("Admin.123456");
 
-await User.afterBulkCreate([
+await User.bulkCreate([
     { firstName: "jonathan", lastName: "seguier", email: "jonathan@seguier.fr", password: password, roleId: role.id },
     { firstName: "alexis", lastName: "buffa", email: "alexis@buffa.fr", password: password, roleId: role.id },
     { firstName: "jonathan", lastName: "delporte", email: "jonathan@delporte.fr", password: password, roleId: role.id },
