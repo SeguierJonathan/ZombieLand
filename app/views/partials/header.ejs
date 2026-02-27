@@ -38,7 +38,12 @@
         <a href="/mon-compte">Bonjour, <span>
             <%= firstName%>
           </span></a>
-        <a href="/auth/logout">Se déconnecter</a>
+        <form action="/auth/logout" method="POST">
+          <button class="button-trans" type="submit">
+            Se deconnecter
+          </button>
+        </form>
+
         <%}%>
   </div>
 </header>

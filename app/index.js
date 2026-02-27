@@ -6,6 +6,7 @@ import frontRouter from "./routes/front/front.router.js"
 import backRouter from "./routes/back/back.router.js"
 import { errorHandler } from './middlewares/common.middleware.js';
 import "dotenv/config";
+import { noFoundPage } from './controllers/pages.controller.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +24,8 @@ app.use(session);
 app.use(setUserInLocals);
 app.use(frontRouter);
 app.use(backRouter);
+app.use(noFoundPage);
+
 
 app.use(errorHandler);
 
