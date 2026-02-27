@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { connected, createAccount, updateAccount, deleteAccount } from '../../controllers/users.controller.js';
+import { createAccount, updateAccount, deleteAccount } from '../../controllers/users.controller.js';
 import { validateAuthLogin, validateAuthRegister, isAuth, validateUpdateAccount } from '../../middlewares/auth.middleware.js';
-import { logout } from '../../controllers/auth.controller.js';
+import { login, logout } from '../../controllers/auth.controller.js';
 import { createBooking, updateBooking, deleteBooking } from '../../controllers/bookings.controller.js';
 import { validateBooking } from '../../middlewares/bookings.middleware.js';
 
@@ -11,7 +11,6 @@ router.post('/mon-compte', isAuth, validateUpdateAccount, updateAccount);
 
 router.post('/inscription', validateAuthRegister, createAccount);
 
-router.post('/connexion', validateAuthLogin, connected);
 
 router.post('/user/delete', isAuth, deleteAccount);
 
@@ -21,6 +20,8 @@ router.post("/mes-reservations/:id/edit", isAuth, validateBooking, updateBooking
 
 router.post("/mes-reservations/:id/delete", isAuth, deleteBooking);
 
+
+router.post('/auth/login', validateAuthLogin, login);
 router.post('/auth/logout', isAuth, logout);
 
 export default router;

@@ -31,7 +31,6 @@ header {
     background: linear-gradient(var(--color-brown) 0%, var(--color-dark) 100%);
 }
 
-
 /*mobile first default value*/
 
 header .greeting,
@@ -107,7 +106,14 @@ footer .social img {
 
 
 @media (min-width: 481px) {
+
     /* tablette et plus */
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
 }
 
 @media (min-width: 1280px) {
@@ -135,7 +141,6 @@ footer .social img {
     footer {
         flex-direction: row;
         justify-content: space-between;
-        align-items: start;
     }
 
 }
