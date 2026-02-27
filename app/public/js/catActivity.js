@@ -1,9 +1,8 @@
-function submitForm() {
-    const select = document.querySelector('select[name="id"]');
-    if (select.value) {
-
-        window.location.href = '/activites/categories/' + select.value;
-    }
-    console.log("test");
+function redirectToCategory(id) {
+    console.log("Text",id);
     
+    if (id) {
+        window.location.href = '/activites/categories/' + id;
+    }
+    else {window.location.href = '/activites'}
 }
