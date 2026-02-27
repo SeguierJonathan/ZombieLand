@@ -1,5 +1,11 @@
-export function homePage(req, res) {
-    res.render("home")
+import {Activity}from "../models/index.js";
+
+export async function homePage(req, res) {
+        const activities = await Activity.findAll({
+        order: [['createdAt', 'DESC']],
+        limit: 3
+    });
+    res.render("home", { activities })
 }
 
 export function noFoundPage(req, res) {

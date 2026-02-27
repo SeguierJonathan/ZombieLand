@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
-import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
+import { getAll, getAllByCategory} from '../../controllers/activities.controller.js'
 import { errorPage, homePage, noFoundPage } from '../../controllers/pages.controller.js';
 import { isAuth, preventIfLoggedIn } from '../../middlewares/auth.middleware.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';

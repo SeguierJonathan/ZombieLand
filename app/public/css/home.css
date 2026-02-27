@@ -34,6 +34,37 @@
     width: fit-content;
 }
 
+main section {
+    display: flex;
+    gap: 2rem;
+}
+
+.activite {
+    flex-direction: column;
+}
+
+.activite div {
+    display: flex;
+    gap: 2rem
+}
+
+.activite button {
+    margin: auto;
+}
+
+.presentation {
+    flex-direction: column;
+}
+
+.presentation > div {
+    display: flex;
+}
+
+button:hover, .button:hover {
+    background-color: #c1121f;
+}
+
+
 /* ======== Latest Products Section ======== */
 
 #latest-products ul {
