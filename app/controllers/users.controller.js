@@ -63,6 +63,7 @@ export async function deleteAccount(req, res) {
         res.redirect("/mon-compte");
     }
     req.session.destroy(function (err) {
+        //!\\ err n'est pas géré en cas d'erreur.
         res.redirect("/");
     })
 
