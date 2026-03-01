@@ -66,3 +66,18 @@ export function isAllowed(requiredRole) {
 
     }
 }
+
+
+export function initLocals(req, res, next) {
+
+    // expose le firstName dans les locals pour utilisation dans les ejs sans avoir a les passer en paramètre
+    res.locals.firstName = null;
+    if (req.session.user) {
+        res.locals.firstName = req.session.user.firstName;
+    }
+
+    // init locals.notifications
+    res.locals.notifications = [];
+
+    next();
+}

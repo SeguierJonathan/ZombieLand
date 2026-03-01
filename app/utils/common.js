@@ -25,3 +25,16 @@ export function formatTaille(cm) {
         return `${metres}m${centimetres.toString().padStart(2, '0')}`;
     }
 }
+
+const addNotification = (res, type, message) => {
+    if (res && message) {
+        res.locals.notifications.push({ type: type, message: message });
+    }
+};
+
+export const notify = {
+    success: (res, message) => addNotification(res, "success", message),
+    warning: (res, message) => addNotification(res, "warning", message),
+    info: (res, message) => addNotification(res, "info", message),
+    error: (res, message) => addNotification(res, "error", message)
+}
