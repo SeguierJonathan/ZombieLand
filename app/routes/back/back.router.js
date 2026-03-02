@@ -4,7 +4,8 @@ import { validateAuthLogin, validateAuthRegister, validateUpdateAccount } from '
 import { login, logout } from '../../controllers/auth.controller.js';
 import { createBooking, updateBooking, deleteBooking } from '../../controllers/bookings.controller.js';
 import { validateBooking } from '../../middlewares/bookings.middleware.js';
-import { isAuth } from '../../middlewares/common.middleware.js';
+import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
+import { deleteActivities, updateActivities } from '../../controllers/admin.activities.controller.js';
 
 
 
@@ -26,5 +27,8 @@ router.post("/mes-reservations/:id/delete", isAuth, deleteBooking);
 
 router.post('/auth/login', validateAuthLogin, login);
 router.post('/auth/logout', isAuth, logout);
+
+router.post('/menu-administrateur/activites/:id/delete', isAuth, isAllowed("admin"),validateId, deleteActivities )
+router.post('/menu-administrateur/activites/:id/update', isAuth, isAllowed("admin"),validateId, updateActivities )
 
 export default router;

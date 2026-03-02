@@ -24,7 +24,12 @@
                                 </h3>
                                 <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
 
-                                <a href="/activites/<%= activity.id %>" class="button">Voir détails</a>
+                                <a href="/menu-administrateur/activites/<%= activity.id %>" class="button">Voir détails</a>
+                                <form action="/menu-administrateur/activites/<%= activity.id %>/delete" method="post">
+                                    <button type="submit">
+                                        Supprimer l'activité
+                                    </button>
+                                </form>
                             </article>
                             <% }) %>
                     </section>

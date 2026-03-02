@@ -102,3 +102,13 @@ export function initLocals(req, res, next) {
 
     next();
 }
+
+export function validateId(req, res, next) {
+    const id = parseInt(req.params.id, 10);
+
+    if (isNaN(id) || id <= 0) {
+        res.status(500).render("500");
+    }
+    req.params.id = id;
+    next();
+}
