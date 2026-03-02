@@ -3,7 +3,7 @@ main {
     flex-direction: column;
 }
 
-section {
+main section {
     display: flex;
     flex-wrap: wrap;
 }

@@ -16,42 +16,72 @@
         <%- include('partials/menu-slide') %>
             <%- include('partials/notifications') %>
 
+            <main>
 
-                <main>
-                    <section>
-                        <h2>Zombieland</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur nemo consequatur
-                            vel
-                            quidem atque iusto ipsum ratione minima excepturi, exercitationem mollitia tenetur
-                            consequuntur.
-                            Dolore, cum? Adipisci reprehenderit veniam corrupti!</p>
+                <section class="presentation">
+                    <h2>Zombieland</h2>
+
+                    <div>
+                        <div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus pariatur nemo
+                                consequatur
+                                vel
+                                quidem atque iusto ipsum ratione minima excepturi, exercitationem mollitia tenetur
+                                consequuntur.
+                                Dolore, cum? Adipisci reprehenderit veniam corrupti!</p>
+                            <button><a href="/reservation">Reserver</a></button>
+                            <button>Plan du parc</button>
+                        </div>
                         <img src="/img/Zombie.jpg" alt="Zombie qui déambule">
-                        <button>Réserver</button>
-                        <button>Plan du parc</button>
-                    </section>
+                    </div>
 
-                    <section>
-                        <article>
-                            <h2>Nos attractions</h2>
-                            <img src="" alt="">
-                            <button>Détail</button>
-                        </article>
-                        <button>Voir toutes nos activités</button>
-                    </section>
+                </section>
 
-                    <section>
-                        <h2>Présentation du parc</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro eaque quasi quam. Ad velit
-                            eaque
-                            quos
-                            quo itaque aperiam deserunt ab autem nisi, natus iste eum eius alias earum nesciunt!</p>
-                    </section>
+                <section class="activite">
+                    <h2>Nos attractions</h2>
+                    <div class="articles">
+                        <% activities.forEach(activity=> { %>
+                            <article>
+                                <h3>
+                                    <%= activity.name %>
+                                </h3>
+                                <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée">
+                                </p>
+                                <a href="/activites/<%= activity.id %>" class="button">Voir détails</a>
+                            </article>
+                            <% }) %>
+                    </div>
+                    <button><a href="/activites">Voir toutes nos activités</a></button>
+                </section>
 
-                    <section>
-                        <h2>Tarifs</h2>
+                <section class="parc">
+                    <h2>Présentation du parc</h2>
+                    <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro eaque quasi
+                        quam. Ad velit
+                        eaque
+                        quos
+                        quo itaque aperiam deserunt ab autem nisi, natus iste eum eius alias earum nesciunt!</p>
+                </section>
+
+                <section class="tarif">
+                    <h2>Tarifs</h2>
+                    <div class="billet">
                         <p>description du billet</p>
-                        <button>Je réserve !</button>
-                    </section>
+                        <button><a href="/reservation">Je réserve !</a></button>
+                    </div>
+                </section>
+
+                <section class="meteo">
+                    <h2>Météo</h2>
+                    <div class="infos">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum optio natus animi esse
+                            sapiente
+                            laboriosam nam, deleniti asperiores odio accusantium quasi unde, similique aspernatur. Autem
+                            minus
+                            alias voluptates eum labore!</p>
+                        <img src="/img/Météo.jpeg" alt="Photo d'image météo">
+                    </div>
+                </section>
 
                     <section>
                         <h2>Météo</h2>
