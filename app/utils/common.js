@@ -8,7 +8,7 @@ export function formatSecondes(secondes) {
         return `${resteSecondes} s`
     }
     else {
-        eturn`${minutes} min ${resteSecondes} s`;
+        return `${minutes} min ${resteSecondes} s`;
     }
 }
 
