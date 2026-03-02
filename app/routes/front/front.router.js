@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
 import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
-import { adminPage, unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, getAllUsers } from '../../controllers/pages.controller.js';
+import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, getAllUsers, adminMenuPage } from '../../controllers/pages.controller.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn } from '../../middlewares/common.middleware.js';
@@ -14,8 +14,6 @@ const router = Router();
 router.get("/", homePage);
 // Liste des activitées
 router.get('/activites', getAll);
-// page de test admin
-router.get("/admin", isAuth, isAllowed("admin"), adminPage);
 // Mon compte
 router.get('/mon-compte', isAuth, accountPage);
 //Page de création de compte 
@@ -44,5 +42,6 @@ router.get('/activites/categories/:id', getAllByCategory);
 router.get('/menu-administrateur/users', getAllUsers);
 //Page activités pour l'admin uniquement
 router.get('/menu-administrateur/activites', getAllAdmin);
+router.get('/menu-administrateur', isAuth, isAllowed("admin"), adminMenuPage)
 
 export default router;
