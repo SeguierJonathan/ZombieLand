@@ -12,39 +12,40 @@
 <body>
     <%- include('partials/header') %>
         <%- include('partials/menu-slide') %>
-            <main>
+            <%- include('partials/notifications') %>
+                <main>
 
-                <h2>Liste des activités</h2>
+                    <h2>Liste des activités</h2>
 
-                <form id="categoryForm">
+                    <form id="categoryForm">
 
-                    <select id="categorySelect" onchange="redirectToCategory(this.value)">
+                        <select id="categorySelect" onchange="redirectToCategory(this.value)">
 
-                        <option value="">--Veuillez choisir une catégorie--</option>
+                            <option value="">--Veuillez choisir une catégorie--</option>
 
-                        <% categories.forEach(category=> { %>
-                            <option value="<%= category.id %>">
-                                <%= category.name %>
-                            </option>
+                            <% categories.forEach(category=> { %>
+                                <option value="<%= category.id %>">
+                                    <%= category.name %>
+                                </option>
+                                <% }) %>
+
+                        </select>
+                    </form>
+
+                    <section>
+                        <% activities.forEach(activity=> { %>
+                            <article>
+                                <h3>
+                                    <%= activity.name %>
+                                </h3>
+                                <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
+
+                                <a href="/activites/<%= activity.id %>" class="button">Voir détails</a>
+                            </article>
                             <% }) %>
-
-                    </select>
-                </form>
-
-                <section>
-                    <% activities.forEach(activity=> { %>
-                        <article>
-                            <h3>
-                                <%= activity.name %>
-                            </h3>
-                            <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
-
-                            <a href="/activites/<%= activity.id %>" class="button">Voir détails</a>
-                        </article>
-                        <% }) %>
-                </section>
-            </main>
-            <%- include('partials/footer') %>
+                    </section>
+                </main>
+                <%- include('partials/footer') %>
 
 </body>
 

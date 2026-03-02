@@ -1,3 +1,5 @@
+import { notify } from "../utils/common.js";
+
 export function homePage(req, res) {
   res.render("home")
 };

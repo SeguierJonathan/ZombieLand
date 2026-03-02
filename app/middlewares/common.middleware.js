@@ -79,5 +79,20 @@ export function initLocals(req, res, next) {
     // init locals.notifications
     res.locals.notifications = [];
 
+    // recupère les notifications aprés une redirection au travers d'un cookie. 
+    if (req.cookies.notifications) {
+
+        const notifications = JSON.parse(req.cookies.notifications);
+        console.log(notifications);
+        res.locals.notifications = notifications;
+
+        // suprimme le cookie
+        res.clearCookie("notifications", {
+            sameSite: "lax",
+            secure: process.env.NODE_ENV === "production",
+            path: "/"
+        });
+    }
+
     next();
 }

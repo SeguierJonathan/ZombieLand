@@ -12,76 +12,77 @@
 <body>
 
     <%- include('partials/header') %>
-    <%- include('partials/menu-slide') %>
+        <%- include('partials/menu-slide') %>
+            <%- include('partials/notifications') %>
 
-        <main>
-            <h1>Mon compte</h1>
+                <main>
+                    <h1>Mon compte</h1>
 
-            <fieldset>
-                <legend>Information personelle</legend>
-                <form action="/mon-compte" method="POST">
-                    <div>
-                        <label for="firstName">Prénom :</label>
-                        <input type="text" name="firstName" value="<%= user.firstName %>">
-                    </div>
+                    <fieldset>
+                        <legend>Information personelle</legend>
+                        <form action="/mon-compte" method="POST">
+                            <div>
+                                <label for="firstName">Prénom :</label>
+                                <input type="text" name="firstName" value="<%= user.firstName %>">
+                            </div>
 
-                    <div>
-                        <label for="lastName">Nom :</label>
-                        <input type="text" name="lastName" value="<%= user.lastName %>">
-                    </div>
+                            <div>
+                                <label for="lastName">Nom :</label>
+                                <input type="text" name="lastName" value="<%= user.lastName %>">
+                            </div>
 
-                    <div>
-                        <label for="email">Email :</label>
-                        <input type="email" name="email" value="<%= user.email %>">
-                    </div>
+                            <div>
+                                <label for="email">Email :</label>
+                                <input type="email" name="email" value="<%= user.email %>">
+                            </div>
 
-                    <button type="submit">Modifier</button>
+                            <button type="submit">Modifier</button>
 
-            </fieldset>
-            </form>
-            <!-- Bouton pour afficher le formulaire -->
-            <button type="button" id="togglePasswordBtn">
-                Modifier mon mot de passe
-            </button>
-
-
-            <!-- Formulaire caché au départ -->
-            <form action="/update-password" method="POST" class="hidden" id="passwordForm">
-
-                <h3>Modifier le mot de passe</h3>
-
-                <div class="form-group">
-                    <label for="oldPassword">Ancien mot de passe</label>
-                    <input type="password" id="oldPassword" name="oldPassword" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="newPassword">Nouveau mot de passe</label>
-                    <input type="password" id="newPassword" name="newPassword" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirmPassword">Confirmation du nouveau mot de passe</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                </div>
-
-                <button type="submit">Enregistrer</button>
-            </form>
+                    </fieldset>
+                    </form>
+                    <!-- Bouton pour afficher le formulaire -->
+                    <button type="button" id="togglePasswordBtn">
+                        Modifier mon mot de passe
+                    </button>
 
 
-            <a href="/connexion">
-                <button type="button">Me déconnecter</button>
-            </a>
+                    <!-- Formulaire caché au départ -->
+                    <form action="/update-password" method="POST" class="hidden" id="passwordForm">
 
-            <form action="/user/delete" method="post">
-                <button type="submit">
-                    Supprimer mon compte
-                </button>
-            </form>
+                        <h3>Modifier le mot de passe</h3>
 
-        </main>
+                        <div class="form-group">
+                            <label for="oldPassword">Ancien mot de passe</label>
+                            <input type="password" id="oldPassword" name="oldPassword" required>
+                        </div>
 
-        <%- include('partials/footer') %>
+                        <div class="form-group">
+                            <label for="newPassword">Nouveau mot de passe</label>
+                            <input type="password" id="newPassword" name="newPassword" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmation du nouveau mot de passe</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+
+                        <button type="submit">Enregistrer</button>
+                    </form>
+
+
+                    <a href="/connexion">
+                        <button type="button">Me déconnecter</button>
+                    </a>
+
+                    <form action="/user/delete" method="post">
+                        <button type="submit">
+                            Supprimer mon compte
+                        </button>
+                    </form>
+
+                </main>
+
+                <%- include('partials/footer') %>
 
 
 </body>

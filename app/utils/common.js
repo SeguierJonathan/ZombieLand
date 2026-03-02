@@ -36,5 +36,16 @@ export const notify = {
     success: (res, message) => addNotification(res, "success", message),
     warning: (res, message) => addNotification(res, "warning", message),
     info: (res, message) => addNotification(res, "info", message),
-    error: (res, message) => addNotification(res, "error", message)
+    error: (res, message) => addNotification(res, "error", message),
+    redirect: (res) => {
+        if (res.locals.notifications?.length) {
+            res.cookie("notifications", JSON.stringify(res.locals.notifications), {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                maxAge: 3000, // 3 seconde
+                sameSite: "lax",
+                path: "/"
+            })
+        }
+    }
 }
