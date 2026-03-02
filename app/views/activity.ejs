@@ -11,36 +11,37 @@
 <body>
     <%- include('partials/header') %>
         <%- include('partials/menu-slide') %>
-            <main>
+            <%- include('partials/notifications') %>
+                <main>
 
-                <h2>Détails de l'activité</h2>
+                    <h2>Détails de l'activité</h2>
 
-                <article>
-                    <h3>
-                        <%= activity.name %>
-                    </h3>
-                    <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
-                    <p>
-                        <strong>Taille minimum obligatoire</strong> : <%= activity.minHeightCM %>
-                    </p>
-                    <p>
-                        <strong>Niveau d'horreur</strong> : <%= activity.horrorLevel %>
-                    </p>
-                    <p>
-                        <strong>Durée</strong> : <%= activity.durationSeconds %>
-                    </p>
-                    <p>
-                        <strong>Description</strong> : <%= activity.description %>
-                    </p>
-                    <p>
-                        <strong>Catégorie de l'activité</strong> : <%= activity.category.name %>
-                    </p>
+                    <article>
+                        <h3>
+                            <%= activity.name %>
+                        </h3>
+                        <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
+                        <p>
+                            <strong>Taille minimum obligatoire</strong> : <%= activity.minHeightCM %>
+                        </p>
+                        <p>
+                            <strong>Niveau d'horreur</strong> : <%= activity.horrorLevel %>
+                        </p>
+                        <p>
+                            <strong>Durée</strong> : <%= activity.durationSeconds %>
+                        </p>
+                        <p>
+                            <strong>Description</strong> : <%= activity.description %>
+                        </p>
+                        <p>
+                            <strong>Catégorie de l'activité</strong> : <%= activity.category.name %>
+                        </p>
 
-                    <a href="/activites" class="button">Retour à la liste des activitées</a>
-                </article>
+                        <a href="/activites" class="button">Retour à la liste des activitées</a>
+                    </article>
 
-            </main>
-            <%- include('partials/footer') %>
+                </main>
+                <%- include('partials/footer') %>
 
 </body>
 
