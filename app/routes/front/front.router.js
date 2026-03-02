@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
-import { getAll, getAllByCategory} from '../../controllers/activities.controller.js'
-import { adminPage, unauthorized, homePage, informationsPage, errorPage, noFoundPage, getAllUsers } from '../../controllers/pages.controller.js';
+import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
+import { adminPage, unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, getAllUsers } from '../../controllers/pages.controller.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn } from '../../middlewares/common.middleware.js';
+import { getAllAdmin } from '../../controllers/admin.activities.controller.js';
 
 
 const router = Router();
@@ -27,6 +28,8 @@ router.get('/reservation', isAuth, bookingPage);
 router.get('/mes-reservations', isAuth, getMesReservations);
 //Page pour informations
 router.get('/information', informationsPage);
+// Page pour A propos
+router.get('/a-propos', aboutPage);
 //Page 403
 router.get('/403', unauthorized);
 //Page 404
@@ -39,5 +42,9 @@ router.get('/activites/:id', renderActivityDetail);
 router.get('/activites/categories/:id', getAllByCategory);
 // Affichage de tous les utilisateurs
 router.get('/menu-administrateur/users', getAllUsers);
+//Page activités pour l'admin uniquement
+router.get('/menu-administrateur/activites', getAllAdmin);
+//Page catégories pour l'admin uniquement
+//router.get('/menu-adminstrateur/categories');
 
 export default router;
