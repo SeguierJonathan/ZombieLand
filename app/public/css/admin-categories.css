@@ -1,0 +1,58 @@
+/* =======================
+   GLOBAL
+======================= */
+
+body {
+  background-color: #1a1a1a;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* =======================
+   GRID MOBILE FIRST
+======================= */
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Mobile */
+
+  gap: 1.25rem;
+  margin: 2rem 1.25rem;
+}
+
+/* =======================
+   CARTE USER
+======================= */
+
+.categorie-card {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+
+  box-shadow: 0 0.25rem 0.6rem rgba(0, 0, 0, 0.3);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.categorie-card:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+/* =======================
+   TABLETTE ET +
+======================= */
+
+@media (min-width: 481px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

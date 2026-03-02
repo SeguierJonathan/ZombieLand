@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include("partials/head") %>
+
+        <title>Zombieland - Utilisateurs</title>
+        <link rel="stylesheet" href="/css/admin-categories.css" />
+</head>
+
+<body>
+    <%- include("partials/header") %>
+        <%- include("partials/menu-slide") %>
+            <%- include("partials/notifications") %>
+
+                <main>
+                    <section>
+                        <h2>Liste des Categories</h2>
+
+                        <% if (categories && categories.length> 0) { %>
+                            <div class="categories-grid">
+                                <% categories.forEach((categorie)=> { %>
+                                    <div class="categorie-card">
+                                        <p><strong>Nom :</strong>
+                                            <%= categorie.name %>
+                                        </p>
+                                        <p><strong>Description :</strong>
+                                            <%= categorie.description %>
+                                        </p>
+                                        <form action="/admin/categories/<%= categorie.id %>/delete" method="POST"
+                                            onsubmit="return confirm('Suppprimer cet utilisateur ?');">
+                                            <button type="subit">Supprimer</button>
+                                        </form>
+                                    </div>
+                                    <% }); %>
+                            </div>
+                            <% } else { %>
+                                <p>Liste des Categories indisponible 😢</p>
+                                <% } %>
+                    </section>
+                </main>
+
+                <%- include("partials/footer") %>
+</body>
+
+</html>
