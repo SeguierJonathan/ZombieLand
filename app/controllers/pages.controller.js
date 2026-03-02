@@ -1,8 +1,12 @@
-import { notify } from "../utils/common.js";
+import {Activity}from "../models/index.js";
 
-export function homePage(req, res) {
-  res.render("home")
-};
+export async function homePage(req, res) {
+        const activities = await Activity.findAll({
+        order: [['createdAt', 'DESC']],
+        limit: 3
+    });
+    res.render("home", { activities })
+  }
 
 export async function informationsPage(req, res) {
   try {
@@ -15,12 +19,12 @@ export async function informationsPage(req, res) {
     const data = await response.json();
 
     const meteo = {
-      ville: data.name,
-      temperature: Math.round(data.main.temp),
-      ressentie: Math.round(data.main.feels_like),
-      humidite: data.main.humidity,
-      iconeUrl: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
-      vent: Math.round(data.wind.speed * 3.6),
+      ville       : data.name,
+      temperature : Math.round(data.main.temp),
+      ressentie   : Math.round(data.main.feels_like),
+      humidite    : data.main.humidity,
+      iconeUrl    : `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+      vent        : Math.round(data.wind.speed * 3.6)
     };
 
     res.render("information", { meteo });
@@ -44,5 +48,5 @@ export function noFoundPage(req, res) {
 }
 
 export function errorPage(req, res) {
-  res.status(500).render("500");
+    res.status(500).render("500");
 }
