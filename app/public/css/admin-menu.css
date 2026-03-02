@@ -1,0 +1,39 @@
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.menu-list a {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 4rem 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    
+}
+
+.menu-list a:hover {
+    border: 2px solid var(--color-cream);
+}
+
+
+@media (min-width: 481px) {
+
+    /* tablette et plus */
+    .menu-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1280px) {
+    /* desktop */
+
+
+}
