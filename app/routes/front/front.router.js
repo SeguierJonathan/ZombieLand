@@ -44,7 +44,5 @@ router.get('/activites/categories/:id', getAllByCategory);
 router.get('/menu-administrateur/users', getAllUsers);
 //Page activités pour l'admin uniquement
 router.get('/menu-administrateur/activites', getAllAdmin);
-//Page catégories pour l'admin uniquement
-//router.get('/menu-adminstrateur/categories');
 
 export default router;
