@@ -7,11 +7,7 @@ import { bookingPage, getMesReservations } from '../../controllers/bookings.cont
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
 import { getAllAdmin, updateActivities } from '../../controllers/admin.activities.controller.js';
 import { getAllUsers } from '../../controllers/admin.users.controller.js';
-<<<<<<< Updated upstream
-import { getAllBookings } from '../../controllers/admin.controller.js';
-=======
-import { getAllCategories } from '../../controllers/admin.controller.js';
->>>>>>> Stashed changes
+import { getAllBookings, getAllCategories } from '../../controllers/admin.controller.js';
 
 
 const router = Router();

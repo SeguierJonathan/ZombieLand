@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <%- include("partials/head") %>
+
+<head>
+  <%- include("partials/head") %>
 
     <title>Zombieland - Utilisateurs</title>
     <link rel="stylesheet" href="/css/admin-user.css" />
-  </head>
+</head>
 
-  <body>
-    <%- include("partials/header") %>
+<body>
+  <%- include("partials/header") %>
     <%- include("partials/menu-slide") %>
-    <%- include("partials/notifications") %>
+      <%- include("partials/notifications") %>
 
-    <main>
-      <section>
-  <h2>Liste des utilisateurs</h2>
+        <main>
+          <section>
+            <h2>Liste des utilisateurs</h2>
 
-  <% if (users && users.length > 0) { %>
-    <div class="users-grid">
-      <% users.forEach((user) => { %>
-        <div class="user-card">
-          <p><strong>Prénom :</strong> <%= user.firstName %></p>
-          <p><strong>Nom :</strong> <%= user.lastName %></p>
-          <p><strong>Email :</strong> <%= user.email %></p>
+            <% if (users && users.length> 0) { %>
+              <div class="users-grid">
+                <% users.forEach((user)=> { %>
+                  <div class="user-card">
+                    <p><strong>Prénom :</strong>
+                      <%= user.firstName %>
+                    </p>
+                    <p><strong>Nom :</strong>
+                      <%= user.lastName %>
+                    </p>
+                    <p><strong>Email :</strong>
+                      <%= user.email %>
+                    </p>
 
-          <form action="/admin/users/delete/<%= user.id %>" method="POST" onsubmit="return confirm('Suppprimer cet utilisateur ?');">
-            <button type="subit">Supprimer</button>
-          </form>
-        </div>
-      <% }); %>
-    </div>
-  <% } else { %>
-    <p>Liste des utilisateurs indisponible 😢</p>
-  <% } %>
-</section>
-    </main>
+                    <form action="/admin/users/delete/<%= user.id %>" method="POST"
+                      onsubmit="return confirm('Suppprimer cet utilisateur ?');">
+                      <button type="subit" class="btn-delete">Supprimer</button>
+                    </form>
+                  </div>
+                  <% }); %>
+              </div>
+              <% } else { %>
+                <p>Liste des utilisateurs indisponible 😢</p>
+                <% } %>
+          </section>
+        </main>
 
-    <%- include("partials/footer") %>
-  </body>
+        <%- include("partials/footer") %>
+</body>
+
 </html>

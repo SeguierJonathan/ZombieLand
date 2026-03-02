@@ -24,21 +24,6 @@ h1 {
   margin: 0.4rem 0;
 }
 
-/* === Bouton supprimer === */
-.btn-delete {
-  background-color: #e74c3c;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: background 0.2s ease;
-}
-
-.btn-delete:hover {
-  background-color: #c0392b;
-}
 
 /* === Message pas de réservation === */
 .no-reservations {
