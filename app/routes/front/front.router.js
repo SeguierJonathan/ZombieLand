@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
 import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
-import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, getAllUsers, adminMenuPage } from '../../controllers/pages.controller.js';
+import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, adminMenuPage } from '../../controllers/pages.controller.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
 import { getAllAdmin, updateActivities } from '../../controllers/admin.activities.controller.js';
+import { getAllUsers } from '../../controllers/admin.users.controller.js';
 
 
 const router = Router();
@@ -43,7 +44,7 @@ router.get('/activites/categories/:id', getAllByCategory);
 //Page menu administrateur pour l'admin uniquement
 router.get('/menu-administrateur', isAuth, isAllowed("admin"), adminMenuPage)
 // Affichage de tous les utilisateurs
-router.get('/menu-administrateur/users', getAllUsers);
+router.get('/menu-administrateur/utilisateurs', isAuth, isAllowed('admin'), getAllUsers);
 //Page activités pour l'admin uniquement
 router.get('/menu-administrateur/activites',isAuth, isAllowed("admin"), getAllAdmin);
 // Détail d'une activité en tant qu'administrateur 
