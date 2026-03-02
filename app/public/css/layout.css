@@ -34,7 +34,8 @@ header {
 /*mobile first default value*/
 
 header .greeting,
-header ul {
+header ul,
+header .content-greeting {
     display: none;
 }
 
@@ -67,6 +68,12 @@ header ul {
 
 }
 
+#mobile-menu .content-greeting {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 
 #mobile-menu.expanded {
     transform: translateX(0%);
@@ -83,6 +90,10 @@ header ul {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    max-width: 300px;
+}
+
+.button.admin {
     max-width: 300px;
 }
 
@@ -125,7 +136,6 @@ footer .social img {
         display: none;
     }
 
-
     /*Show nav link*/
     header ul {
         display: flex;
@@ -135,6 +145,13 @@ footer .social img {
 
     header .greeting {
         display: flex;
+    }
+
+    header .content-greeting {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        font-weight: bold;
     }
 
 

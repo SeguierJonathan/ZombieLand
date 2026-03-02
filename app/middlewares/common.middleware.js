@@ -76,6 +76,12 @@ export function initLocals(req, res, next) {
         res.locals.firstName = req.session.user.firstName;
     }
 
+    // expose le firstName dans les locals pour utilisation dans les ejs sans avoir a les passer en paramètre
+    res.locals.role = null;
+    if (req.session.user) {
+        res.locals.role = req.session.user.role;
+    }
+
     // init locals.notifications
     res.locals.notifications = [];
 

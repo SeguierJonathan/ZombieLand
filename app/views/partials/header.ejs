@@ -30,20 +30,25 @@
       </g>
     </svg>
   </button>
+  <div class="content-greeting">
+    <%if(role && role==="admin" ){%>
+      <a class="button admin" href="/menu-administrateur">Admin</a>
+      <%}%>
 
-  <div class="greeting">
-    <%if(!firstName){%>
-      <a class="button" href="/connexion">Se connecter</a>
-      <%}else{%>
-        <a href="/mon-compte">Bonjour, <span>
-            <%= firstName%>
-          </span></a>
-        <form action="/auth/logout" method="POST">
-          <button class="button-trans" type="submit">
-            Se deconnecter
-          </button>
-        </form>
+        <div class="greeting">
+          <%if(!firstName){%>
+            <a class="button" href="/connexion">Se connecter</a>
+            <%}else{%>
+              <a href="/mon-compte">Bonjour, <span>
+                  <%= firstName%>
+                </span></a>
+              <form action="/auth/logout" method="POST">
+                <button class="button-trans" type="submit">
+                  Se deconnecter
+                </button>
+              </form>
 
-        <%}%>
+              <%}%>
+        </div>
   </div>
 </header>
