@@ -50,10 +50,6 @@ export function errorPage(req, res) {
   res.status(500).render("500");
 }
 
-export async function getAllUsers(req, res) {
-  const users = await User.findAll({ attributes: ["id", "firstName", "lastName", "email"] });
-  return res.render('users', {})
-}
 
 export function adminMenuPage(req, res) {
   res.render("admin-menu");
