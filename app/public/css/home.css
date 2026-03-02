@@ -97,10 +97,6 @@ main section {
     flex-direction: column;
 }
 
-button:hover, .button:hover {
-    background-color: #c1121f;
-}
-
 @media (min-width: 481px) {
     .presentation > div {
     flex-direction: row;
