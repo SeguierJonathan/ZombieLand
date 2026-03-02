@@ -1,4 +1,4 @@
-import { Activity, User } from "../models/index.js";
+import { Activity } from "../models/index.js";
 
 export async function homePage(req, res) {
   const activities = await Activity.findAll({

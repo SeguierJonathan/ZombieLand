@@ -1,0 +1,58 @@
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* === Grid mobile first === */
+.reservations-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile */
+  gap: 1rem;
+  margin: 1rem;
+}
+
+/* === Cartes === */
+.reservation-card {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.6rem rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reservation-card p {
+  margin: 0.4rem 0;
+}
+
+/* === Bouton supprimer === */
+.btn-delete {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+}
+
+/* === Message pas de réservation === */
+.no-reservations {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* === Tablette et desktop === */
+@media (min-width: 481px) {
+  .reservations-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 2rem auto;
+  }
+}

@@ -7,6 +7,7 @@ import { bookingPage, getMesReservations } from '../../controllers/bookings.cont
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
 import { getAllAdmin, updateActivities } from '../../controllers/admin.activities.controller.js';
 import { getAllUsers } from '../../controllers/admin.users.controller.js';
+import { getAllBookings } from '../../controllers/admin.controller.js';
 
 
 const router = Router();
@@ -39,14 +40,14 @@ router.get('/500', errorPage);
 router.get('/activites/:id', renderActivityDetail);
 //Activités filtré par catégorie
 router.get('/activites/categories/:id', getAllByCategory);
-
-
-//Page menu administrateur pour l'admin uniquement
-router.get('/menu-administrateur', isAuth, isAllowed("admin"), adminMenuPage)
-// Affichage de tous les utilisateurs
+//Affichage de tous les utilisateurs pour l'admin
 router.get('/menu-administrateur/utilisateurs', isAuth, isAllowed('admin'), getAllUsers);
 //Page activités pour l'admin uniquement
 router.get('/menu-administrateur/activites',isAuth, isAllowed("admin"), getAllAdmin);
+//Page menu administrateur pour l'admin uniquement
+router.get('/menu-administrateur', isAuth, isAllowed("admin"), adminMenuPage);
+//Affichage de toutes les réservations des utilisateurs
+router.get('/menu-administrateur/reservations', isAuth, isAllowed('admin'), getAllBookings);
 // Détail d'une activité en tant qu'administrateur 
 router.get('/menu-administrateur/activites/:id', isAuth, isAllowed("admin"), validateId, updateActivities);
 
