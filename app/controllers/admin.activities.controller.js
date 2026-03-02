@@ -37,11 +37,11 @@ export async function updateActivities(req, res) {
         notify.error(res, "Erreur lors de la mise à jour des informations.");
         // utiliser pour garder les notification apres un redirect
         notify.redirect(res);
-        res.redirect('/menu-administrateur/activites/:id')
+        res.redirect('/menu-administrateur/activites/' + req.params.id)
     }
 
     notify.success(res, "Mise à jour des informations effectuée.");
     // utiliser pour garder les notification apres un redirect
     notify.redirect(res);
-    res.redirect('/menu-administrateur/activites/:id');
+    res.redirect('/menu-administrateur/activites/' + req.params.id);
 };
