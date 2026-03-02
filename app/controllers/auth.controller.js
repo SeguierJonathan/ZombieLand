@@ -1,11 +1,15 @@
 import argon2 from "argon2";
 import { User } from "../models/index.js";
+import { notify } from "../utils/common.js";
 
 export function logout(req, res) {
     req.session.destroy((error) => {
         if (error) {
             console.log(error);
         }
+        notify.success(res, "déconnexion.");
+        // utiliser pour garder les notification apres un redirect
+        notify.redirect(res);
         res.redirect("/")
     })
 }
@@ -17,22 +21,32 @@ export async function login(req, res) {
         }
     })
     if (!user) {
-        return res.send('Mauvais Email ou Mot de passe')
+        notify.error(res, 'Mauvais Email ou Mot de passe');
+        // utiliser pour garder les notification apres un redirect
+        notify.redirect(res);
+        return res.redirect("/connexion");
     }
-    if (argon2.verify(user.password, req.body.password)) {
+
+    if (await argon2.verify(user.password, req.body.password)) {
 
         // regenere id-session pour eviter la faille de session fixation
         req.session.regenerate((err) => {
             if (err) {
-                console.error(err);
-                return res.status(500).send("Erreur de session");
+                console.log("session regenerate: ", err);
+                return res.redirect("/connexion");
             }
+            notify.success(res, 'Connexion reussi.');
+            // utiliser pour garder les notification apres un redirect
+            notify.redirect(res);
             // Stocker l'utilisateur dans la nouvelle session
             req.session.user = { id: user.id, firstName: user.firstName };
-            res.redirect('/');
+            return res.redirect('/');
         });
     }
     else {
-        res.send("Mauvais Email ou Mot de passe")
+        notify.error(res, 'Mauvais Email ou Mot de passe');
+        // utiliser pour garder les notification apres un redirect
+        notify.redirect(res);
+        return res.redirect("/connexion");
     }
 }

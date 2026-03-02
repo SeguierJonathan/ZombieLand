@@ -4,7 +4,7 @@
 <head>
     <%- include('partials/head') %>
 
-        <title>Zombieland | Erreur 500</title>
+        <title>Zombieland | Erreur 403</title>
 
 
 </head>
@@ -15,9 +15,11 @@
             <%- include('partials/notifications') %>
 
                 <main>
-                    <h1>Erreur 500</h1>
-                    <p>Veuillez contacter l'administrateur.</p>
-                    <a href="/">Retour à l'accueil</a>
+                    <div class="card">
+                        <h1>Erreur 403</h1>
+                        <p>Accès non autorisé</p>
+                        <a href="/">Retour à l'accueil</a>
+                    </div>
                 </main>
                 <%- include('partials/footer') %>
 
