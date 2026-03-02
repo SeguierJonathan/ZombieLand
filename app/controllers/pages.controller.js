@@ -55,3 +55,7 @@ export function adminMenuPage(req, res) {
   res.render("admin-menu");
 }
 
+export function planPage(req, res) {
+  res.render("plan");
+}
+

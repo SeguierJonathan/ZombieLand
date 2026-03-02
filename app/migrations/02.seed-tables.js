@@ -19,7 +19,7 @@ await Category.bulkCreate([
 await Activity.bulkCreate([
     {
         name: "Zombie Run",
-        image: "Armee_de_zombie.png",
+        image: "zombie-run.webp",
         minHeightCM: 140,
         horrorLevel: 4,
         durationSeconds: 1200,
@@ -28,7 +28,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Maison Hantée",
-        image: "Armee_de_zombie.png",
+        image: "maison-hantee.webp",
         minHeightCM: 130,
         horrorLevel: 5,
         durationSeconds: 900,
@@ -37,7 +37,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Apocalypse Coaster",
-        image: "Armee_de_zombie.png",
+        image: "apocalypse-coaster.webp",
         minHeightCM: 150,
         horrorLevel: 3,
         durationSeconds: 300,
@@ -46,7 +46,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Zombie Shooting Arena",
-        image: "Armee_de_zombie.png",
+        image: "shooting-arena.webp",
         minHeightCM: 120,
         horrorLevel: 2,
         durationSeconds: 600,
@@ -55,7 +55,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Le Tunnel des Ténèbres",
-        image: "Armee_de_zombie.png",
+        image: "tunnel-tenebres.webp",
         minHeightCM: 135,
         horrorLevel: 4,
         durationSeconds: 480,
@@ -64,7 +64,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Zombie Escape Game",
-        image: "Armee_de_zombie.png",
+        image: "escape-game.webp",
         minHeightCM: 125,
         horrorLevel: 3,
         durationSeconds: 3600,
@@ -73,7 +73,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Train de l'Apocalypse",
-        image: "Armee_de_zombie.png",
+        image: "train-apocalypse.webp",
         minHeightCM: 110,
         horrorLevel: 2,
         durationSeconds: 420,
@@ -82,7 +82,7 @@ await Activity.bulkCreate([
     },
     {
         name: "La Forêt Infectée",
-        image: "Armee_de_zombie.png",
+        image: "foret-infectee.webp",
         minHeightCM: 140,
         horrorLevel: 5,
         durationSeconds: 1500,
@@ -91,7 +91,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Tour de la Chute Mortelle",
-        image: "Armee_de_zombie.png",
+        image: "tour-chute-mortelle.webp",
         minHeightCM: 145,
         horrorLevel: 3,
         durationSeconds: 180,
@@ -100,7 +100,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Le Laboratoire Secret",
-        image: "Armee_de_zombie.png",
+        image: "laboratoire-secret.webp",
         minHeightCM: 130,
         horrorLevel: 4,
         durationSeconds: 900,
@@ -109,7 +109,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Cimetière des Damnés",
-        image: "Armee_de_zombie.png",
+        image: "cimetiere-damnes.webp",
         minHeightCM: 135,
         horrorLevel: 4,
         durationSeconds: 840,
@@ -118,7 +118,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Survival Bunker",
-        image: "Armee_de_zombie.png",
+        image: "survival-bunker.webp",
         minHeightCM: 125,
         horrorLevel: 3,
         durationSeconds: 1500,
@@ -127,7 +127,7 @@ await Activity.bulkCreate([
     },
     {
         name: "La Crypte Interdite",
-        image: "Armee_de_zombie.png",
+        image: "crypte-interdite.webp",
         minHeightCM: 140,
         horrorLevel: 5,
         durationSeconds: 720,
@@ -136,7 +136,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Zombie Drop Tower",
-        image: "Armee_de_zombie.png",
+        image: "drop-tower.webp",
         minHeightCM: 145,
         horrorLevel: 3,
         durationSeconds: 200,
@@ -145,7 +145,7 @@ await Activity.bulkCreate([
     },
     {
         name: "Ville Contaminée VR",
-        image: "Armee_de_zombie.png",
+        image: "ville-contaminee-vr.webp",
         minHeightCM: 120,
         horrorLevel: 4,
         durationSeconds: 900,

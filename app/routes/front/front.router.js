@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
 import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
-import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, adminMenuPage } from '../../controllers/pages.controller.js';
+import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, adminMenuPage, planPage } from '../../controllers/pages.controller.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
@@ -26,6 +26,8 @@ router.get('/connexion', preventIfLoggedIn, logInPage);
 router.get('/reservation', isAuth, bookingPage);
 //Page pour mes réservations
 router.get('/mes-reservations', isAuth, getMesReservations);
+//Page pour plan du parc
+router.get('/plan', planPage);
 //Page pour informations
 router.get('/information', informationsPage);
 // Page pour A propos
