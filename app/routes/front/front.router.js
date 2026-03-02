@@ -41,7 +41,7 @@ router.get('/activites/categories/:id', getAllByCategory);
 // Affichage de tous les utilisateurs
 router.get('/menu-administrateur/users', getAllUsers);
 //Page activités pour l'admin uniquement
-router.get('/menu-administrateur/activites', getAllAdmin);
+router.get('/menu-administrateur/activites',isAuth, isAllowed("admin"), getAllAdmin);
 //Page menu administrateur pour l'admin uniquement
 router.get('/menu-administrateur', isAuth, isAllowed("admin"), adminMenuPage)
 
