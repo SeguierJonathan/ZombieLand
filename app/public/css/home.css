@@ -34,6 +34,8 @@
     width: fit-content;
 }
 
+/* ======== Code Alexis ======== */
+
 main section {
     display: flex;
     gap: 2rem;
@@ -56,13 +58,66 @@ main section {
     flex-direction: column;
 }
 
+.parc {
+    flex-direction: column;
+}
+
+.tarif {
+flex-direction: column;
+}
+
 .presentation > div {
     display: flex;
+    flex-direction: column;
+}
+
+.meteo {
+    display: flex;
+    flex-direction: column;
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+.billet {
+    display: flex;
+    flex-direction: column;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
 }
 
 button:hover, .button:hover {
     background-color: #c1121f;
 }
+
+@media (min-width: 481px) {
+    .presentation > div {
+    flex-direction: row;
+    }
+    .articles {
+        flex-direction: row;
+    }
+    .description {
+        flex-direction: row;
+    }
+    .billet {
+        flex-direction: row;
+    }
+    .infos {
+        flex-direction: row;
+    }
+}
+/* ======== Fin Code Alexis ======== */
 
 
 /* ======== Latest Products Section ======== */

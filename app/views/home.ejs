@@ -37,13 +37,14 @@
 
                 <section class="activite">
                     <h2>Nos attractions</h2>
-                    <div>
+                    <div class="articles">
                         <% activities.forEach(activity=> { %>
                             <article>
                                 <h3>
                                     <%= activity.name %>
                                 </h3>
-                                <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
+                                <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée">
+                                </p>
                                 <a href="/activites/<%= activity.id %>" class="button">Voir détails</a>
                             </article>
                             <% }) %>
@@ -53,24 +54,31 @@
 
                 <section class="parc">
                     <h2>Présentation du parc</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro eaque quasi quam. Ad velit eaque
+                    <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro eaque quasi
+                        quam. Ad velit
+                        eaque
                         quos
                         quo itaque aperiam deserunt ab autem nisi, natus iste eum eius alias earum nesciunt!</p>
                 </section>
 
                 <section class="tarif">
                     <h2>Tarifs</h2>
-                    <p>description du billet</p>
-                    <button><a href="/reservation">Je réserve !</a></button>
+                    <div class="billet">
+                        <p>description du billet</p>
+                        <button><a href="/reservation">Je réserve !</a></button>
+                    </div>
                 </section>
 
                 <section class="meteo">
                     <h2>Météo</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum optio natus animi esse sapiente
-                        laboriosam nam, deleniti asperiores odio accusantium quasi unde, similique aspernatur. Autem
-                        minus
-                        alias voluptates eum labore!</p>
-                    <img src="/img/Météo.jpeg" alt="Photo d'image météo">
+                    <div class="infos">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum optio natus animi esse
+                            sapiente
+                            laboriosam nam, deleniti asperiores odio accusantium quasi unde, similique aspernatur. Autem
+                            minus
+                            alias voluptates eum labore!</p>
+                        <img src="/img/Météo.jpeg" alt="Photo d'image météo">
+                    </div>
                 </section>
 
             </main>

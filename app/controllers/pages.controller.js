@@ -6,6 +6,7 @@ export async function homePage(req, res) {
         limit: 3
     });
     res.render("home", { activities })
+  }
 
 export async function informationsPage(req, res) {
   try {
@@ -23,7 +24,7 @@ export async function informationsPage(req, res) {
       ressentie   : Math.round(data.main.feels_like),
       humidite    : data.main.humidity,
       iconeUrl    : `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
-      vent        : Math.round(data.wind.speed * 3.6),
+      vent        : Math.round(data.wind.speed * 3.6)
     };
 
     res.render("information", { meteo });
