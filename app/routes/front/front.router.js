@@ -5,6 +5,7 @@ import { adminPage, unauthorized, homePage, informationsPage, errorPage, noFound
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn } from '../../middlewares/common.middleware.js';
+import { getAllAdmin } from '../../controllers/admin.activities.controller.js';
 
 
 const router = Router();
@@ -37,5 +38,9 @@ router.get('/500', errorPage);
 router.get('/activites/:id', renderActivityDetail);
 //Activités filtré par catégorie
 router.get('/activites/categories/:id', getAllByCategory);
+//Page activités pour l'admin uniquement
+router.get('/menu-administrateur/activites', getAllAdmin);
+//Page catégories pour l'admin uniquement
+//router.get('/menu-adminstrateur/categories');
 
 export default router;
