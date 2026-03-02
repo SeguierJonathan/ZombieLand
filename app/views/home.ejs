@@ -8,11 +8,13 @@
 
         <link rel="stylesheet" href="./css/home.css">
 
+
 </head>
 
 <body>
     <%- include('partials/header') %>
         <%- include('partials/menu-slide') %>
+            <%- include('partials/notifications') %>
 
             <main>
 
@@ -81,9 +83,18 @@
                     </div>
                 </section>
 
-            </main>
-            <%- include('partials/footer') %>
+                    <section>
+                        <h2>Météo</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum optio natus animi esse
+                            sapiente
+                            laboriosam nam, deleniti asperiores odio accusantium quasi unde, similique aspernatur. Autem
+                            minus
+                            alias voluptates eum labore!</p>
+                        <img src="/img/Météo.jpeg" alt="Photo d'image météo">
+                    </section>
 
+                </main>
+                <%- include('partials/footer') %>
 </body>
 
 </html>

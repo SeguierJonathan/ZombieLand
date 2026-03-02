@@ -11,7 +11,7 @@ export async function homePage(req, res) {
 export async function informationsPage(req, res) {
   try {
     const apiKey = process.env.OPENWEATHER_API_KEY;
-    const city   = process.env.OPENWEATHER_CITY;
+    const city = process.env.OPENWEATHER_CITY;
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=fr`;
 
@@ -36,15 +36,15 @@ export async function informationsPage(req, res) {
 }
 
 export function adminPage(req, res) {
-    res.render("admin")
+  res.render("admin")
 }
 
 export function unauthorized(req, res) {
-    res.status(403).render("403");
+  res.status(403).render("403");
 }
 
 export function noFoundPage(req, res) {
-    res.status(404).render("404");
+  res.status(404).render("404");
 }
 
 export function errorPage(req, res) {
