@@ -1,4 +1,4 @@
-import {Activity}from "../models/index.js";
+import {Activity, User}from "../models/index.js";
 
 export async function homePage(req, res) {
         const activities = await Activity.findAll({
@@ -50,3 +50,9 @@ export function noFoundPage(req, res) {
 export function errorPage(req, res) {
     res.status(500).render("500");
 }
+
+export async function getAllUsers(req,res) {
+    const users = await User.findAll({ attributes: ["id", "firstName", "lastName", "email"]});
+    return res.render('users', {  })
+}
+
