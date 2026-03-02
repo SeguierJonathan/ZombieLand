@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
-import { getAll, getAllByCategory} from '../../controllers/activities.controller.js'
-import { adminPage, unauthorized, homePage, informationsPage, errorPage, noFoundPage } from '../../controllers/pages.controller.js';
+import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
+import { adminPage, unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage } from '../../controllers/pages.controller.js';
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn } from '../../middlewares/common.middleware.js';
@@ -28,6 +28,8 @@ router.get('/reservation', isAuth, bookingPage);
 router.get('/mes-reservations', isAuth, getMesReservations);
 //Page pour informations
 router.get('/information', informationsPage);
+// Page pour A propos
+router.get('/a-propos', aboutPage);
 //Page 403
 router.get('/403', unauthorized);
 //Page 404
