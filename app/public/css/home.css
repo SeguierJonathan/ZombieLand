@@ -39,6 +39,7 @@
 main section {
     display: flex;
     gap: 2rem;
+    
 }
 
 .activite {
@@ -63,7 +64,7 @@ main section {
 }
 
 .tarif {
-flex-direction: column;
+    flex-direction: column;
 }
 
 .presentation > div {
