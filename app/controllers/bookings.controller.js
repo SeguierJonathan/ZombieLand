@@ -1,4 +1,5 @@
 import Booking from "../models/booking.model.js";
+import { notify } from "../utils/common.js";
 
 export async function bookingPage(req, res) {
   res.render("booking");
@@ -38,7 +39,7 @@ export async function updateBooking(req, res) {
   const nb = Number(nombre_de_personne);
   const prix_total = nb * 30;
 
-  await Booking.update(
+  const [affectedCount] = await Booking.update(
     { date, nombre_de_personne: nb, prix_total },
     {
       where: {
@@ -48,17 +49,31 @@ export async function updateBooking(req, res) {
       returning: true
     }
   );
-
-  res.redirect("/mes-reservations");
+    if (affectedCount === 0) {
+        notify.error(res, "Erreur lors de la mise à jour des informations.");
+        notify.redirect(res);
+        return res.redirect('/mes-reservations')
+    }
+    notify.success(res, "Mise à jour des informations effectuée.");
+    notify.redirect(res);
+    return res.redirect('/mes-reservations');
 };
 
 export async function deleteBooking(req, res) {
   const bookingId = req.params.id;
-  await Booking.destroy({
+  const deleteCount = await Booking.destroy({
     where: {
       id: bookingId,
       userId: req.session.user.id
     }
-  })
-  res.redirect('/mes-reservations');
+  });
+  if (deleteCount === 0) {
+    notify.error(res, "Erreur lors de la suppression de la réservation.");
+    notify.redirect(res);
+    return res.redirect('/mes-reservations')
+  }
+  notify.success(res, "Votre réservation a bien été supprimée.");
+  notify.redirect(res);
+  return res.redirect('/mes-reservations')
+
 };
