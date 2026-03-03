@@ -112,7 +112,7 @@ export function validateId(req, res, next) {
     const validation = schemaId.validate(req.params);
 
     if (validation.error) {
-        return res.redirect("/");
+        return res.redirect("/menu-administrateur/activites");
     }
 
     next();

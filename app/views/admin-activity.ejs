@@ -38,7 +38,12 @@
                         </p>
 
                         <a href="/menu-administrateur/activites" class="button">Retour à la liste des activitées</a>
-                        
+                        <form action="/menu-administrateur/activites/<%= activity.id %>/update" method="post">
+                            <button type="submit">
+                                Modifié l'activité
+                            </button>
+                        </form>
+
                     </article>
 
                 </main>

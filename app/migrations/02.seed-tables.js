@@ -1,6 +1,10 @@
-import { Category, Activity, User, Role } from "../models/index.js";
+import { Category, Activity, User, Role, Tarif } from "../models/index.js";
 import argon2 from "argon2";
 
+// Crée des tarifs par défaut
+await Tarif.bulkCreate([
+{ name : "Tarif à l'année", price: 300 }
+    ]);
 
 // Crée des catégories par défaut
 await Category.bulkCreate([
