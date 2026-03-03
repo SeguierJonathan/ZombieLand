@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="/css/admin-booking.css">
   <script defer src="/js/common.js"></script>
 </head>
-
 <body>
   <%- include('partials/header') %>
   <%- include('partials/menu-slide') %>
@@ -18,66 +17,56 @@
     <% if (reservations && reservations.length > 0) { %>
       <div class="reservations-grid">
         <% reservations.forEach(reservation => { %>
-          <div class="js-editable">
+          <div class="card--black">
 
-  <form action="/admin/bookings/<%= reservation.id %>/update" method="POST">
+            <form action="/admin/bookings/<%= reservation.id %>/update" method="POST">
+              <p><strong>Référence :</strong> <%= reservation.id %></p>
+              <p><strong>Nom :</strong> <%= reservation.user.lastName %></p>
+              <p><strong>Prénom :</strong> <%= reservation.user.firstName %></p>
+              <p>
+                <strong>Nombre de personne :</strong>
+                <span class="view-mode"><%= reservation.nombre_de_personne %></span>
+                <input class="edit-mode" type="number"
+                  name="nombre_de_personne"
+                  value="<%= reservation.nombre_de_personne %>" hidden>
+              </p>
+              <p><strong>Prix total :</strong> <%= reservation.prix_total %></p>
+              <p>
+                <strong>Date :</strong>
+                <span class="view-mode">
+                  <%= reservation.date ? reservation.date.toLocaleDateString() : '' %>
+                </span>
+                <input class="edit-mode"
+                  type="date"
+                  name="date"
+                  value="<%= reservation.date ? reservation.date.toISOString().split('T')[0] : '' %>"
+                  hidden>
+              </p>
+              <p>
+                <strong>Créé le :</strong>
+                <%= reservation.createdAt.toLocaleDateString() %>
+              </p>
 
-    <p><strong>Référence :</strong> <%= reservation.id %></p>
-    <p><strong>Nom :</strong> <%= reservation.user.lastName %></p>
-    <p><strong>Prénom :</strong> <%= reservation.user.firstName %></p>
-    
-    <p>
-      <strong>Nombre de personne :</strong>
-      <span class="view-mode"><%= reservation.nombre_de_personne %></span>
-      <input class="edit-mode" type="number"
-      name="nombre_de_personne"
-      value="<%= reservation.nombre_de_personne %>" hidden>
-    </p>
-    <p><strong>Prix total :</strong> <%= reservation.prix_total %></p>
-    
-    <p>
-      <strong>Date :</strong>
-      <span class="view-mode">
-        <%= reservation.date ? reservation.date.toLocaleDateString() : '' %>
-      </span>
-      <input class="edit-mode"
-             type="date"
-             name="date"
-             value="<%= reservation.date ? reservation.date.toISOString().split('T')[0] : '' %>"
-             hidden>
-    </p>
+              <div class="card-actions">
+                <button type="button" class="btn--update" onclick="toggleEdit(this)">Modifier</button>
+                <button type="submit" class="btn--save" hidden>Enregistrer</button>
+                <form action="/admin/bookings/<%= reservation.id %>/delete"
+                  method="POST"
+                  onsubmit="return confirm('Supprimer cette réservation ?');">
+                  <button type="submit" class="btn-delete">Supprimer</button>
+                </form>
+              </div>
+            </form>
 
-    <p>
-      <strong>Créé le :</strong>
-      <%= reservation.createdAt.toLocaleDateString() %>
-    </p>
-
-    <button type="button" class="btn--update" onclick="toggleEdit(this)">
-      Modifier
-    </button>
-
-    <button type="submit" class="btn--save" hidden>
-      Enregistrer
-    </button>
-
-  </form>
-
-  <form action="/admin/bookings/<%= reservation.id %>/delete"
-        method="POST"
-        onsubmit="return confirm('Supprimer cette réservation ?');">
-    <button type="submit" class="btn-delete">Supprimer</button>
-  </form>
-
-</div>
+          </div>
         <% }) %>
       </div>
     <% } else { %>
       <p class="no-reservations">Aucune réservation pour le moment 😢</p>
     <% } %>
+
   </main>
 
   <%- include('partials/footer') %>
-
-  
 </body>
 </html>
