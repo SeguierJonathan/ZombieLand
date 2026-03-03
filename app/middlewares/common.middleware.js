@@ -90,7 +90,6 @@ export function initLocals(req, res, next) {
     if (req.cookies.notifications) {
 
         const notifications = JSON.parse(req.cookies.notifications);
-        console.log(notifications);
         res.locals.notifications = notifications;
 
         // suprimme le cookie

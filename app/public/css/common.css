@@ -100,7 +100,7 @@
 
 }
 
-.black-card {
+.card--black {
     background-color: #2a2a2a;
     padding: 1.5rem;
     border-radius: 0.75rem;
@@ -110,7 +110,7 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.black-card:hover {
+.card--black:hover {
     transform: translateY(-0.3rem);
     box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.5);
 }
@@ -160,8 +160,9 @@
 
 
 
-
-
+.hidden {
+    display: none;
+}
 
 
 
