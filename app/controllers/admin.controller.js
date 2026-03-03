@@ -28,7 +28,6 @@ export async function AdminDeleteBooking(req, res) {
     notify.success(res, "Réservation supprimée");
     notify.redirect(res);
     res.redirect('/menu-administrateur/reservations');
-<<<<<<< Updated upstream
 };
 
 export async function getAllCategories(req, res) {
@@ -57,7 +56,6 @@ export async function deleteCategories(req, res) {
     res.redirect('/menu-administrateur/categories');
   }
 
-=======
 
 export async function AdminUpdateBooking(req, res) {
     const { date, nombre_de_personne } = req.body;
@@ -80,5 +78,4 @@ export async function AdminUpdateBooking(req, res) {
     notify.success(res, "Mise à jour des informations effectuée.");
     notify.redirect(res);
     return res.redirect('/menu-administrateur/reservations');
->>>>>>> Stashed changes
 };

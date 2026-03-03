@@ -7,11 +7,7 @@ import { validateBooking } from '../../middlewares/bookings.middleware.js';
 import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
 import { deleteActivities, updateActivities } from '../../controllers/admin.activities.controller.js';
 import { deleteUsers } from '../../controllers/admin.users.controller.js';
-<<<<<<< Updated upstream
-import { AdminDeleteBooking, deleteCategories } from '../../controllers/admin.controller.js';
-=======
-import { AdminDeleteBooking, AdminUpdateBooking } from '../../controllers/admin.controller.js';
->>>>>>> Stashed changes
+import { AdminDeleteBooking, deleteCategories, AdminUpdateBooking } from '../../controllers/admin.controller.js';
 
 
 
