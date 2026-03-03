@@ -4,6 +4,7 @@
   <%- include('partials/head') %>
   <title>Zombieland - Réservations</title>
   <link rel="stylesheet" href="/css/admin-booking.css">
+  <script defer src="/js/common.js"></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
     <% if (reservations && reservations.length > 0) { %>
       <div class="reservations-grid">
         <% reservations.forEach(reservation => { %>
-          <div class="reservation-card">
+          <div class="card--black">
 
   <form action="/admin/bookings/<%= reservation.id %>/update" method="POST">
 
@@ -51,11 +52,11 @@
       <%= reservation.createdAt.toLocaleDateString() %>
     </p>
 
-    <button type="button" class="btn-update" onclick="toggleEdit(this)">
+    <button type="button" class="btn--update" onclick="toggleEdit(this)">
       Modifier
     </button>
 
-    <button type="submit" class="btn-save" hidden>
+    <button type="submit" class="btn--save" hidden>
       Enregistrer
     </button>
 
@@ -77,6 +78,6 @@
 
   <%- include('partials/footer') %>
 
-  <script src="/js/test.js"></script>
+  
 </body>
 </html>
