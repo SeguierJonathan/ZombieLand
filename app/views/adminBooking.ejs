@@ -18,7 +18,7 @@
     <% if (reservations && reservations.length > 0) { %>
       <div class="reservations-grid">
         <% reservations.forEach(reservation => { %>
-          <div class="card--black">
+          <div class="js-editable">
 
   <form action="/admin/bookings/<%= reservation.id %>/update" method="POST">
 

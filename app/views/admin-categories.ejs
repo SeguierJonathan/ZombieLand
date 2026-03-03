@@ -22,7 +22,7 @@
                         <% if (categories && categories.length> 0) { %>
                             <div class="categories-grid">
                                 <% categories.forEach((categorie)=> { %>
-                                    <div class="card--black">
+                                    <div class="js-editable">
                                         <form action="/admin/categories/<%= categorie.id %>/update" method="POST">
 
                                             <p><strong>Nom :</strong>
