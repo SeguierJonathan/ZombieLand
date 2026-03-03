@@ -28,6 +28,7 @@ export async function AdminDeleteBooking(req, res) {
     notify.success(res, "Réservation supprimée");
     notify.redirect(res);
     res.redirect('/menu-administrateur/reservations');
+<<<<<<< Updated upstream
 };
 
 export async function getAllCategories(req, res) {
@@ -55,4 +56,33 @@ export async function deleteCategories(req, res) {
     notify.redirect(res);
     res.redirect('/menu-administrateur/categories');
 
+=======
+  }
+  notify.success(res, "Réservation supprimée");
+  notify.redirect(res);
+  res.redirect('/menu-administrateur/reservations');
+};
+
+export async function AdminUpdateBooking(req, res) {
+    const { date, nombre_de_personne } = req.body;
+    const nb = Number(nombre_de_personne);
+    const prix_total = nb * 30;
+    const [affectedCount] = await Booking.update(
+        { date, nombre_de_personne: nb, prix_total },
+        {
+            where: { id: req.params.id },
+            returning: true
+        }
+    );
+
+    if (affectedCount === 0) {
+        notify.error(res, "Erreur lors de la mise à jour des informations.");
+        notify.redirect(res);
+        return res.redirect('/menu-administrateur/reservations')
+    }
+
+    notify.success(res, "Mise à jour des informations effectuée.");
+    notify.redirect(res);
+    return res.redirect('/menu-administrateur/reservations');
+>>>>>>> Stashed changes
 };
