@@ -37,6 +37,6 @@ router.post("/admin/bookings/:id/delete", isAuth, isAllowed("admin"), validateId
 router.post("/admin/bookings/:id/update", isAuth, isAllowed("admin"), validateId, validateBooking, AdminUpdateBooking);
 
 
-router.post("/admin/categories/:id/delete", isAuth, isAllowed("admin"), deleteCategories);
+router.post("/admin/categories/:id/delete", isAuth, isAllowed("admin"), validateId, deleteCategories);
 
 export default router;

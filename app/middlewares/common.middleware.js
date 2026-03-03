@@ -109,10 +109,8 @@ export function validateId(req, res, next) {
     const schemaId = Joi.object({
         id: Joi.number().integer().min(1).required(),
     })
-console.log("lololol",schemaId);
 
-    const validation = schemaId.validate(req.body);
-console.log("text test",validation);
+    const validation = schemaId.validate(req.params);
 
     if (validation.error) {
         return res.redirect("/");
