@@ -1,5 +1,6 @@
 import "dotenv/config";
 import { User, Role } from "../models/index.js";
+import Joi from "joi";
 
 export function errorHandler(error, req, res, next) {
 
@@ -104,11 +105,18 @@ export function initLocals(req, res, next) {
 }
 
 export function validateId(req, res, next) {
-    const id = parseInt(req.params.id, 10);
 
-    if (isNaN(id) || id <= 0) {
-        res.status(500).render("500");
+    const schemaId = Joi.object({
+        id: Joi.number().integer().min(1).required(),
+    })
+console.log("lololol",schemaId);
+
+    const validation = schemaId.validate(req.body);
+console.log("text test",validation);
+
+    if (validation.error) {
+        return res.redirect("/");
     }
-    req.params.id = id;
+
     next();
 }

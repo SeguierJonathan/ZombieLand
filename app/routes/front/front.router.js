@@ -5,7 +5,7 @@ import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, about
 import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
-import { getAllAdmin, updateActivities } from '../../controllers/admin.activities.controller.js';
+import { getAllAdmin, renderActivityDetailAdmin } from '../../controllers/admin.activities.controller.js';
 import { getAllUsers } from '../../controllers/admin.users.controller.js';
 import { getAllBookings, getAllCategories } from '../../controllers/admin.controller.js';
 
@@ -51,7 +51,7 @@ router.get('/menu-administrateur', isAuth, isAllowed("admin"), adminMenuPage);
 //Affichage de toutes les réservations des utilisateurs
 router.get('/menu-administrateur/reservations', isAuth, isAllowed('admin'), getAllBookings);
 // Détail d'une activité en tant qu'administrateur 
-router.get('/menu-administrateur/activites/:id', isAuth, isAllowed("admin"), validateId, updateActivities);
+router.get('/menu-administrateur/activites/:id', isAuth, isAllowed("admin"), validateId, renderActivityDetailAdmin );
 //Page categories pour l'admin uniquement
 router.get('/menu-administrateur/categories', isAuth, isAllowed("admin"), getAllCategories)
 

@@ -1,10 +1,11 @@
-import { Activity } from "../models/index.js";
+import { Activity, Category } from "../models/index.js";
 import { notify } from "../utils/common.js";
 
 
 export async function getAllAdmin(req, res) {
     const activities = await Activity.findAll();
-    return res.render('admin-activities', { activities });
+    const categories = await Category.findAll({ attributes: ["id", "name"] });
+    return res.render('admin-activities', { activities, categories });
 }
 
 export async function deleteActivities(req, res) {
@@ -18,9 +19,22 @@ export async function deleteActivities(req, res) {
         notify.redirect(res);
         res.redirect("/menu-administrateur/activites");
     }
-    notify.success(res,"Suppression de l'activité réussie");
+    notify.success(res, "Suppression de l'activité réussie");
     notify.redirect(res);
     res.redirect("/menu-administrateur/activites");
+}
+
+export async function renderActivityDetailAdmin(req, res) {
+
+    const activityId = req.params.id;
+
+    const activity = await Activity.findByPk(activityId, {
+        include: [{ model: Category, as: 'category', attributes: ["name"] }]
+})
+    if (!activity) {
+        return res.send("L'activité n'existe pas")
+    }
+    res.render("admin-activity", { activity })
 }
 
 export async function updateActivities(req, res) {
@@ -37,7 +51,7 @@ export async function updateActivities(req, res) {
         notify.error(res, "Erreur lors de la mise à jour des informations.");
         // utiliser pour garder les notification apres un redirect
         notify.redirect(res);
-        res.redirect('/menu-administrateur/activites/' + req.params.id)
+        return res.redirect('/menu-administrateur/activites/' + req.params.id)
     }
 
     notify.success(res, "Mise à jour des informations effectuée.");
