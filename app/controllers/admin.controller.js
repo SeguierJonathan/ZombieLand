@@ -55,13 +55,9 @@ export async function deleteCategories(req, res) {
     notify.success(res, "Categorie supprimé");
     notify.redirect(res);
     res.redirect('/menu-administrateur/categories');
+  }
 
 =======
-  }
-  notify.success(res, "Réservation supprimée");
-  notify.redirect(res);
-  res.redirect('/menu-administrateur/reservations');
-};
 
 export async function AdminUpdateBooking(req, res) {
     const { date, nombre_de_personne } = req.body;
