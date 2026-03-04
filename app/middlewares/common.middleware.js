@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { User, Role } from "../models/index.js";
 import Joi from "joi";
+import { notify } from "../utils/common.js";
 
 export function errorHandler(error, req, res, next) {
 
@@ -112,7 +113,9 @@ export function validateId(req, res, next) {
     const validation = schemaId.validate(req.params);
 
     if (validation.error) {
-        return res.redirect("/menu-administrateur/activites");
+        notify.error(res, "Format d'ID incorrect");
+        notify.redirect(res);
+        return res.redirect("/");
     }
 
     next();

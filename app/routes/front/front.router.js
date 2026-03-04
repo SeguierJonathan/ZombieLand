@@ -1,13 +1,14 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage } from '../../controllers/users.controller.js';
-import { getAll, getAllByCategory } from '../../controllers/activities.controller.js'
+import { getAll, getAllByCategory, renderActivityDetail, getAllAdmin, renderActivityDetailAdmin, getAllActivitiesByCategory, newActivityAdmin } from '../../controllers/activities.controller.js'
 import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, adminMenuPage, planPage } from '../../controllers/pages.controller.js';
-import { renderActivityDetail } from '../../controllers/activity.controller.js';
+import {  } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
-import { getAllAdmin, renderActivityDetailAdmin } from '../../controllers/admin.activities.controller.js';
+import {  } from '../../controllers/admin.activities.controller.js';
 import { getAllUsers } from '../../controllers/admin.users.controller.js';
-import { getAllBookings, getAllCategories, tarifsAdmin } from '../../controllers/admin.controller.js';
+import { getAllBookings,  } from '../../controllers/admin.controller.js';
+import { tarifsAdmin } from '../../controllers/prices.controller.js';
 
 
 const router = Router();
@@ -53,9 +54,11 @@ router.get('/menu-administrateur/reservations', isAuth, isAllowed('admin'), getA
 // Détail d'une activité en tant qu'administrateur 
 router.get('/menu-administrateur/activites/:id', isAuth, isAllowed("admin"), validateId, renderActivityDetailAdmin );
 //Page categories pour l'admin uniquement
-router.get('/menu-administrateur/activites/categories/:id', isAuth, isAllowed("admin"),validateId, getAllCategories)
+router.get('/menu-administrateur/activites/categories/:id', isAuth, isAllowed("admin"),validateId, getAllActivitiesByCategory)
 //Page Tarifs pour l'admin uniquement
 router.get('/menu-administrateur/tarifs', isAuth, isAllowed('admin'), tarifsAdmin );
+// Page création d'une activité pour l'admin uniquement
+router.get("/menu-administrateur/activites/nouvelle", isAuth, isAllowed('admin'), newActivityAdmin)
 
 
 export default router;

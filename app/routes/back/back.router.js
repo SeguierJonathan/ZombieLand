@@ -5,11 +5,12 @@ import { login, logout } from '../../controllers/auth.controller.js';
 import { createBooking, updateBooking, deleteBooking } from '../../controllers/bookings.controller.js';
 import { validateBooking } from '../../middlewares/bookings.middleware.js';
 import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
-import { deleteActivities, updateActivities } from '../../controllers/admin.activities.controller.js';
+import { deleteActivities, updateActivities } from '../../controllers/activities.controller.js';
 import { deleteUsers, updateUserRole} from '../../controllers/admin.users.controller.js';
-import { AdminDeleteBooking, deleteCategoriesAdmin, updateCategoriesAdmin, AdminUpdateBooking, createCategoriesAdmin, tarifsAdminUpdate } from '../../controllers/admin.controller.js';
+import { AdminDeleteBooking, deleteCategoriesAdmin, updateCategoriesAdmin, AdminUpdateBooking, createCategoriesAdmin } from '../../controllers/admin.controller.js';
 import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/activities.middleware.js';
 import { validatePrice } from '../../middlewares/price.middleware.js'
+import { tarifsAdminUpdate } from '../../controllers/prices.controller.js';
 
 
 const router = Router();
