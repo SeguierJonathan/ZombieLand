@@ -15,56 +15,60 @@
         <%- include("partials/menu-slide") %>
             <%- include("partials/notifications") %>
 
-                <main>
-                    <section>
-                        <h2>Liste des Categories</h2>
-
-                        <% if (categories && categories.length> 0) { %>
-                            <div class="categories-grid">
-                                <% categories.forEach((categorie)=> { %>
-                                    <div class="js-editable">
-                                        <form action="/admin/categories/<%= categorie.id %>/update" method="POST">
-
-                                            <p><strong>Nom :</strong>
-                                                <span class="view-mode">
-                                                    <%= categorie.name %>
-                                                </span>
-                                                <input class="edit-mode" type="text" name="name"
-                                                    value="<%= categorie.name %>" hidden>
-                                            </p>
-                                            <p><strong>Description :</strong>
-                                                <span class="view-mode">
-                                                    <%= categorie.description %>
-                                                </span>
-                                                <input class="edit-mode" type="text" name="description"
-                                                    value="<%= categorie.description %>" hidden>
-                                            </p>
-
-                                            <button type="button" class="btn--update" onclick="toggleEdit(this)">
-                                                Modifier
-                                            </button>
-                                            <button type="submit" class="btn--save" hidden>
-                                                Enregistrer
-                                            </button>
-                                        </form>
-
-                                        <form action="/admin/categories/<%= categorie.id %>/delete" method="POST"
-                                            onsubmit="return confirm('Suppprimer cet utilisateur ?');">
-                                            <button type="subit" class="btn-delete">Supprimer</button>
-                                        </form>
-
-                                    </div>
+                <%- include("partials/modal", {id: "createCategory" ,body: '<button>teste</button>' }) %>
 
 
-                                    <% }); %>
-                            </div>
-                            <% } else { %>
-                                <p>Liste des Categories indisponible 😢</p>
-                                <% } %>
-                    </section>
-                </main>
+                    <main>
+                        <section>
+                            <h2>Liste des Categories</h2>
+                            <button onclick="document.getElementById('createCategory').showModal();">ajouter</button>
 
-                <%- include("partials/footer") %>
+                            <% if (categories && categories.length> 0) { %>
+                                <div class="categories-grid">
+                                    <% categories.forEach((categorie)=> { %>
+                                        <div class="card--black">
+                                            <form action="/admin/categories/<%= categorie.id %>/update" method="POST">
+
+                                                <p><strong>Nom :</strong>
+                                                    <span class="view-mode">
+                                                        <%= categorie.name %>
+                                                    </span>
+                                                    <input class="edit-mode" type="text" name="name"
+                                                        value="<%= categorie.name %>" hidden>
+                                                </p>
+                                                <p><strong>Description :</strong>
+                                                    <span class="view-mode">
+                                                        <%= categorie.description %>
+                                                    </span>
+                                                    <input class="edit-mode" type="text" name="description"
+                                                        value="<%= categorie.description %>" hidden>
+                                                </p>
+
+                                                <button type="button" class="btn--update" onclick="toggleEdit(this)">
+                                                    Modifier
+                                                </button>
+                                                <button type="submit" class="btn--save" hidden>
+                                                    Enregistrer
+                                                </button>
+                                            </form>
+
+                                            <form action="/admin/categories/<%= categorie.id %>/delete" method="POST"
+                                                onsubmit="return confirm('Suppprimer cet utilisateur ?');">
+                                                <button type="subit" class="btn-delete">Supprimer</button>
+                                            </form>
+
+                                        </div>
+
+
+                                        <% }); %>
+                                </div>
+                                <% } else { %>
+                                    <p>Liste des Categories indisponible 😢</p>
+                                    <% } %>
+                        </section>
+                    </main>
+
+                    <%- include("partials/footer") %>
 </body>
 
 </html>

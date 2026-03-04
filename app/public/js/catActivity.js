@@ -1,8 +1,8 @@
-function redirectToCategory(id) {    
+function redirectToCategory(id) {
     if (id) {
         window.location.href = '/activites/categories/' + id;
     }
-    else {window.location.href = '/activites'}
+    else { window.location.href = '/activites' }
 }
 
 function redirectToCategoryAdmin(id) {    
