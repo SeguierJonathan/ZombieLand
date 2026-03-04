@@ -1,17 +1,16 @@
 import { Router } from 'express';
-import { createAccount, updateAccount, deleteAccount } from '../../controllers/users.controller.js';
+import { createAccount, updateAccount, deleteAccount, deleteUsers, updateUserRole } from '../../controllers/users.controller.js';
 import { validateAuthLogin, validateAuthRegister, validateUpdateAccount } from '../../middlewares/auth.middleware.js';
 import { login, logout } from '../../controllers/auth.controller.js';
-import { createBooking, updateBooking, deleteBooking } from '../../controllers/bookings.controller.js';
+import { createBooking, updateBooking, deleteBooking, AdminUpdateBooking, AdminDeleteBooking } from '../../controllers/bookings.controller.js';
 import { validateBooking } from '../../middlewares/bookings.middleware.js';
 import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
 import { deleteActivities, updateActivities } from '../../controllers/activities.controller.js';
-import { deleteUsers, updateUserRole} from '../../controllers/admin.users.controller.js';
-import { AdminDeleteBooking, AdminUpdateBooking } from '../../controllers/admin.controller.js';
+import { deleteCategoriesAdmin, updateCategoriesAdmin,  createCategoriesAdmin } from '../../controllers/categories.controller.js';
 import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/activities.middleware.js';
 import { deleteCategoriesAdmin, updateCategoriesAdmin, createCategoriesAdmin } from "../../controllers/categories.controller.js"
 import { validatePrice } from '../../middlewares/price.middleware.js'
-import { tarifsAdminUpdate } from '../../controllers/prices.controller.js';
+import { updatePricesAdmin } from '../../controllers/prices.controller.js';
 
 const router = Router();
 
@@ -46,6 +45,6 @@ router.post("/admin/categories/:id/delete", isAuth, isAllowed("admin"), validate
 router.post("/admin/categories/:id/update", isAuth, isAllowed("admin"), validateId, validateCategoriesUpdate, updateCategoriesAdmin);
 router.post("/admin/categories/create", isAuth, isAllowed("admin"), validateId, validateCategoriesCreation, createCategoriesAdmin);
 
-router.post("/admin/tarifs/:id/update", isAuth, isAllowed("admin"), validatePrice, tarifsAdminUpdate);
+router.post("/admin/tarifs/:id/update", isAuth, isAllowed("admin"), validatePrice, updatePricesAdmin);
 
 export default router;

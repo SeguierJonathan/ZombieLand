@@ -2,13 +2,13 @@ import { Tarif } from "../models/index.js"
 
 // ADMIN CONTROLLER // 
 
-export async function tarifsAdmin(req, res) {
+export async function getPricesAdmin(req, res) {
     const tarifId = req.params.id;
     const tarifs = await Tarif.findAll()
     res.render('admin-tarif', { tarifs, tarifId })
 }
 
-export async function tarifsAdminUpdate(req, res) {
+export async function updatePricesAdmin(req, res) {
     const [affectedCount] = await Tarif.update(
         req.body,
         {
