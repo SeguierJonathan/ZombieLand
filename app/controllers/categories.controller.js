@@ -1,20 +1,38 @@
-export async function deleteCategoriesAdmin(req, res) {
-    const categorieId = req.params.id;
-    const deteleCount = await Category.destroy({
-        where: {
-            id: categorieId,
-        }
-    });
+import Category from "../models/category.model.js";
+import { notify } from "../utils/common.js";
 
-    if (deteleCount === 0) {
-        notify.error(res, "Une erreur est survenue lors de la suppression de la categorie");
+export async function createCategoriesAdmin(req, res) {
+
+    const { name } = req.body;
+
+    const categorie = await Category.findOne({
+        where: { name: name }
+    })
+
+    if (categorie) {
+        notify.error(res, "nom de categories déjà existant");
         notify.redirect(res);
         res.redirect('/menu-administrateur/categories');
     }
 
-    notify.success(res, "Categorie supprimé");
+    const createdCategorie = Category.create(req.body);
+
+    if (!createdCategorie) {
+        notify.error(res, "Une erreur est survenue lors de l'ajout de la categorie");
+        notify.redirect(res);
+        res.redirect('/menu-administrateur/categories');
+    }
+
+    notify.success(res, "Categorie ajouter");
     notify.redirect(res);
     res.redirect('/menu-administrateur/categories');
+}
+
+export async function getAllCategoriesAdmin(req, res) {
+
+    const categories = await Category.findAll();
+    res.render("admin-categories", { categories });
+
 }
 
 export async function updateCategoriesAdmin(req, res) {
@@ -38,32 +56,21 @@ export async function updateCategoriesAdmin(req, res) {
     res.redirect('/menu-administrateur/categories');
 }
 
-export async function createCategoriesAdmin(req, res) {
+export async function deleteCategoriesAdmin(req, res) {
+    const categorieId = req.params.id;
+    const deteleCount = await Category.destroy({
+        where: {
+            id: categorieId,
+        }
+    });
 
-    const { name } = req.body;
-
-    const categorie = await Category.findOne({
-        where: { name: name }
-    })
-
-    if (categorie) {
-        notify.error(res, "nom de categories déjà existant");
+    if (deteleCount === 0) {
+        notify.error(res, "Une erreur est survenue lors de la suppression de la categorie");
         notify.redirect(res);
         res.redirect('/menu-administrateur/categories');
     }
 
-    const createdCategorie = Category.create(req.body);
-
-    console.log(createdCategorie);
-
-
-    if (!createdCategorie) {
-        notify.error(res, "Une erreur est survenue lors de l'ajout de la categorie");
-        notify.redirect(res);
-        res.redirect('/menu-administrateur/categories');
-    }
-
-    notify.success(res, "Categorie ajouter");
+    notify.success(res, "Categorie supprimé");
     notify.redirect(res);
     res.redirect('/menu-administrateur/categories');
 }
