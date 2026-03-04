@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage, getAllUsers } from '../../controllers/users.controller.js';
-import { getAll, getAllByCategory, renderActivityDetail, getAllAdmin, renderActivityDetailAdmin, getAllActivitiesByCategory, newActivityAdmin } from '../../controllers/activities.controller.js'
+import { getAll, getAllByCategory, renderActivityDetail, getAllAdmin, renderActivityDetailAdmin, getAllActivitiesByCategory, newActivityPage } from '../../controllers/activities.controller.js'
 import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, adminMenuPage, planPage } from '../../controllers/pages.controller.js';
 import { bookingPage, getMesReservations, getAllBookings, } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
@@ -43,6 +43,8 @@ router.get('/activites/categories/:id', getAllByCategory);
 router.get('/menu-administrateur/utilisateurs', isAuth, isAllowed('admin'), getAllUsers);
 //Page activités pour l'admin uniquement
 router.get('/menu-administrateur/activites', isAuth, isAllowed("admin"), getAllAdmin);
+// Page création d'une activité pour l'admin uniquement
+router.get("/menu-administrateur/activites/nouvelle", isAuth, isAllowed('admin'), newActivityPage)
 //Page menu administrateur pour l'admin uniquement
 router.get('/menu-administrateur', isAuth, isAllowed("admin"), adminMenuPage);
 //Affichage de toutes les réservations des utilisateurs
@@ -53,8 +55,6 @@ router.get('/menu-administrateur/activites/:id', isAuth, isAllowed("admin"), val
 router.get('/menu-administrateur/activites/categories/:id', isAuth, isAllowed("admin"),validateId, getAllActivitiesByCategory)
 //Page Tarifs pour l'admin uniquement
 router.get('/menu-administrateur/tarifs', isAuth, isAllowed('admin'), getPricesAdmin );
-// Page création d'une activité pour l'admin uniquement
-router.get("/menu-administrateur/activites/nouvelle", isAuth, isAllowed('admin'), newActivityAdmin)
 //Page Categories pour l'admin uniquement
 router.get('/menu-administrateur/categories', isAuth, isAllowed('admin'), (req,res) => {});
 

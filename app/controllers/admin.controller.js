@@ -1,5 +1,4 @@
-import { Booking, User, Category, Activity } from "../models/index.js";
-import { notify } from "../utils/common.js";
+import {Category, Activity } from "../models/index.js";
 
 
 
@@ -12,15 +11,3 @@ export async function getAllCategories(req, res) {
     })
     return res.render('admin-activities', { activities, categories, categoryId })
 }
-
-
-
-
-
-
-
-
-
-
-
-
