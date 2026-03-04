@@ -6,14 +6,9 @@ import { createBooking, updateBooking, deleteBooking } from '../../controllers/b
 import { validateBooking } from '../../middlewares/bookings.middleware.js';
 import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
 import { deleteActivities, updateActivities } from '../../controllers/admin.activities.controller.js';
-<<<<<<< HEAD
-import { deleteUsers, updateUserRole } from '../../controllers/admin.users.controller.js';
-import { AdminDeleteBooking, deleteCategories, AdminUpdateBooking, tarifsAdminUpdate } from '../../controllers/admin.controller.js';
-=======
-import { deleteUsers } from '../../controllers/admin.users.controller.js';
+import { deleteUsers, updateUserRole} from '../../controllers/admin.users.controller.js';
 import { AdminDeleteBooking, deleteCategoriesAdmin, updateCategoriesAdmin, AdminUpdateBooking, createCategoriesAdmin, tarifsAdminUpdate } from '../../controllers/admin.controller.js';
 import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/activities.middleware.js';
->>>>>>> 6f1c8c8ad851bf5064c9ef3698531f893b9d423d
 import { validatePrice } from '../../middlewares/price.middleware.js'
 
 
