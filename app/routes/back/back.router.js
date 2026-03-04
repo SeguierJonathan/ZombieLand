@@ -7,7 +7,8 @@ import { validateBooking } from '../../middlewares/bookings.middleware.js';
 import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
 import { deleteActivities, updateActivities } from '../../controllers/admin.activities.controller.js';
 import { deleteUsers } from '../../controllers/admin.users.controller.js';
-import { AdminDeleteBooking, deleteCategories, AdminUpdateBooking } from '../../controllers/admin.controller.js';
+import { AdminDeleteBooking, deleteCategoriesAdmin, updateCategoriesAdmin, AdminUpdateBooking, createCategoriesAdmin } from '../../controllers/admin.controller.js';
+import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/activities.middleware.js';
 
 
 
@@ -37,6 +38,8 @@ router.post("/admin/bookings/:id/delete", isAuth, isAllowed("admin"), validateId
 router.post("/admin/bookings/:id/update", isAuth, isAllowed("admin"), validateId, validateBooking, AdminUpdateBooking);
 
 
-router.post("/admin/categories/:id/delete", isAuth, isAllowed("admin"), validateId, deleteCategories);
+router.post("/admin/categories/:id/delete", isAuth, isAllowed("admin"), validateId, deleteCategoriesAdmin);
+router.post("/admin/categories/:id/update", isAuth, isAllowed("admin"), validateId, validateCategoriesUpdate, updateCategoriesAdmin);
+router.post("/admin/categories/create", isAuth, isAllowed("admin"), validateId, validateCategoriesCreation, createCategoriesAdmin);
 
 export default router;

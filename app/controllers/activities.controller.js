@@ -12,5 +12,5 @@ export async function getAllByCategory(req, res) {
     const activities = await Activity.findAll({
         where: { categoryId: categoryId }
     })
-    return res.render('activities', { activities, categories })
+    return res.render('activities', { activities, categories, categoryId })
 }
