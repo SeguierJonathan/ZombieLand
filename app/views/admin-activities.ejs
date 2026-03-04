@@ -46,8 +46,8 @@
 
                                 <a href="/menu-administrateur/activites/<%= activity.id %>" class="button">Voir
                                     détails</a>
-                                <form action="/menu-administrateur/activites/<%= activity.id %>/delete" method="post">
-                                    <button type="submit">
+                                <form action="/admin/activities/<%= activity.id %>/delete" method="post">
+                                    <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cette activité ?')">
                                         Supprimer l'activité
                                     </button>
                                 </form>
