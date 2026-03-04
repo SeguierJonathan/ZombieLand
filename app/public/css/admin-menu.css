@@ -10,18 +10,7 @@ section {
     gap: 2rem;
 }
 
-.menu-list a {
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    padding: 4rem 2rem;
-    font-size: 2rem;
-    font-weight: bold;
 
-}
-
-.menu-list a:hover {
-    border: 2px solid var(--color-cream);
-}
 
 
 @media (min-width: 481px) {

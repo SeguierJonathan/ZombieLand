@@ -51,11 +51,12 @@ router.get('/menu-administrateur', isAuth, isAllowed("admin"), adminMenuPage);
 //Affichage de toutes les réservations des utilisateurs
 router.get('/menu-administrateur/reservations', isAuth, isAllowed('admin'), getAllBookings);
 // Détail d'une activité en tant qu'administrateur 
-router.get('/menu-administrateur/activites/:id', isAuth, isAllowed("admin"), validateId, renderActivityDetailAdmin );
+router.get('/menu-administrateur/activites/:id', isAuth, isAllowed("admin"), validateId, renderActivityDetailAdmin);
 //Page categories pour l'admin uniquement
-router.get('/menu-administrateur/activites/categories/:id', isAuth, isAllowed("admin"),validateId, getAllCategories)
+router.get('/menu-administrateur/activites/categories/:id', isAuth, isAllowed("admin"), validateId, getAllCategories)
 //Page Tarifs pour l'admin uniquement
-router.get('/menu-administrateur/tarifs', isAuth, isAllowed('admin'), tarifsAdmin );
-
+router.get('/menu-administrateur/tarifs', isAuth, isAllowed('admin'), tarifsAdmin);
+//Page Categories pour l'admin uniquement
+router.get('/menu-administrateur/categories', isAuth, isAllowed('admin'), getAllCategories);
 
 export default router;

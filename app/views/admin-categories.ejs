@@ -7,6 +7,7 @@
         <title>Zombieland - Utilisateurs</title>
         <link rel="stylesheet" href="/css/admin-categories.css" />
         <script defer src="/js/common.js"></script>
+        <script defer src="/js/modal.js"></script>
 
 </head>
 
@@ -15,13 +16,12 @@
         <%- include("partials/menu-slide") %>
             <%- include("partials/notifications") %>
 
-                <%- include("partials/modal", {id: "createCategory" ,body: '<button>teste</button>' }) %>
-
+                <%- include("partials/modal", {id: "createCategory" ,body: 'partials/modalTemplate/categories' }) %>
 
                     <main>
                         <section>
                             <h2>Liste des Categories</h2>
-                            <button onclick="document.getElementById('createCategory').showModal();">ajouter</button>
+                            <button onclick="modal.open('createCategory')">ajouter</button>
 
                             <% if (categories && categories.length> 0) { %>
                                 <div class="categories-grid">
