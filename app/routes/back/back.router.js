@@ -7,9 +7,9 @@ import { validateBooking } from '../../middlewares/bookings.middleware.js';
 import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
 import { deleteActivities, updateActivities } from '../../controllers/admin.activities.controller.js';
 import { deleteUsers } from '../../controllers/admin.users.controller.js';
-import { AdminDeleteBooking, deleteCategoriesAdmin, updateCategoriesAdmin, AdminUpdateBooking, createCategoriesAdmin } from '../../controllers/admin.controller.js';
+import { AdminDeleteBooking, deleteCategoriesAdmin, updateCategoriesAdmin, AdminUpdateBooking, createCategoriesAdmin, tarifsAdminUpdate } from '../../controllers/admin.controller.js';
 import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/activities.middleware.js';
-
+import { validatePrice } from '../../middlewares/price.middleware.js'
 
 
 const router = Router();
@@ -33,7 +33,9 @@ router.post('/auth/logout', isAuth, logout);
 
 router.post('/menu-administrateur/activites/:id/delete', isAuth, isAllowed("admin"), validateId, deleteActivities)
 router.post('/menu-administrateur/activites/:id/update', isAuth, isAllowed("admin"), validateId, updateActivities)
+
 router.post("/admin/users/delete/:id", isAuth, isAllowed("admin"), validateId, deleteUsers);
+
 router.post("/admin/bookings/:id/delete", isAuth, isAllowed("admin"), validateId, AdminDeleteBooking);
 router.post("/admin/bookings/:id/update", isAuth, isAllowed("admin"), validateId, validateBooking, AdminUpdateBooking);
 
@@ -41,5 +43,7 @@ router.post("/admin/bookings/:id/update", isAuth, isAllowed("admin"), validateId
 router.post("/admin/categories/:id/delete", isAuth, isAllowed("admin"), validateId, deleteCategoriesAdmin);
 router.post("/admin/categories/:id/update", isAuth, isAllowed("admin"), validateId, validateCategoriesUpdate, updateCategoriesAdmin);
 router.post("/admin/categories/create", isAuth, isAllowed("admin"), validateId, validateCategoriesCreation, createCategoriesAdmin);
+
+router.post("/admin/tarifs/:id/update", isAuth, isAllowed("admin"), validatePrice, tarifsAdminUpdate);
 
 export default router;

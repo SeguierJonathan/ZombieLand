@@ -1,4 +1,4 @@
-import { Booking, User, Category } from "../models/index.js";
+import { Booking, User, Category, Tarif } from "../models/index.js";
 import { notify } from "../utils/common.js";
 
 export async function getAllBookings(req, res) {
@@ -131,3 +131,26 @@ export async function AdminUpdateBooking(req, res) {
     notify.redirect(res);
     return res.redirect('/menu-administrateur/reservations');
 };
+
+export async function tarifsAdmin(req, res) {
+    const tarifs = await Tarif.findAll()
+    res.render('admin-tarif', { tarifs })
+}
+
+
+export async function tarifsAdminUpdate(req, res) {
+    const [affectedCount] = await Tarif.update(
+        req.body,
+        {
+            where: { id: req.params.id },
+        });
+
+    if (affectedCount === 0) {
+        notify.error(res, "Erreur lors de la mise à jour des informations.");
+        notify.redirect(res);
+        return res.redirect('/menu-administrateur/tarifs')
+    }
+    notify.success(res, "Mise à jour des informations effectuée.");
+    notify.redirect(res);
+    return res.redirect('/menu-administrateur/tarifs');
+}

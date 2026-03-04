@@ -6,6 +6,8 @@
 
         <title>Zombieland</title>
         <link rel="stylesheet" href="/css/activity.css">
+        <script defer src="/js/catActivity.js"></script>
+
 </head>
 
 <body>
@@ -16,6 +18,21 @@
 
                     <h2>Liste des activités</h2>
 
+                    <form id="categoryForm">
+
+                        <select id="categorySelect" onchange="redirectToCategoryAdmin(this.value)">
+
+                            <option value="">--Veuillez choisir une catégorie--</option>
+
+                            <% categories.forEach(category=> { %>
+                                <option value="<%= category.id %>">
+                                    <%= category.name %>
+                                </option>
+                                <% }) %>
+
+                        </select>
+                    </form>
+
                     <section>
                         <% activities.forEach(activity=> { %>
                             <article>
@@ -24,7 +41,8 @@
                                 </h3>
                                 <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
 
-                                <a href="/menu-administrateur/activites/<%= activity.id %>" class="button">Voir détails</a>
+                                <a href="/menu-administrateur/activites/<%= activity.id %>" class="button">Voir
+                                    détails</a>
                                 <form action="/menu-administrateur/activites/<%= activity.id %>/delete" method="post">
                                     <button type="submit">
                                         Supprimer l'activité
