@@ -18,14 +18,17 @@
 
                     <h2>Liste des activités</h2>
 
-                    <form id="categoryForm">
+                    <button>Créer une nouvelle attraction</button>
 
-                        <select id="categorySelect" onchange="redirectToCategoryAdmin(this.value)">
+                    <form id="categoryFormAdmin">
 
-                            <option value="">--Veuillez choisir une catégorie--</option>
+                        <select id="categorySelectAdmin" onchange="redirectToCategoryAdmin(this.value)">
+
+                            <option value="">--Toutes les catégories--</option>
 
                             <% categories.forEach(category=> { %>
-                                <option value="<%= category.id %>">
+                                <option value="<%= category.id %>" <%=(typeof categoryId !=='undefined' &&
+                                    categoryId==category.id) ? 'selected' : '' %> >
                                     <%= category.name %>
                                 </option>
                                 <% }) %>

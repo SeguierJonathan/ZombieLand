@@ -1,4 +1,4 @@
-import { Booking, User, Category, Tarif } from "../models/index.js";
+import { Booking, User, Category, Tarif, Activity } from "../models/index.js";
 import { notify } from "../utils/common.js";
 
 export async function getAllBookings(req, res) {
@@ -32,9 +32,12 @@ export async function AdminDeleteBooking(req, res) {
 
 export async function getAllCategories(req, res) {
 
-    const categories = await Category.findAll();
-
-    res.render("admin-categories", { categories });
+    const categoryId = req.params.id;
+    const categories = await Category.findAll({ attributes: ["id", "name"] });
+    const activities = await Activity.findAll({
+        where: { categoryId: categoryId }
+    })
+    return res.render('admin-activities', { activities, categories, categoryId })
 }
 
 export async function deleteCategoriesAdmin(req, res) {
