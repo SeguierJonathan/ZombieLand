@@ -6,9 +6,14 @@ import { createBooking, updateBooking, deleteBooking } from '../../controllers/b
 import { validateBooking } from '../../middlewares/bookings.middleware.js';
 import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
 import { deleteActivities, updateActivities } from '../../controllers/admin.activities.controller.js';
+<<<<<<< HEAD
+import { deleteUsers, updateUserRole } from '../../controllers/admin.users.controller.js';
+import { AdminDeleteBooking, deleteCategories, AdminUpdateBooking, tarifsAdminUpdate } from '../../controllers/admin.controller.js';
+=======
 import { deleteUsers } from '../../controllers/admin.users.controller.js';
 import { AdminDeleteBooking, deleteCategoriesAdmin, updateCategoriesAdmin, AdminUpdateBooking, createCategoriesAdmin, tarifsAdminUpdate } from '../../controllers/admin.controller.js';
 import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/activities.middleware.js';
+>>>>>>> 6f1c8c8ad851bf5064c9ef3698531f893b9d423d
 import { validatePrice } from '../../middlewares/price.middleware.js'
 
 
@@ -35,6 +40,7 @@ router.post('/menu-administrateur/activites/:id/delete', isAuth, isAllowed("admi
 router.post('/menu-administrateur/activites/:id/update', isAuth, isAllowed("admin"), validateId, updateActivities)
 
 router.post("/admin/users/delete/:id", isAuth, isAllowed("admin"), validateId, deleteUsers);
+router.post("/admin/users/role/:id", isAuth, isAllowed("admin"), validateId, updateUserRole);
 
 router.post("/admin/bookings/:id/delete", isAuth, isAllowed("admin"), validateId, AdminDeleteBooking);
 router.post("/admin/bookings/:id/update", isAuth, isAllowed("admin"), validateId, validateBooking, AdminUpdateBooking);
