@@ -27,7 +27,7 @@
                             <% if (categories && categories.length> 0) { %>
                                 <div class="categories-grid">
                                     <% categories.forEach((categorie)=> { %>
-                                        <div class="card--black">
+                                        <div class="card--black js-editable">
                                             <form action="/admin/categories/<%= categorie.id %>/update" method="POST">
 
                                                 <p><strong>Nom :</strong>
@@ -41,8 +41,8 @@
                                                     <span class="view-mode">
                                                         <%= categorie.description %>
                                                     </span>
-                                                    <input class="edit-mode" type="text" name="description"
-                                                        value="<%= categorie.description %>" hidden>
+                                                    <textarea class="edit-mode" name="description"
+                                                        value="<%= categorie.description %>" hidden></textarea>
                                                 </p>
 
                                                 <button type="button" class="btn--update" onclick="toggleEdit(this)">
