@@ -8,7 +8,6 @@ import { isAllowed, isAuth, validateId } from '../../middlewares/common.middlewa
 import { deleteActivities, updateActivities } from '../../controllers/activities.controller.js';
 import { deleteCategoriesAdmin, updateCategoriesAdmin,  createCategoriesAdmin } from '../../controllers/categories.controller.js';
 import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/activities.middleware.js';
-import { deleteCategoriesAdmin, updateCategoriesAdmin, createCategoriesAdmin } from "../../controllers/categories.controller.js"
 import { validatePrice } from '../../middlewares/price.middleware.js'
 import { updatePricesAdmin } from '../../controllers/prices.controller.js';
 

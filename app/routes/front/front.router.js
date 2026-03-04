@@ -2,10 +2,8 @@ import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage, getAllUsers } from '../../controllers/users.controller.js';
 import { getAll, getAllByCategory, renderActivityDetail, getAllAdmin, renderActivityDetailAdmin, getAllActivitiesByCategory, newActivityAdmin } from '../../controllers/activities.controller.js'
 import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, adminMenuPage, planPage } from '../../controllers/pages.controller.js';
-import { renderActivityDetail } from '../../controllers/activity.controller.js';
 import { bookingPage, getMesReservations, getAllBookings, } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
-import { getAllAdmin, renderActivityDetailAdmin } from '../../controllers/admin.activities.controller.js';
 import { getPricesAdmin } from '../../controllers/prices.controller.js';
 
 
@@ -58,7 +56,7 @@ router.get('/menu-administrateur/tarifs', isAuth, isAllowed('admin'), getPricesA
 // Page création d'une activité pour l'admin uniquement
 router.get("/menu-administrateur/activites/nouvelle", isAuth, isAllowed('admin'), newActivityAdmin)
 //Page Categories pour l'admin uniquement
-router.get('/menu-administrateur/categories', isAuth, isAllowed('admin'), getAllCategories);
+router.get('/menu-administrateur/categories', isAuth, isAllowed('admin'), (req,res) => {});
 
 
 export default router;
