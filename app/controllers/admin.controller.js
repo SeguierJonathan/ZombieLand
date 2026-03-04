@@ -1,4 +1,4 @@
-import { Booking, User, Category, Tarif, Activity } from "../models/index.js";
+import { Booking, User, Category, Activity } from "../models/index.js";
 import { notify } from "../utils/common.js";
 
 export async function getAllBookings(req, res) {
@@ -30,75 +30,17 @@ export async function AdminDeleteBooking(req, res) {
     res.redirect('/menu-administrateur/reservations');
 };
 
-export async function deleteCategoriesAdmin(req, res) {
-    const categorieId = req.params.id;
-    const deteleCount = await Category.destroy({
-        where: {
-            id: categorieId,
-        }
-    });
+export async function getAllCategories(req, res) {
 
-    if (deteleCount === 0) {
-        notify.error(res, "Une erreur est survenue lors de la suppression de la categorie");
-        notify.redirect(res);
-        res.redirect('/menu-administrateur/categories');
-    }
-
-    notify.success(res, "Categorie supprimé");
-    notify.redirect(res);
-    res.redirect('/menu-administrateur/categories');
-}
-
-export async function updateCategoriesAdmin(req, res) {
-
-    const categorieId = req.params.id;
-
-    const [affectedCount] = await Category.update(req.body, {
-        where: {
-            id: categorieId,
-        }
-    });
-
-    if (affectedCount === 0) {
-        notify.error(res, "Une erreur est survenue lors de la modification de la categorie");
-        notify.redirect(res);
-        res.redirect('/menu-administrateur/categories');
-    }
-
-    notify.success(res, "Categorie modifier");
-    notify.redirect(res);
-    res.redirect('/menu-administrateur/categories');
-}
-
-export async function createCategoriesAdmin(req, res) {
-
-    const { name } = req.body;
-
-    const categorie = await Category.findOne({
-        where: { name: name }
+    const categoryId = req.params.id;
+    const categories = await Category.findAll({ attributes: ["id", "name"] });
+    const activities = await Activity.findAll({
+        where: { categoryId: categoryId }
     })
-
-    if (categorie) {
-        notify.error(res, "nom de categories déjà existant");
-        notify.redirect(res);
-        res.redirect('/menu-administrateur/categories');
-    }
-
-    const createdCategorie = Category.create(req.body);
-
-    console.log(createdCategorie);
-
-
-    if (!createdCategorie) {
-        notify.error(res, "Une erreur est survenue lors de l'ajout de la categorie");
-        notify.redirect(res);
-        res.redirect('/menu-administrateur/categories');
-    }
-
-    notify.success(res, "Categorie ajouter");
-    notify.redirect(res);
-    res.redirect('/menu-administrateur/categories');
+    return res.render('admin-activities', { activities, categories, categoryId })
 }
+
+
 
 
 
