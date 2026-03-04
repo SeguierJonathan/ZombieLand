@@ -122,7 +122,8 @@ dialog {
     transform: translate(-50%, -50%);
     border: none;
     border-radius: 8px;
-    padding: 0;
+    padding: 2rem;
+    background-color: var(--color-brown);
 
 }
 
@@ -130,9 +131,28 @@ dialog::backdrop {
     background: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content {
-    padding: 2rem;
+section.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
     min-width: 300px;
+    margin: 0;
+}
+
+section.modal-content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+
+}
+
+section.modal-content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
 /* Notifications */
@@ -185,10 +205,10 @@ dialog::backdrop {
 }
 
 .card-actions {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  margin-top: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 1rem;
 }
 
 /* Animation */

@@ -16,7 +16,8 @@
         <%- include("partials/menu-slide") %>
             <%- include("partials/notifications") %>
 
-                <%- include("partials/modal", {id: "createCategory" ,body: 'partials/modalTemplate/categories' }) %>
+                <%- include("partials/modal", { id: "createCategory" , body: include("partials/modalTemplate/categorie")
+                    }) %>
 
                     <main>
                         <section>
@@ -53,7 +54,7 @@
                                             </form>
 
                                             <form action="/admin/categories/<%= categorie.id %>/delete" method="POST"
-                                                onsubmit="return confirm('Suppprimer cet utilisateur ?');">
+                                                onsubmit="return confirm('Suppprimer cet categories ?');">
                                                 <button type="subit" class="btn-delete">Supprimer</button>
                                             </form>
 
