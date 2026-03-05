@@ -106,7 +106,7 @@ export async function getAllUsers(req, res) {
     attributes: ["id", "firstName", "lastName", "email", "roleId"],
     include: {
       model: Role,
-      as: "role", // ⚠️ IMPORTANT (doit matcher l'association)
+      as: "role", 
       attributes: ["id", "name"]
     }
   });
@@ -155,3 +155,4 @@ export async function updateUserRole(req, res) {
   notify.redirect(res);
   return res.redirect('/menu-administrateur/utilisateurs');
 }
+

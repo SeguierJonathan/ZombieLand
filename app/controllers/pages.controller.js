@@ -1,4 +1,4 @@
-import { Activity } from "../models/index.js";
+import { Activity, Tarif } from "../models/index.js";
 
 export async function homePage(req, res) {
   const activities = await Activity.findAll({
@@ -31,7 +31,9 @@ export async function informationsPage(req, res) {
       vent: Math.round(data.wind.speed * 3.6)
     };
 
-    res.render("information", { meteo });
+    const tarif = await Tarif.findOne();
+
+    res.render("information", { meteo, tarif });
   } catch (error) {
     console.error("Erreur météo :", error.message);
     res.render("information", { meteo: null });
