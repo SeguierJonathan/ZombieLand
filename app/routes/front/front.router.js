@@ -1,10 +1,6 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage, getAllUsers } from '../../controllers/users.controller.js';
-<<<<<<< HEAD
 import { getAll, getAllByCategory, renderActivityDetail, getAllAdmin, renderActivityDetailAdmin, getAllActivitiesByCategory, newActivityPage, newActivityAdmin} from '../../controllers/activities.controller.js'
-=======
-import { getAll, getAllByCategory, renderActivityDetail, getAllAdmin, renderActivityDetailAdmin, getAllActivitiesByCategory, newActivityPage } from '../../controllers/activities.controller.js'
->>>>>>> 96e8c7b8e85a6faebe8708b5dda7d9a4d469a971
 import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, adminMenuPage, planPage } from '../../controllers/pages.controller.js';
 import { bookingPage, getMesReservations, getAllBookings, } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
