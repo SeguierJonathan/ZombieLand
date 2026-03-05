@@ -5,6 +5,7 @@
   <title>Zombieland - Réservations</title>
   <link rel="stylesheet" href="/css/admin-booking.css">
   <script defer src="/js/common.js"></script>
+
 </head>
 <body>
   <%- include('partials/header') %>
@@ -17,7 +18,7 @@
     <% if (reservations && reservations.length > 0) { %>
       <div class="reservations-grid">
         <% reservations.forEach(reservation => { %>
-          <div class="card--black">
+          <div class="card--black js-editable">
 
             <form action="/admin/bookings/<%= reservation.id %>/update" method="POST">
               <p><strong>Référence :</strong> <%= reservation.id %></p>
@@ -50,15 +51,15 @@
               <div class="card-actions">
                 <button type="button" class="btn--update" onclick="toggleEdit(this)">Modifier</button>
                 <button type="submit" class="btn--save" hidden>Enregistrer</button>
+                </div>
+                </form>
+                
                 <form action="/admin/bookings/<%= reservation.id %>/delete"
                   method="POST"
                   onsubmit="return confirm('Supprimer cette réservation ?');">
                   <button type="submit" class="btn-delete">Supprimer</button>
                 </form>
               </div>
-            </form>
-
-          </div>
         <% }) %>
       </div>
     <% } else { %>

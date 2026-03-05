@@ -1,16 +1,18 @@
-import Booking from "../models/booking.model.js";
+import {Booking, User, Tarif} from "../models/index.js";
 import { notify } from "../utils/common.js";
 
 export async function bookingPage(req, res) {
-  res.render("booking");
+  const tarif = await Tarif.findOne();
+  res.render("booking", { tarif });
 };
 
 // Controllers pour USER
 
 export async function createBooking(req, res) {
   const { date, nombre_de_personne } = req.body;
+  const tarif = await Tarif.findOne();
   const nb = Number(nombre_de_personne);
-  const prix_total = nb * 30;
+  const prix_total = nb * tarif.price;
 
   const booking = await Booking.create({
     date,
@@ -19,9 +21,14 @@ export async function createBooking(req, res) {
     userId: req.session.user.id
   });
 
-  //!\\ ici booking n'est pas controler meme si create n'a pas reussi.
-
-  res.redirect("/mes-reservations");
+  if (booking === 0) {
+      notify.error(res, "Erreur lors de la création de votre réservation.");
+      notify.redirect(res);
+      return res.redirect('/reservation')
+  }
+    notify.success(res, "Création de votre réservation effectuée.");
+    notify.redirect(res);
+    return res.redirect('/mes-reservations');
 };
 
 export async function getMesReservations(req, res) {
@@ -37,9 +44,10 @@ export async function getMesReservations(req, res) {
 
 export async function updateBooking(req, res) {
   const bookingId = req.params.id;
+  const tarif = await Tarif.findOne();
   const { date, nombre_de_personne } = req.body;
   const nb = Number(nombre_de_personne);
-  const prix_total = nb * 30;
+  const prix_total = nb * tarif.price;
 
   const [affectedCount] = await Booking.update(
     { date, nombre_de_personne: nb, prix_total },
@@ -113,15 +121,21 @@ export async function AdminDeleteBooking(req, res) {
 };
 
 export async function AdminUpdateBooking(req, res) {
-    const { date, nombre_de_personne } = req.body;
-    const nb = Number(nombre_de_personne);
-    const prix_total = nb * 30;
-    const [affectedCount] = await Booking.update(
-        { date, nombre_de_personne: nb, prix_total },
-        {
-            where: { id: req.params.id },
-            returning: true
-        }
+  const bookingId = req.params.id;
+  const tarif = await Tarif.findOne();
+  const { date, nombre_de_personne } = req.body;
+  const nb = Number(nombre_de_personne);
+  const prix_total = nb * tarif.price;
+
+  const [affectedCount] = await Booking.update(
+    { date, nombre_de_personne: nb, prix_total },
+    {
+      where: {
+        id: bookingId,
+        userId: req.session.user.id
+      },
+      returning: true
+    }
     );
 
     if (affectedCount === 0) {

@@ -1,4 +1,6 @@
 import Joi from "joi";
+import { notify } from "../utils/common.js";
+
 
 // Même schema pour créer ou modifier une réservation
 export function validateBooking(req, res, next) {
@@ -11,8 +13,9 @@ export function validateBooking(req, res, next) {
     const validation = bookingSchema.validate(req.body);
 
     if (validation.error) {
-        //!\\ revoir le retour en cas de mauvais données
-        return res.status(400).send(validation.error.details[0].message);
+        notify.error(res, "Format de date incorrect");
+        notify.redirect(res);
+        return res.redirect("/mes-reservations");        
     }
     next();
 
