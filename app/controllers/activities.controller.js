@@ -44,57 +44,34 @@ export async function getAllAdmin(req, res) {
     return res.render('admin-activities', { activities, categories });
 }
 
-export async function deleteActivities(req, res) {
-    const result = await Activity.destroy({
-        where: {
-            id: req.params.id
-        }
+export async function getAllActivitiesByCategory(req, res) {
+
+    const categoryId = req.params.id;
+    const categories = await Category.findAll({ attributes: ["id", "name"] });
+    const activities = await Activity.findAll({
+        where: { categoryId: categoryId }
     });
-    if (result === 0) {
-        notify.error(res, "Une erreur est survenue lors de la suppression de l'activité");
-        notify.redirect(res);
-        res.redirect("/menu-administrateur/activites");
-    }
-    notify.success(res, "Suppression de l'activité réussie");
-    notify.redirect(res);
-    res.redirect("/menu-administrateur/activites");
+    return res.render('admin-activities', { activities, categories, categoryId });
 }
 
 export async function renderActivityDetailAdmin(req, res) {
 
     const activityId = req.params.id;
 
+    const categories = await Category.findAll({ attributes: ["id", "name"] });
     const activity = await Activity.findByPk(activityId, {
-        include: [{ model: Category, as: 'category', attributes: ["name"] }]
-    })
+        include: [{ model: Category, as: 'category', attributes: ["id", "name"] }]
+    });
     if (!activity) {
         return res.status(404).render('404');
     }
-    res.render("admin-activity", { activity })
+    res.render("admin-activity", { activity, categories });
 }
 
-export async function updateActivities(req, res) {
-    const { name, image, minHeightCM, horrorLevel, durationSeconds, description } = req.params;
-    const [affectedCount] = await Activity.update(
-        { name, image, minHeightCM, horrorLevel, durationSeconds, description },
-        {
-            where: { id: req.params.id },
-            returning: true
-        }
-    );
-
-    if (affectedCount === 0) {
-        notify.error(res, "Erreur lors de la mise à jour des informations.");
-        // utiliser pour garder les notification apres un redirect
-        notify.redirect(res);
-        return res.redirect('/menu-administrateur/activites/' + req.params.id)
-    }
-
-    notify.success(res, "Mise à jour des informations effectuée.");
-    // utiliser pour garder les notification apres un redirect
-    notify.redirect(res);
-    res.redirect('/menu-administrateur/activites/' + req.params.id);
-};
+export async function newActivityPage(req, res) {
+    const categories = await Category.findAll();
+    res.render("admin-activity-new", {categories});
+}
 
 export async function newActivityAdmin(req, res) {
     const { name } = req.body;
@@ -114,20 +91,78 @@ export async function newActivityAdmin(req, res) {
     if (!createdActivity) {
         notify.error(res, "Une erreur est survenue lors de l'ajout de l'activité");
         notify.redirect(res);
-        res.redirect('/menu-administrateur/activites/nouvelle');
+        res.redirect('/menu-administrateur/activites');
     }
 
     notify.success(res, "Activité ajoutée");
     notify.redirect(res);
-    res.redirect('/menu-administrateur/activites/nouvelle');
+    res.redirect('/menu-administrateur/activites');
 }
 
-export async function getAllActivitiesByCategory(req, res) {
+export async function newActivityPage(req, res) {
+    const categories = await Category.findAll();
+    res.render("admin-activity-new", { categories });
+}
 
-    const categoryId = req.params.id;
-    const categories = await Category.findAll({ attributes: ["id", "name"] });
-    const activities = await Activity.findAll({
-        where: { categoryId: categoryId }
-    })
-    return res.render('admin-activities', { activities, categories, categoryId })
+export async function deleteActivities(req, res) {
+    const result = await Activity.destroy({
+        where: {
+            id: req.params.id
+        }
+    });
+    if (result === 0) {
+        notify.error(res, "Une erreur est survenue lors de la suppression de l'activité");
+        notify.redirect(res);
+        res.redirect("/menu-administrateur/activites");
+    }
+
+    const createdActivity = Activity.create(req.body);
+
+    if (!createdActivity) {
+        notify.error(res, "Une erreur est survenue lors de l'ajout de l'activité");
+        notify.redirect(res);
+        res.redirect('/menu-administrateur/activites');
+    }
+
+    notify.success(res, "Activité ajoutée");
+    notify.redirect(res);
+    res.redirect('/menu-administrateur/activites');
+}
+
+export async function updateActivities(req, res) {
+    const [affectedCount] = await Activity.update(
+        req.body,
+        {
+            where: { id: req.params.id },
+        }
+    );
+
+    if (affectedCount === 0) {
+        notify.error(res, "Erreur lors de la mise à jour des informations.");
+        // utiliser pour garder les notification apres un redirect
+        notify.redirect(res);
+        return res.redirect('/menu-administrateur/activites/' + req.params.id)
+    }
+
+    notify.success(res, "Mise à jour des informations effectuée.");
+    // utiliser pour garder les notification apres un redirect
+    notify.redirect(res);
+
+    res.redirect('/menu-administrateur/activites/' + req.params.id);
+};
+
+export async function deleteActivities(req, res) {
+    const result = await Activity.destroy({
+        where: {
+            id: req.params.id
+        }
+    });
+    if (result === 0) {
+        notify.error(res, "Une erreur est survenue lors de la suppression de l'activité");
+        notify.redirect(res);
+        res.redirect("/menu-administrateur/activites");
+    }
+    notify.success(res, "Suppression de l'activité réussie");
+    notify.redirect(res);
+    res.redirect("/menu-administrateur/activites");
 }

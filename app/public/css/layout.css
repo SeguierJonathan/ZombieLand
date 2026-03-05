@@ -29,6 +29,7 @@ header {
     height: var(--header-height);
     padding: 2rem;
     background: linear-gradient(var(--color-redBrown) 0%, var(--color-redDark) 100%);
+    z-index: 10;
 }
 
 
