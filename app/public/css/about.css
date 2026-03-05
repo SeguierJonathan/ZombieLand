@@ -9,7 +9,8 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr; /* mobile : 1 colonne */
+  grid-template-columns: 1fr;
+  /* mobile : 1 colonne */
   gap: 2rem;
 }
 
@@ -23,9 +24,9 @@
 
 .section-equipe li img {
   width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
+  /*height: 150px;*/
+  /*object-fit: cover;*/
+  border-radius: 2rem;
   margin-bottom: 1rem;
 }
 

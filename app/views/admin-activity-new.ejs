@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland | New activity </title>
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <%- include('partials/menu-slide') %>
+            <%- include('partials/notifications') %>
+
+                <main>
+
+                    <h2>Création d'un nouvelle activité</h2>
+
+                    <form action="/admin/activities/create" method="post">
+
+                        <div>
+                            <label for="activityTitle">Nom: </label>
+                            <input type="text" name="name" id="activityTitle">
+                        </div>
+
+                        <div>
+                            <label for="activityImage">Image: </label>
+                            <input type="text" name="image" id="activityImage">
+                        </div>
+
+                        <div>
+                            <label for="activityMinHeight">Taille minimum: </label>
+                            <input type="number" name="minHeightCM" id="activityMinHeight">
+                        </div>
+
+                        <div>
+                            <label for="activityHorroLevel">Niveau d'horreur: </label>
+                            <input type="number" name="horrorLevel" id="activityHorroLevel">
+                        </div>
+
+                        <div>
+                            <label for="activityDuration">Durée: </label>
+                            <input type="number" name="durationSeconds" id="activityDuration">
+                        </div>
+
+                        <div>
+                            <label for="activityDescription">Description: </label>
+                            <textarea name="description" id="activityDescription"></textarea>
+                        </div>
+
+                        <div>
+                            <label for="activityCatégory">Catégorie: </label>
+                            <select id="categorySelectAdmin" name="categoryId">
+
+                                <% categories.forEach(category=> { %>
+                                    <option value="<%= category.id %>">
+                                        <%= category.name %>
+                                    </option>
+                                    <% }) %>
+
+                            </select>
+                        </div>
+
+                        <button type="submit">Créer l'activité</button>
+
+
+                    </form>
+
+                </main>
+
+                <%- include('partials/footer') %>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland | Tarifs</title>
+
+        <script defer src="/js/common.js"></script>
+
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <%- include('partials/menu-slide') %>
+            <%- include('partials/notifications') %>
+
+                <main>
+
+                    <h2>Tarifs</h2>
+
+                    <form class="card--black" action="/admin/tarifs/<%= tarifs[0].id %>/update" method="POST">
+
+
+                        <fieldset class="js-editable">
+
+                            <legend>
+                                <h2>🎟️ Nos Tarifs</h2>
+                            </legend>
+
+                            <div>
+                                <p><strong>
+                                        <%= tarifs[0].name %> :
+                                    </strong>
+                                    <span class="view-mode">
+                                        <%= tarifs[0].price %>€
+                                    </span>
+                                    <input type="number" class="edit-mode" name="price" value="<%= tarifs[0].price %>" hidden>
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn--update" onclick="toggleEdit(this)">
+                                Modifier
+                            </button>
+
+                            <button type="submit" class="btn--save" hidden>
+                                Enregistrer
+                            </button>
+                        </fieldset>
+                    </form>
+
+                </main>
+                <%- include('partials/footer') %>
+
+</body>
+
+</html>

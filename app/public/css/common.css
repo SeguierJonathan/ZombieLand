@@ -8,9 +8,9 @@
     font-weight: bold;
 
     color: var(--color-cream);
-    background-color: var(--color-brown);
+    background-color: var(--color-redBrown);
 
-    border: 1px solid var(--color-dark);
+    border: 1px solid var(--color-redDark);
     border-radius: 5rem;
     transition: all 0.3s ease-in-out;
 }
@@ -75,12 +75,85 @@
     transition: all 0.3s ease-in-out;
 }
 
+/* === Bouton supprimer === */
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
 .card {
     border: 2px solid var(--color-cream);
     border-radius: 2rem;
     padding: 2rem;
 
     animation: blinkShadow 2s infinite;
+
+}
+
+.card--black {
+    background-color: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+
+    box-shadow: 0 0.25rem 0.6rem rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card--black:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 8px;
+    padding: 2rem;
+    background: linear-gradient(var(--color-redBrown) 0%, var(--color-redDark) 100%);
+    color: inherit;
+
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+section.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    min-width: 300px;
+    margin: 0;
+}
+
+section.modal-content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+
+}
+
+section.modal-content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 
@@ -129,10 +202,16 @@
 
 
 
+.hidden {
+    display: none;
+}
 
-
-
-
+.card-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 1rem;
+}
 
 /* Animation */
 @keyframes blinkShadow {

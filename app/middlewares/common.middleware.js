@@ -1,5 +1,7 @@
 import "dotenv/config";
 import { User, Role } from "../models/index.js";
+import Joi from "joi";
+import { notify } from "../utils/common.js";
 
 export function errorHandler(error, req, res, next) {
 
@@ -76,6 +78,12 @@ export function initLocals(req, res, next) {
         res.locals.firstName = req.session.user.firstName;
     }
 
+    // expose le firstName dans les locals pour utilisation dans les ejs sans avoir a les passer en paramètre
+    res.locals.role = null;
+    if (req.session.user) {
+        res.locals.role = req.session.user.role;
+    }
+
     // init locals.notifications
     res.locals.notifications = [];
 
@@ -83,7 +91,6 @@ export function initLocals(req, res, next) {
     if (req.cookies.notifications) {
 
         const notifications = JSON.parse(req.cookies.notifications);
-        console.log(notifications);
         res.locals.notifications = notifications;
 
         // suprimme le cookie
@@ -92,6 +99,23 @@ export function initLocals(req, res, next) {
             secure: process.env.NODE_ENV === "production",
             path: "/"
         });
+    }
+
+    next();
+}
+
+export function validateId(req, res, next) {
+
+    const schemaId = Joi.object({
+        id: Joi.number().integer().min(1).required(),
+    })
+
+    const validation = schemaId.validate(req.params);
+
+    if (validation.error) {
+        notify.error(res, "Format d'ID incorrect");
+        notify.redirect(res);
+        return res.redirect("/");
     }
 
     next();

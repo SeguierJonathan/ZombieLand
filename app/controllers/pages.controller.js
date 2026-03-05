@@ -1,12 +1,12 @@
-import {Activity}from "../models/index.js";
+import { Activity, Tarif } from "../models/index.js";
 
 export async function homePage(req, res) {
-        const activities = await Activity.findAll({
-        order: [['createdAt', 'DESC']],
-        limit: 3
-    });
-    res.render("home", { activities })
-  }
+  const activities = await Activity.findAll({
+    order: [['createdAt', 'DESC']],
+    limit: 3
+  });
+  res.render("home", { activities })
+}
 
 export function aboutPage(req, res) {
   res.render("about");
@@ -23,23 +23,21 @@ export async function informationsPage(req, res) {
     const data = await response.json();
 
     const meteo = {
-      ville       : data.name,
-      temperature : Math.round(data.main.temp),
-      ressentie   : Math.round(data.main.feels_like),
-      humidite    : data.main.humidity,
-      iconeUrl    : `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
-      vent        : Math.round(data.wind.speed * 3.6)
+      ville: data.name,
+      temperature: Math.round(data.main.temp),
+      ressentie: Math.round(data.main.feels_like),
+      humidite: data.main.humidity,
+      iconeUrl: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+      vent: Math.round(data.wind.speed * 3.6)
     };
 
-    res.render("information", { meteo });
+    const tarif = await Tarif.findOne();
+
+    res.render("information", { meteo, tarif });
   } catch (error) {
     console.error("Erreur météo :", error.message);
     res.render("information", { meteo: null });
   }
-}
-
-export function adminPage(req, res) {
-  res.render("admin")
 }
 
 export function unauthorized(req, res) {
@@ -51,5 +49,15 @@ export function noFoundPage(req, res) {
 }
 
 export function errorPage(req, res) {
-    res.status(500).render("500");
+  res.status(500).render("500");
 }
+
+
+export function adminMenuPage(req, res) {
+  res.render("admin-menu");
+}
+
+export function planPage(req, res) {
+  res.render("plan");
+}
+

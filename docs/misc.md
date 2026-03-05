@@ -16,3 +16,7 @@ git branch -d nom_de_la_branche
 ```
 git fetch
 ```
+4 - Nettoyer les branches distantes supprimées
+```
+git config --global fetch.prune true
+```

@@ -21,10 +21,11 @@
 
                         <select id="categorySelect" onchange="redirectToCategory(this.value)">
 
-                            <option value="">--Veuillez choisir une catégorie--</option>
+                            <option value="">-- Toutes les categories --</option>
 
                             <% categories.forEach(category=> { %>
-                                <option value="<%= category.id %>">
+                                <option value="<%= category.id %>" <%=(typeof categoryId !=='undefined' &&
+                                    categoryId==category.id) ? 'selected' : '' %> >
                                     <%= category.name %>
                                 </option>
                                 <% }) %>

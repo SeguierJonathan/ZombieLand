@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <%- include("partials/head") %>
+
+    <title>Zombieland - Utilisateurs</title>
+    <link rel="stylesheet" href="/css/admin-user.css" />
+</head>
+
+<body>
+  <%- include("partials/header") %>
+    <%- include("partials/menu-slide") %>
+      <%- include("partials/notifications") %>
+
+        <main>
+          <section>
+            <h2>Liste des utilisateurs</h2>
+
+            <% if (users && users.length> 0) { %>
+              <div class="users-grid">
+                <% users.forEach((user)=> { %>
+                  <div class="card--black">
+                    <p><strong>Prénom :</strong>
+                      <%= user.firstName %>
+                    </p>
+                    <p><strong>Nom :</strong>
+                      <%= user.lastName %>
+                    </p>
+                    <p><strong>Email :</strong>
+                      <%= user.email %>
+                    </p>
+                    <form action="/admin/users/role/<%= user.id %>" method="POST"
+                      onsubmit="return confirm('Modifier le rôle de cet utilisateur ?');">
+
+                      <label><strong>Rôle :</strong></label>
+                      <select name="roleId" required>
+                  <% roles.forEach((role) => { %>
+                    <option value="<%= role.id %>"
+                      <% if (user.role && user.role.id === role.id) { %> selected <% } %>>
+                      <%= role.name %>
+                    </option>
+                  <% }) %>
+                      </select>
+                      <button type="submit" class="btn-update">Modifier rôle</button>
+                    </form>
+                    <form action="/admin/users/delete/<%= user.id %>" method="POST"
+                      onsubmit="return confirm('Suppprimer cet utilisateur ?');">
+                      <button type="submit" class="btn-delete">Supprimer</button>
+                    </form>
+                  </div>
+                  <% }); %>
+              </div>
+              <% } else { %>
+                <p>Liste des utilisateurs indisponible 😢</p>
+                <% } %>
+          </section>
+        </main>
+
+        <%- include("partials/footer") %>
+</body>
+
+</html>

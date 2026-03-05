@@ -4,10 +4,32 @@ main {
 }
 
 main section {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
 }
 
-article {
-max-width: 300px;
+@media (min-width: 481px) {
+
+    /* tablette et plus */
+
+}
+
+@media (min-width: 800px) {
+
+    /* tablette et plus */
+    main section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (min-width: 1280px) {
+    /* desktop */
+
+    /* Hide "menu button" on large screen by default */
+    main section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
