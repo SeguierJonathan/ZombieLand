@@ -58,18 +58,20 @@ export async function renderActivityDetailAdmin(req, res) {
 
     const activityId = req.params.id;
 
+    const categories = await Category.findAll({ attributes: ["id", "name"] });
     const activity = await Activity.findByPk(activityId, {
-        include: [{ model: Category, as: 'category', attributes: ["name"] }]
+        include: [{ model: Category, as: 'category', attributes: ["id", "name"] }]
     });
     if (!activity) {
         return res.status(404).render('404');
     }
-    res.render("admin-activity", { activity });
+
+    res.render("admin-activity", { activity, categories });
 }
 
 export async function newActivityPage(req, res) {
     const categories = await Category.findAll();
-    res.render("admin-activity-new", {categories});
+    res.render("admin-activity-new", { categories });
 }
 
 export async function newActivityAdmin(req, res) {
@@ -99,12 +101,10 @@ export async function newActivityAdmin(req, res) {
 }
 
 export async function updateActivities(req, res) {
-    const { name, image, minHeightCM, horrorLevel, durationSeconds, description } = req.params;
     const [affectedCount] = await Activity.update(
-        { name, image, minHeightCM, horrorLevel, durationSeconds, description },
+        req.body,
         {
             where: { id: req.params.id },
-            returning: true
         }
     );
 
@@ -118,6 +118,7 @@ export async function updateActivities(req, res) {
     notify.success(res, "Mise à jour des informations effectuée.");
     // utiliser pour garder les notification apres un redirect
     notify.redirect(res);
+
     res.redirect('/menu-administrateur/activites/' + req.params.id);
 };
 

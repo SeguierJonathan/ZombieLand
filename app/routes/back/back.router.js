@@ -7,9 +7,10 @@ import { validateBooking } from '../../middlewares/bookings.middleware.js';
 import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
 import { deleteActivities, newActivityAdmin, updateActivities } from '../../controllers/activities.controller.js';
 import { deleteCategoriesAdmin, updateCategoriesAdmin,  createCategoriesAdmin } from '../../controllers/categories.controller.js';
-import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/activities.middleware.js';
+import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/categories.middleware.js';
 import { validatePrice } from '../../middlewares/price.middleware.js'
 import { updatePricesAdmin } from '../../controllers/prices.controller.js';
+import { validateActivitiesCreate, validateActivitiesUpdate } from '../../middlewares/activities.middleware.js';
 
 const router = Router();
 
@@ -30,8 +31,8 @@ router.post("/mes-reservations/:id/delete", isAuth, deleteBooking);
 router.post('/auth/login', validateAuthLogin, login);
 router.post('/auth/logout', isAuth, logout);
 
-router.post('/admin/activities/create', isAuth, isAllowed("admin"), newActivityAdmin);
-router.post('/admin/activities/:id/update', isAuth, isAllowed("admin"), validateId, updateActivities);
+router.post('/admin/activities/create', isAuth, isAllowed("admin"), validateActivitiesCreate, newActivityAdmin);
+router.post('/admin/activities/:id/update', isAuth, isAllowed("admin"), validateId, validateActivitiesUpdate, updateActivities);
 router.post('/admin/activities/:id/delete', isAuth, isAllowed("admin"), validateId, deleteActivities);
 
 router.post("/admin/users/delete/:id", isAuth, isAllowed("admin"), validateId, deleteUsers);
