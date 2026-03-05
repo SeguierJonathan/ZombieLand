@@ -7,6 +7,7 @@
         <title>Zombieland - Réservations</title>
 
         <link rel="stylesheet" href="./css/home.css">
+        <script defer src="/js/updatePrice.js"></script>
 
 </head>
 
@@ -20,10 +21,14 @@
 
                     <fieldset>
                         <legend>Réserver</legend>
+
+                            <p>Prix par personne : <strong id="prix_unitaire"><%= tarif.price %> €</strong></p>
+                            <p>Prix total : <strong id="prix-total"><%= tarif.price %> €</strong></p>
+
                         <form action="/reservation" method="POST">
                             <div>
                                 <label for="nombre_de_personne">Nombre de personne :</label>
-                                <input type="number" name="nombre_de_personne" min="1" required>
+                                <input type="number" name="nombre_de_personne" min="1" value="1" id="nombre_de_personne" required>
                             </div>
 
                             <div>

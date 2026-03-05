@@ -27,7 +27,7 @@
               </div>
               <div>
                 <label for="nombre-<%= reservation.id %>">Nombre de personnes :</label>
-                <input type="number" id="nombre-<%= reservation.id %>"
+                <input type="number" min="1" id="nombre-<%= reservation.id %>"
                   name="nombre_de_personne"
                   value="<%= reservation.nombre_de_personne %>" required>
               </div>
@@ -40,6 +40,7 @@
                   onclick="return confirm('Voulez-vous vraiment modifier cette réservation ?')">
                   Modifier
                 </button>
+              </form>
                 <form action="/mes-reservations/<%= reservation.id %>/delete" method="POST">
                   <button type="submit"
                     onclick="return confirm('Voulez-vous vraiment supprimer cette réservation ?')">
