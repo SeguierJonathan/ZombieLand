@@ -56,8 +56,6 @@ router.get('/menu-administrateur/activites/:id', isAuth, isAllowed("admin"), val
 router.get('/menu-administrateur/activites/categories/:id', isAuth, isAllowed("admin"), validateId, getAllActivitiesByCategory)
 //Page Tarifs pour l'admin uniquement
 router.get('/menu-administrateur/tarifs', isAuth, isAllowed('admin'), getPricesAdmin);
-// Page création d'une activité pour l'admin uniquement
-router.get("/menu-administrateur/activites/nouvelle", isAuth, isAllowed('admin'), newActivityAdmin)
 //Page Categories pour l'admin uniquement
 router.get('/menu-administrateur/categories', isAuth, isAllowed('admin'), getAllCategoriesAdmin);
 
