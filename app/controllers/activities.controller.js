@@ -68,11 +68,6 @@ export async function renderActivityDetailAdmin(req, res) {
     res.render("admin-activity", { activity, categories });
 }
 
-export async function newActivityPage(req, res) {
-    const categories = await Category.findAll();
-    res.render("admin-activity-new", {categories});
-}
-
 export async function newActivityAdmin(req, res) {
     const { name } = req.body;
 
@@ -150,19 +145,3 @@ export async function updateActivities(req, res) {
 
     res.redirect('/menu-administrateur/activites/' + req.params.id);
 };
-
-export async function deleteActivities(req, res) {
-    const result = await Activity.destroy({
-        where: {
-            id: req.params.id
-        }
-    });
-    if (result === 0) {
-        notify.error(res, "Une erreur est survenue lors de la suppression de l'activité");
-        notify.redirect(res);
-        res.redirect("/menu-administrateur/activites");
-    }
-    notify.success(res, "Suppression de l'activité réussie");
-    notify.redirect(res);
-    res.redirect("/menu-administrateur/activites");
-}
