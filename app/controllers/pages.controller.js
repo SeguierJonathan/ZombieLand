@@ -1,11 +1,12 @@
 import { Activity, Tarif } from "../models/index.js";
 
 export async function homePage(req, res) {
+  const tarif = await Tarif.findOne()
   const activities = await Activity.findAll({
     order: [['createdAt', 'DESC']],
     limit: 3
   });
-  res.render("home", { activities })
+  res.render("home", { activities, tarif})
 }
 
 export function aboutPage(req, res) {
