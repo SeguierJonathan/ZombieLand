@@ -10,9 +10,9 @@ Tarif.init(
             allowNull: false
         },
         price: {
-            type:DataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
-        } 
+        }
     },
     {
         sequelize,

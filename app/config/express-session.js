@@ -14,7 +14,7 @@ const client = new Client({
 const sessionMiddleware = session({
     store: new pgSession({
         client: client,
-        tableName: "session"
+        tableName: "sessions"
     }),
     secret: process.env.SESSION_SECRET,
     resave: false,
