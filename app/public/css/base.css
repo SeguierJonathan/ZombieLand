@@ -1,14 +1,14 @@
 /* ==== Variables ==== */
 
 :root {
-    --color-dark: #550000;
-    --color-brown: #CC0000;
+    --color-redDark: #920b07;
+    --color-redBrown: #330b07;
     --color-orange: #965015;
     --color-yellow: #C4923E;
     --color-cream: #ffebd2;
 
     /*size of header*/
-    --header-height: 8rem;
+    --header-height: 10rem;
 
 }
 

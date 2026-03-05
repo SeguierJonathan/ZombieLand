@@ -7,7 +7,7 @@ import { validateBooking } from '../../middlewares/bookings.middleware.js';
 import { isAllowed, isAuth, validateId } from '../../middlewares/common.middleware.js';
 import { deleteActivities, updateActivities } from '../../controllers/activities.controller.js';
 import { deleteCategoriesAdmin, updateCategoriesAdmin, createCategoriesAdmin } from '../../controllers/categories.controller.js';
-import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/activities.middleware.js';
+import { validateCategoriesCreation, validateCategoriesUpdate } from '../../middlewares/categories.middleware.js';
 import { validatePrice } from '../../middlewares/price.middleware.js'
 import { updatePricesAdmin } from '../../controllers/prices.controller.js';
 

@@ -7,7 +7,7 @@ html {
 body {
     padding: var(--header-height) 2rem 2rem 2rem;
     min-height: 100vh;
-    background: linear-gradient(var(--color-brown) 0%, var(--color-dark) 100%);
+    background: linear-gradient(var(--color-redBrown) 0%, var(--color-redDark) 100%);
     color: var(--color-cream);
     font-family: 'Turret Road', sans-serif;
 }
@@ -28,8 +28,9 @@ header {
     align-items: center;
     height: var(--header-height);
     padding: 2rem;
-    background: linear-gradient(var(--color-brown) 0%, var(--color-dark) 100%);
+    background: linear-gradient(var(--color-redBrown) 0%, var(--color-redDark) 100%);
 }
+
 
 /*mobile first default value*/
 
@@ -39,6 +40,10 @@ header .content-greeting {
     display: none;
 }
 
+.logo {
+    max-width: 150px;
+    height: auto;
+}
 
 .greeting {
     display: flex;
