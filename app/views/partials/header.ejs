@@ -39,7 +39,7 @@
           <%if(!firstName){%>
             <a class="button" href="/connexion">Se connecter</a>
             <%}else{%>
-              <a href="/mon-compte">Bonjour, <span>
+              <a id="nom_connecté" href="/mon-compte">Bonjour, <span>
                   <%= firstName%>
                 </span></a>
               <form action="/auth/logout" method="POST">

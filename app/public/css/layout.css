@@ -32,6 +32,16 @@ header {
     z-index: 10;
 }
 
+#nom_connecté {
+    transition: all 0.3s ease-in-out;
+}
+
+
+#nom_connecté:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+}
+
 
 /*mobile first default value*/
 
