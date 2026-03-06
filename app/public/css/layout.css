@@ -9,7 +9,10 @@ body {
     min-height: 100vh;
     background: linear-gradient(var(--color-redBrown) 0%, var(--color-redDark) 100%);
     color: var(--color-cream);
-    font-family: 'Turret Road', sans-serif;
+    font-family: "Balthazar", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
 }
 
 section {

@@ -46,20 +46,22 @@ a {
 h1,
 h2,
 h3 {
-    font-family: 'Bungee Shade', cursive;
-    letter-spacing: 3px;
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 5px;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 6rem;
 }
 
 h2 {
-    font-size: 2.4rem;
+    font-size: 4rem;
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 img {
