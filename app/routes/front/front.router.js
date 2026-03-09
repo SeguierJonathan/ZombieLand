@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { accountPage, logInPage, inscriptionPage, getAllUsers } from '../../controllers/users.controller.js';
-import { getAll, getAllByCategory, renderActivityDetail, getAllAdmin, renderActivityDetailAdmin, getAllActivitiesByCategory, newActivityPage, newActivityAdmin} from '../../controllers/activities.controller.js'
-import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, adminMenuPage, planPage } from '../../controllers/pages.controller.js';
+import { getAll, getAllByCategory, renderActivityDetail, getAllAdmin, renderActivityDetailAdmin, getAllActivitiesByCategory, newActivityPage, newActivityAdmin } from '../../controllers/activities.controller.js'
+import { unauthorized, homePage, informationsPage, errorPage, noFoundPage, aboutPage, adminMenuPage, planPage, cssPage } from '../../controllers/pages.controller.js';
 import { bookingPage, getMesReservations, getAllBookings, } from '../../controllers/bookings.controller.js';
 import { isAllowed, isAuth, preventIfLoggedIn, validateId } from '../../middlewares/common.middleware.js';
 import { getPricesAdmin } from '../../controllers/prices.controller.js';
@@ -58,6 +58,8 @@ router.get('/menu-administrateur/activites/categories/:id', isAuth, isAllowed("a
 router.get('/menu-administrateur/tarifs', isAuth, isAllowed('admin'), getPricesAdmin);
 //Page Categories pour l'admin uniquement
 router.get('/menu-administrateur/categories', isAuth, isAllowed('admin'), getAllCategoriesAdmin);
+//Page CSS pour l'admin uniquement
+router.get('/css', isAuth, isAllowed('admin'), cssPage);
 
 
 export default router;

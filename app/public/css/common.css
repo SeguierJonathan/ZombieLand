@@ -76,6 +76,20 @@
 }
 
 /* === Bouton supprimer === */
+.btn--validate {
+    background-color: #50e73c;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn--validate:hover {
+    background-color: #37c02b;
+}
+
 .btn-delete {
     background-color: #e74c3c;
     color: #fff;
@@ -113,6 +127,21 @@
     transform: translateY(-0.3rem);
     box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.5);
     z-index: 5;
+}
+
+.flex--column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.flex--row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
 }
 
 dialog {

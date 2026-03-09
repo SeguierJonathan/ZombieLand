@@ -6,7 +6,7 @@ export async function homePage(req, res) {
     order: [['createdAt', 'DESC']],
     limit: 3
   });
-  res.render("home", { activities, tarif})
+  res.render("home", { activities, tarif })
 }
 
 export function aboutPage(req, res) {
@@ -61,4 +61,9 @@ export function adminMenuPage(req, res) {
 export function planPage(req, res) {
   res.render("plan");
 }
+
+export function cssPage(req, res) {
+  res.render("css");
+}
+
 
