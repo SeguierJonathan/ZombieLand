@@ -15,7 +15,7 @@ Activity.init(
             allowNull: false,
         },
         // Taille minimale en centimètres
-        minHeightCM: {
+        minHeightCm: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
