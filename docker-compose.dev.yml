@@ -1,13 +1,11 @@
-version: "3.9"
-
 services:
   db:
     image: postgres:16
     container_name: zombieland_db
     restart: always
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: zombieland_user
+      POSTGRES_PASSWORD: z0mb13l4nd_str0ng_pwd
       POSTGRES_DB: zombieland
     ports:
       - "5432:5432"
@@ -15,7 +13,7 @@ services:
       - db_data:/var/lib/postgresql/data
 
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U user -d zombieland"]
+      test: [ "CMD-SHELL", "pg_isready -U zombieland_user -d zombieland" ]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -25,10 +23,10 @@ services:
     build: .
     container_name: zombieland_app
     restart: always
+    env_file:
+      - .env
     ports:
       - "3000:3000"
-    environment:
-      DATABASE_URL: postgres://user:password@db:5432/zombieland
     depends_on:
       db:
         condition: service_healthy

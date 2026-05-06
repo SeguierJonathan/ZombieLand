@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
     "db:migrate": "node scripts/migrate.js",
     "db:migrate:undo": "node scripts/migrate-undo.js",
     "db:reset": "node scripts/reset.js",
     "db:seeder": "node scripts/seeder.js",
-    "migrate-dev": "npm run db:migrate && nodemon index.js",
-    "migrate-start": "npm run db:migrate && node index.js"
+    "dev": "npm run db:migrate && npm run db:seeder && nodemon --legacy-watch index.js",
+    "start": "npm run db:migrate && npm run db:seeder && node index.js"
   },
   "type": "module",
   "author": "",

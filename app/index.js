@@ -31,5 +31,5 @@ app.use(noFoundPage);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-    console.log(`Serveur is running at http://localhost:${PORT}`)
+    console.log(`Serveur running on port ${PORT}`)
 });
