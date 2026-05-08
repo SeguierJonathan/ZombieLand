@@ -1,0 +1,76 @@
+/* ===========================
+   PAGE À PROPOS
+=========================== */
+
+/* --- Section équipe --- */
+
+.section-equipe ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* mobile : 1 colonne */
+  gap: 2rem;
+}
+
+.section-equipe li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.section-equipe li img {
+  width: 150px;
+  /*height: 150px;*/
+  /*object-fit: cover;*/
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section-equipe li h3 {
+  margin: 0.5rem 0 0.25rem;
+}
+
+.section-equipe li p:first-of-type {
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+/* --- Desktop : 3 colonnes --- */
+@media (min-width: 900px) {
+  .section-equipe ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ===========================
+   SECTION VALEURS
+=========================== */
+
+.section-valeurs ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.section-valeurs li {
+  padding: 1.25rem;
+}
+
+.section-valeurs li h3 {
+  margin: 0 0 0.5rem;
+}
+
+/* --- Tablette et desktop : 2 colonnes --- */
+@media (min-width: 600px) {
+  .section-valeurs ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,51 @@
+export function formatSecondes(secondes) {
+    const minutes = Math.floor(secondes / 60);
+    const resteSecondes = secondes % 60;
+    if (resteSecondes === 0) {
+        return `${minutes} min`
+    }
+    if (minutes === 0) {
+        return `${resteSecondes} s`
+    }
+    else {
+        return `${minutes} min ${resteSecondes} s`;
+    }
+}
+
+export function formatTaille(cm) {
+    const metres = Math.floor(cm / 100);
+    const centimetres = cm % 100;
+    if (centimetres === 0) {
+        return `${metres}m$`
+    }
+    if (metres === 0) {
+        return `${centimetres.toString().padStart(2, '0')}`
+    }
+    else {
+        return `${metres}m${centimetres.toString().padStart(2, '0')}`;
+    }
+}
+
+const addNotification = (res, type, message) => {
+    if (res && message) {
+        res.locals.notifications.push({ type: type, message: message });
+    }
+};
+
+export const notify = {
+    success: (res, message) => addNotification(res, "success", message),
+    warning: (res, message) => addNotification(res, "warning", message),
+    info: (res, message) => addNotification(res, "info", message),
+    error: (res, message) => addNotification(res, "error", message),
+    redirect: (res) => {
+        if (res.locals.notifications?.length) {
+            res.cookie("notifications", JSON.stringify(res.locals.notifications), {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                maxAge: 3000, // 3 seconde
+                sameSite: "lax",
+                path: "/"
+            })
+        }
+    }
+}

@@ -1,0 +1,29 @@
+h1,
+h2 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* =======================
+   GRID MOBILE FIRST
+======================= */
+
+.users-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Mobile */
+
+  gap: 1.25rem;
+  margin: 2rem 1.25rem;
+}
+
+/* =======================
+   TABLETTE ET +
+======================= */
+
+@media (min-width: 481px) {
+  .users-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+

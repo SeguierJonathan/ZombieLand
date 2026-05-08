@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland | Menu administrateur</title>
+
+        <link rel="stylesheet" href="/css/admin-menu.css">
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <%- include('partials/menu-slide') %>
+            <%- include('partials/notifications') %>
+
+                <main>
+                    <section>
+                        <h2>Menu Administrateur</h2>
+                        <div class="menu-list">
+
+                            <a class="card--black" href="/menu-administrateur/activites">Activités</a>
+
+                            <a class="card--black" href="/menu-administrateur/categories">Categories</a>
+
+                            <a class="card--black" href="/menu-administrateur/utilisateurs">Utilisateurs</a>
+
+                            <a class="card--black" href="/menu-administrateur/reservations">Réservations</a>
+
+                            <a class="card--black" href="/menu-administrateur/tarifs">Tarif</a>
+
+
+                        </div>
+                    </section>
+                </main>
+                <%- include('partials/footer') %>
+
+</body>
+
+</html>

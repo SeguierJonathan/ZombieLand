@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland</title>
+        <link rel="stylesheet" href="/css/activity.css">
+        <script defer src="/js/catActivity.js"></script>
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <%- include('partials/menu-slide') %>
+            <%- include('partials/notifications') %>
+                <main>
+
+                    <h2>Liste des activités</h2>
+
+                    <a href="/menu-administrateur/activites/nouvelle" class="button">Créer une nouvelle attraction</a>
+
+                    <form id="categoryFormAdmin">
+
+                        <select id="categorySelectAdmin" onchange="redirectToCategoryAdmin(this.value)">
+
+                            <option value="">--Toutes les catégories--</option>
+
+                            <% categories.forEach(category=> { %>
+                                <option value="<%= category.id %>" <%=(typeof categoryId !=='undefined' &&
+                                    categoryId==category.id) ? 'selected' : '' %> >
+                                    <%= category.name %>
+                                </option>
+                                <% }) %>
+
+                        </select>
+                    </form>
+
+                    <section>
+                        <% activities.forEach(activity=> { %>
+                            <article>
+                                <h3>
+                                    <%= activity.name %>
+                                </h3>
+                                <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
+
+                                <a href="/menu-administrateur/activites/<%= activity.id %>" class="button">Voir
+                                    détails</a>
+                                <form action="/admin/activities/<%= activity.id %>/delete" method="post">
+                                    <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cette activité ?')">
+                                        Supprimer l'activité
+                                    </button>
+                                </form>
+                            </article>
+                            <% }) %>
+                    </section>
+                </main>
+                <%- include('partials/footer') %>
+
+</body>
+
+</html>

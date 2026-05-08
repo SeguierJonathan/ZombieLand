@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland</title>
+        <link rel="stylesheet" href="/css/activity.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <%- include('partials/menu-slide') %>
+            <%- include('partials/notifications') %>
+                <main>
+
+                    <h2>Détails de l'activité</h2>
+
+                    <article>
+                        <h3>
+                            <%= activity.name %>
+                        </h3>
+                        <p><img src="/img/<%= activity.image %>" alt="Image de l'activitée selectionnée"></p>
+                        <p>
+                            <strong>Taille minimum obligatoire</strong> : <%= activity.minHeightCM %>
+                        </p>
+                        <p>
+                            <strong>Niveau d'horreur</strong> : <%= activity.horrorLevel %>
+                        </p>
+                        <p>
+                            <strong>Durée</strong> : <%= activity.durationSeconds %>
+                        </p>
+                        <p>
+                            <strong>Description</strong> : <%= activity.description %>
+                        </p>
+                        <p>
+                            <strong>Catégorie de l'activité</strong> : <%= activity.category.name %>
+                        </p>
+
+                        <a href="/activites" class="button">Retour à la liste des activitées</a>
+                    </article>
+
+                </main>
+                <%- include('partials/footer') %>
+
+</body>
+
+</html>

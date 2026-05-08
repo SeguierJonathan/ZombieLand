@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland - Réservations</title>
+
+        <link rel="stylesheet" href="./css/home.css">
+        <script defer src="/js/updatePrice.js"></script>
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <%- include('partials/menu-slide') %>
+            <%- include('partials/notifications') %>
+
+                <main>
+                    <h1>Réservation</h1>
+
+                    <fieldset>
+                        <legend>Réserver</legend>
+
+                            <p>Prix par personne : <strong id="prix_unitaire"><%= tarif.price %> €</strong></p>
+                            <p>Prix total : <strong id="prix-total"><%= tarif.price %> €</strong></p>
+
+                        <form action="/reservation" method="POST">
+                            <div>
+                                <label for="nombre_de_personne">Nombre de personne :</label>
+                                <input type="number" name="nombre_de_personne" min="1" value="1" id="nombre_de_personne" required>
+                            </div>
+
+                            <div>
+                                <label for="date">Date de réservation :</label>
+                                <input type="date" name="date" id="date" required>
+                            </div>
+
+                            <button type="submit">Réserver</button>
+                        </form>
+                    </fieldset>
+
+
+                </main>
+                <%- include('partials/footer') %>
+
+</body>
+
+</html>

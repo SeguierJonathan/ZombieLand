@@ -1,0 +1,157 @@
+#about {
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+#about img {
+    border-radius: 0.7rem;
+    object-fit: cover;
+    width: 50%;
+    max-width: 650px;
+}
+
+@media screen and (max-width: 1280px) {
+    #about img {
+        display: none;
+    }
+}
+
+#about h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#about p {
+    line-height: 1.5rem;
+    margin: 3rem 0;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-align: justify;
+}
+
+#about a {
+    width: fit-content;
+}
+
+/* ======== Code Alexis ======== */
+
+main section {
+    display: flex;
+    gap: 2rem;
+    
+}
+
+.activite {
+    flex-direction: column;
+}
+
+.activite div {
+    display: flex;
+    gap: 2rem
+}
+
+.activite button {
+    margin: auto;
+}
+
+.presentation {
+    flex-direction: column;
+}
+
+.parc {
+    flex-direction: column;
+}
+
+.tarif {
+    flex-direction: column;
+}
+
+.presentation > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.meteo {
+    display: flex;
+    flex-direction: column;
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+.billet {
+    display: flex;
+    flex-direction: column;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 481px) {
+    .presentation > div {
+    flex-direction: row;
+    }
+    .articles {
+        flex-direction: row;
+    }
+    .description {
+        flex-direction: row;
+    }
+    .billet {
+        flex-direction: row;
+    }
+    .infos {
+        flex-direction: row;
+    }
+}
+/* ======== Fin Code Alexis ======== */
+
+
+/* ======== Latest Products Section ======== */
+
+#latest-products ul {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin: 2.5rem 0;
+}
+
+#latest-products li {
+    flex-grow: 1;
+    flex-basis: 16rem;
+}
+
+#latest-products article {
+    background-color: var(--color-orange);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 0.5rem;
+}
+
+#latest-products article img {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+#latest-products article div {
+    padding: 1.5rem;
+}
+
+#latest-products article a {
+    margin-top: 1rem;
+}

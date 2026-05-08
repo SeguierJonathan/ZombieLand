@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include('partials/head') %>
+
+        <title>Zombieland</title>
+        <link rel="stylesheet" href="./css/home.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <%- include('partials/menu-slide') %>
+            <%- include('partials/notifications') %>
+
+                <main>
+
+                    <h2>Se connecter</h2>
+
+                    <form action="/auth/login" method="post">
+
+                        <div>
+                            <label for="email">E-mail</label>
+                            <input id="email" type="email" name="email" placeholder="E-mail" required>
+                        </div>
+
+                        <div>
+                            <label for="password">Mot de passe</label>
+                            <input id="password" type="password" name="password" placeholder="Mot de passe" required>
+                        </div>
+
+                        <button type="submit">Connexion</button>
+                        <button type="button" onclick="window.location.href='/inscription'">Créer mon compte</button>
+
+
+                    </form>
+
+                </main>
+                <%- include('partials/footer') %>
+</body>
+
+</html>

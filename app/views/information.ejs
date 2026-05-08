@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <%- include('partials/head') %>
+    <title>Zombieland - Informations</title>
+    <link rel="stylesheet" href="./css/information.css">
+    <link rel="stylesheet" href="./css/layout.css">
+</head>
+
+<body>
+  <%- include('partials/header') %>
+    <%- include('partials/menu-slide') %>
+      <%- include('partials/notifications') %>
+        <main>
+          <div class="info-grid">
+
+            <section>
+              <h2>🕒 Horaires d'ouverture</h2>
+              <h3>Haute Saison (Juin - Septembre)</h3>
+              <p>Lundi - Dimanche : 10h00 - 00h00</p>
+              <h3>Basse Saison (Octobre - Mai)</h3>
+              <p>Mardi - Dimanche : 11h00 - 22h00</p>
+              <p>Fermé Lundi</p>
+            </section>
+
+            <section>
+              <h2>🎟️ Nos Tarifs</h2>
+              <p><strong>Prix à l'année :</strong> <%= tarif.price %> € </p>
+            </section>
+
+            <section>
+              <h2>🌤️ Météo du Parc</h2>
+              <% if (meteo) { %>
+                <h3>
+                  <%= meteo.ville %>
+                </h3>
+                <img class="meteo-icone" src="<%= meteo.iconeUrl %>" alt="<%= meteo.description %>">
+                <p>🌡️ Température actuelle : <%= meteo.temperature %>°C / Ressenti : <%= meteo.ressentie %>°C</p>
+                <p>💧 Humidité : <%= meteo.humidite %>%</p>
+                <p>💨 Vent : <%= meteo.vent %> km/h</p>
+                <% } else { %>
+                  <p>Météo temporairement indisponible. 😢</p>
+                  <% } %>
+            </section>
+
+            <section>
+              <h2>🗺️ Comment venir ?</h2>
+              <p>Voici un plan pour vous aider à localiser Zombieland Parc :</p>
+              <div class="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5249.657538008349!2d2.3908975768819487!3d48.86147550048877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d8b5c69a785%3A0xa1cf6127530b6419!2sCimeti%C3%A8re%20du%20P%C3%A8re-Lachaise!5e0!3m2!1sen!2sfr!4v1772196737814!5m2!1sen!2sfr"
+                  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </section>
+
+          </div>
+        </main>
+        <%- include('partials/footer') %>
+</body>
+
+</html>

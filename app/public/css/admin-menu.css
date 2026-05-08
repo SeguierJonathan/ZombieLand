@@ -1,0 +1,28 @@
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+
+
+
+@media (min-width: 481px) {
+
+    /* tablette et plus */
+    .menu-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1280px) {
+    /* desktop */
+
+
+}
