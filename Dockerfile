@@ -1,12 +1,30 @@
-FROM node:20
+# base
+FROM node:20 AS base
 
 WORKDIR /app
 
-COPY app/package*.json ./
+COPY /app/package*.json ./
+
+# development
+FROM base AS development
+
 RUN npm install
 
-COPY app/ ./
+COPY /app ./
+
+CMD ["npm","run","dev"]
+
+# production
+
+FROM node:20-alpine AS production
+
+WORKDIR /app
+
+COPY /app/package*.json ./
+RUN npm ci --omit=dev
+
+COPY /app ./
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]

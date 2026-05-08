@@ -7,8 +7,8 @@ services:
       POSTGRES_USER: zombieland_user
       POSTGRES_PASSWORD: z0mb13l4nd_str0ng_pwd
       POSTGRES_DB: zombieland
-    ports:
-      - "5432:5432"
+    expose:
+      - "5432"
     volumes:
       - db_data:/var/lib/postgresql/data
 
@@ -22,19 +22,35 @@ services:
   app:
     build:
       context: .
-      target: development
+      target: production
     container_name: zombieland_app
     restart: always
     env_file:
       - .env
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     depends_on:
       db:
         condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "node", "-e", "require('http').get('http://localhost:3000', r => process.exit(r.statusCode === 200 ? 0 : 1))" ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
     volumes:
-      - ./app:/app
-      - /app/node_modules
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    depends_on:
+      app:
+        condition: service_healthy
 
 volumes:
   db_data:
+
