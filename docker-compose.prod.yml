@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:16
-    container_name: zombieland_db
+    # container_name: zombieland_db
     restart: always
     environment:
       POSTGRES_USER: zombieland_user
@@ -23,7 +23,7 @@ services:
     build:
       context: .
       target: production
-    container_name: zombieland_app
+    # container_name: zombieland_app
     restart: always
     env_file:
       - .env
