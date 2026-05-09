@@ -1,5 +1,7 @@
 services:
   db:
+    networks:
+      - zombieland
     image: postgres:16
     # container_name: zombieland_db
     restart: always
@@ -20,6 +22,8 @@ services:
       start_period: 10s
 
   app:
+    networks:
+      - zombieland
     build:
       context: .
       target: production
@@ -40,6 +44,8 @@ services:
       start_period: 10s
 
   nginx:
+    networks:
+      - zombieland
     image: nginx:alpine
     ports:
       - "80:80"
@@ -53,4 +59,7 @@ services:
 
 volumes:
   db_data:
+
+networks:
+  zombieland:
 
