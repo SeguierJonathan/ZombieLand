@@ -4,8 +4,8 @@
 <head>
     <%- include('partials/head') %>
 
-        <title>Zombieland</title>
-        <link rel="stylesheet" href="./css/home.css">
+        <title>Zombieland - connection</title>
+        <link rel="stylesheet" href="/css/auth.css" />
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 
                 <main>
 
-                    <h2>Se connecter</h2>
+                    <h2>Connexion</h2>
 
                     <form action="/auth/login" method="post">
 
@@ -29,10 +29,8 @@
                             <input id="password" type="password" name="password" placeholder="Mot de passe" required>
                         </div>
 
-                        <button type="submit">Connexion</button>
-                        <button type="button" onclick="window.location.href='/inscription'">Créer mon compte</button>
-
-
+                        <button type="submit">Se connecter</button>
+                        <p>Pas encore de compte&nbsp;? <a href="/inscription">S'inscrire</a></p>
                     </form>
 
                 </main>

@@ -5,7 +5,7 @@
     <%- include('partials/head') %>
 
         <title>Zombieland</title>
-        <link rel="stylesheet" href="./css/home.css">
+        <link rel="stylesheet" href="./css/auth.css">
 
 </head>
 
@@ -20,30 +20,34 @@
 
                     <form method="post">
 
-                        <p>
+                        <div>
                             <label for="lastName">Nom</label>
                             <input id="lastName" type="lastName" name="lastName" placeholder="Nom" required>
-                        </p>
+                        </div>
 
-                        <label for="firstName">Prénom</label>
-                        <input id="firstName" type="firstName" name="firstName" placeholder="Prénom" required>
-                        <p>
+                        <div>
+                            <label for="firstName">Prénom</label>
+                            <input id="firstName" type="firstName" name="firstName" placeholder="Prénom" required>
+                        </div>
+                        <div>
                             <label for="email">E-mail</label>
                             <input id="email" type="email" name="email" placeholder="E-mail" required>
-                        </p>
+                        </div>
 
-                        <p>
+                        <div>
                             <label for="password">Mot de passe</label>
                             <input id="password" type="password" name="password" placeholder="Mot de passe" required>
-                        </p>
+                        </div>
 
-                        <p>
+                        <div>
                             <label for="confirmPassword">Confirmer le mot de passe</label>
                             <input id="confirmPassword" type="password" name="confirmPassword"
                                 placeholder="Confirmer le mot de passe" required>
-                        </p>
+                        </div>
 
                         <button type="submit">Créer le compte</button>
+
+                        <p>Déjà inscrit&nbsp;? <a href="/connexion">Se connecter</a></p>
 
                     </form>
 
