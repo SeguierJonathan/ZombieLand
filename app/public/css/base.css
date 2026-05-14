@@ -40,8 +40,12 @@ main {
 }
 
 a {
-    color: inherit;
+    color: #f44;
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 h1,
@@ -54,7 +58,7 @@ h3 {
 }
 
 h1 {
-    font-size: 6rem;
+    font-size: 5rem;
 }
 
 h2 {
@@ -62,7 +66,7 @@ h2 {
 }
 
 h3 {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 img {

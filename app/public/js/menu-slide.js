@@ -19,7 +19,6 @@ function initMenuSlide() {
 
 }
 
-
 function handleScreenChange(e) {
     if (e.matches) {
         menuSlide.classList.remove("expanded");
