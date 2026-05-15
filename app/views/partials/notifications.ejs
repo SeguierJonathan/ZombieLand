@@ -2,7 +2,7 @@
     <div id="notifications">
         <% notifications.forEach(notification=> { %>
 
-            <div class="notification <%= notification.type%>">
+            <div class="notification <%= notification.type%>" role="alert" aria-hidden="true">
                 <p>
                     <%=notification.message%>
                 </p>
