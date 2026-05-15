@@ -6,9 +6,11 @@ function initNotifications() {
         notifications.forEach((notification, index) => {
             setTimeout(() => {
                 notification.classList.toggle("show");
+                notification.setAttribute("aria-hidden", "false");
                 setTimeout(() => {
                     notification.classList.toggle("show");
-                }, 3500);
+                    notification.setAttribute("aria-hidden", "true");
+                }, 8000);
 
             }, index * 300)
         });
