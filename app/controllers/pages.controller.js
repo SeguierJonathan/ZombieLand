@@ -6,11 +6,14 @@ export async function homePage(req, res) {
     order: [['createdAt', 'DESC']],
     limit: 3
   });
-  res.render("home", { activities, tarif})
+  return res.render("home", {
+    tarif: tarif || null,
+    activities: activities || []
+  });
 }
 
 export function aboutPage(req, res) {
-  res.render("about");
+  return res.render("about");
 }
 
 export async function informationsPage(req, res) {
@@ -34,10 +37,10 @@ export async function informationsPage(req, res) {
 
     const tarif = await Tarif.findOne();
 
-    res.render("information", { meteo, tarif });
+    return res.render("information", { meteo, tarif });
   } catch (error) {
     console.error("Erreur météo :", error.message);
-    res.render("information", { meteo: null });
+    return res.render("information", { meteo: null });
   }
 }
 
@@ -55,10 +58,10 @@ export function errorPage(req, res) {
 
 
 export function adminMenuPage(req, res) {
-  res.render("admin-menu");
+  return res.render("admin-menu");
 }
 
 export function planPage(req, res) {
-  res.render("plan");
+  return res.render("plan");
 }
 

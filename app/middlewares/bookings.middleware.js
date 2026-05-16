@@ -1,7 +1,6 @@
 import Joi from "joi";
 import { notify } from "../utils/common.js";
 
-
 // Même schema pour créer ou modifier une réservation
 export function validateBooking(req, res, next) {
 

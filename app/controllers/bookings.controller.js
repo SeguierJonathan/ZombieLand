@@ -3,7 +3,7 @@ import { notify } from "../utils/common.js";
 
 export async function bookingPage(req, res) {
   const tarif = await Tarif.findOne();
-  res.render("booking", { tarif });
+  return res.render("booking", { tarif });
 };
 
 // Controllers pour USER
@@ -39,7 +39,7 @@ export async function getMesReservations(req, res) {
     order: [["date", "ASC"]]
   });
 
-  res.render("mybookings", { reservations });
+  return res.render("mybookings", { reservations });
 };
 
 export async function updateBooking(req, res) {
@@ -113,11 +113,11 @@ export async function AdminDeleteBooking(req, res) {
     if (!result) {
         notify.error(res, "Une erreur est survenue lors de la suppression de la réservation");
         notify.redirect(res);
-        res.redirect('/menu-administrateur/reservations');
+        return res.redirect('/menu-administrateur/reservations');
     }
     notify.success(res, "Réservation supprimée");
     notify.redirect(res);
-    res.redirect('/menu-administrateur/reservations');
+    return res.redirect('/menu-administrateur/reservations');
 };
 
 export async function AdminUpdateBooking(req, res) {
