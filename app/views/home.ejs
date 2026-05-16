@@ -83,7 +83,11 @@
                                     <h2>🎟️ Nos Tarifs</h2>
                                     <p><strong>Prix à l'année :</strong>
                                     <p>
-                                        <%= tarif.price %> €
+                                        <% if (tarif) { %>
+                                            <%= tarif.price %>
+                                                <% } else { %>
+                                                    Tarif indisponible
+                                                    <% } %>
                                     </p>
                                     </p>
                                 </section>

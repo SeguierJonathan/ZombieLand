@@ -8,7 +8,7 @@ export async function accountPage(req, res) {
 
     const user = await User.findByPk(req.session.user.id);
     //!\\ il faut filtrer ou envoyer que les données utiles
-    res.render("account", { user })
+    return res.render("account", { user })
 }
 
 export async function createAccount(req, res) {
@@ -43,7 +43,7 @@ export async function createAccount(req, res) {
         notify.redirect(res);
         // utiliser pour garder les notification apres un redirect
         notify.redirect(res);
-        res.redirect('/');
+        return res.redirect('/');
     });
 };
 
@@ -61,14 +61,14 @@ export async function updateAccount(req, res) {
         notify.error(res, "Erreur lors de la mise à jour des informations.");
         // utiliser pour garder les notification apres un redirect
         notify.redirect(res);
-        res.redirect('/mon-compte')
+        return res.redirect('/mon-compte')
     }
 
     notify.success(res, "Mise à jour des informations effectuée.");
     // utiliser pour garder les notification apres un redirect
     notify.redirect(res);
     req.session.user.firstName = affectedRows[0].firstName;
-    res.redirect('/mon-compte');
+    return res.redirect('/mon-compte');
 };
 
 export async function deleteAccount(req, res) {
@@ -79,14 +79,14 @@ export async function deleteAccount(req, res) {
     });
     if (result === 0) {
         notify.error(res, "Une erreur est survenue lors de la suppression du compte. Veuillez contacter un administrateur.");
-        res.redirect("/mon-compte");
+        return res.redirect("/mon-compte");
     }
     req.session.destroy(function (err) {
         console.warn("session destroy: ", err);
         notify.success(res, "Suppression du compte réussie.");
         // utiliser pour garder les notification apres un redirect
         notify.redirect(res);
-        res.redirect("/");
+        return res.redirect("/");
     })
 
 };
@@ -128,11 +128,11 @@ export async function deleteUsers(req, res) {
   if (!result) {
     notify.error(res, "Une erreur est survenue lors de la suppression de l'utilisateur");
     notify.redirect(res);
-    res.redirect('/menu-administrateur/utilisateurs');
+    return res.redirect('/menu-administrateur/utilisateurs');
   }
   notify.success(res, "Utilisateur supprimé");
   notify.redirect(res);
-  res.redirect('/menu-administrateur/utilisateurs');
+  return res.redirect('/menu-administrateur/utilisateurs');
 };
 
 export async function updateUserRole(req, res) {

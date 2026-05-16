@@ -10,7 +10,7 @@ export function logout(req, res) {
         notify.success(res, "déconnexion.");
         // utiliser pour garder les notification apres un redirect
         notify.redirect(res);
-        res.redirect("/")
+        return res.redirect("/")
     })
 }
 
