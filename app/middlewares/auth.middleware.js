@@ -1,4 +1,5 @@
 import Joi from "joi";
+import { notify } from "../utils/common.js";
 
 export function validateAuthRegister(req, res, next) {
 
