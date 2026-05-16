@@ -12,26 +12,26 @@ export async function createCategoriesAdmin(req, res) {
     if (categorie) {
         notify.error(res, "nom de categories déjà existant");
         notify.redirect(res);
-        res.redirect('/menu-administrateur/categories');
+        return res.redirect('/menu-administrateur/categories');
     }
 
-    const createdCategorie = Category.create(req.body);
+    const createdCategorie = await Category.create(req.body);
 
     if (!createdCategorie) {
         notify.error(res, "Une erreur est survenue lors de l'ajout de la categorie");
         notify.redirect(res);
-        res.redirect('/menu-administrateur/categories');
+        return res.redirect('/menu-administrateur/categories');
     }
 
     notify.success(res, "Categorie ajouter");
     notify.redirect(res);
-    res.redirect('/menu-administrateur/categories');
+    return res.redirect('/menu-administrateur/categories');
 }
 
 export async function getAllCategoriesAdmin(req, res) {
 
     const categories = await Category.findAll();
-    res.render("admin-categories", { categories });
+    return res.render("admin-categories", { categories: categories || [] });
 
 }
 
@@ -48,12 +48,12 @@ export async function updateCategoriesAdmin(req, res) {
     if (affectedCount === 0) {
         notify.error(res, "Une erreur est survenue lors de la modification de la categorie");
         notify.redirect(res);
-        res.redirect('/menu-administrateur/categories');
+        return res.redirect('/menu-administrateur/categories');
     }
 
     notify.success(res, "Categorie modifier");
     notify.redirect(res);
-    res.redirect('/menu-administrateur/categories');
+    return res.redirect('/menu-administrateur/categories');
 }
 
 export async function deleteCategoriesAdmin(req, res) {
@@ -67,10 +67,10 @@ export async function deleteCategoriesAdmin(req, res) {
     if (deteleCount === 0) {
         notify.error(res, "Une erreur est survenue lors de la suppression de la categorie");
         notify.redirect(res);
-        res.redirect('/menu-administrateur/categories');
+        return res.redirect('/menu-administrateur/categories');
     }
 
     notify.success(res, "Categorie supprimé");
     notify.redirect(res);
-    res.redirect('/menu-administrateur/categories');
+    return res.redirect('/menu-administrateur/categories');
 }

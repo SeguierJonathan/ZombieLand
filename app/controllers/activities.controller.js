@@ -33,7 +33,7 @@ export async function renderActivityDetail(req, res) {
     }
     activity.durationSeconds = formatSecondes(activity.durationSeconds)
     activity.minHeightCM = formatTaille(activity.minHeightCM)
-    res.render("activity", { activity })
+    return res.render("activity", { activity })
 }
 
 // ADMIN CONTROLLER //
@@ -65,7 +65,7 @@ export async function renderActivityDetailAdmin(req, res) {
     if (!activity) {
         return res.status(404).render('404');
     }
-    res.render("admin-activity", { activity, categories });
+    return res.render("admin-activity", { activity, categories });
 }
 
 export async function newActivityAdmin(req, res) {
@@ -78,7 +78,7 @@ export async function newActivityAdmin(req, res) {
     if (activity) {
         notify.error(res, "Nom de l'activité déjà existant");
         notify.redirect(res);
-        res.redirect('/menu-administrateur/activites/nouvelle');
+        return res.redirect('/menu-administrateur/activites/nouvelle');
     }
 
     const createdActivity = Activity.create(req.body);
@@ -86,17 +86,17 @@ export async function newActivityAdmin(req, res) {
     if (!createdActivity) {
         notify.error(res, "Une erreur est survenue lors de l'ajout de l'activité");
         notify.redirect(res);
-        res.redirect('/menu-administrateur/activites');
+        return res.redirect('/menu-administrateur/activites');
     }
 
     notify.success(res, "Activité ajoutée");
     notify.redirect(res);
-    res.redirect('/menu-administrateur/activites');
+    return res.redirect('/menu-administrateur/activites');
 }
 
 export async function newActivityPage(req, res) {
     const categories = await Category.findAll();
-    res.render("admin-activity-new", { categories });
+    return res.render("admin-activity-new", { categories });
 }
 
 export async function deleteActivities(req, res) {
@@ -108,7 +108,7 @@ export async function deleteActivities(req, res) {
     if (result === 0) {
         notify.error(res, "Une erreur est survenue lors de la suppression de l'activité");
         notify.redirect(res);
-        res.redirect("/menu-administrateur/activites");
+        return res.redirect("/menu-administrateur/activites");
     }
 
     const createdActivity = Activity.create(req.body);
@@ -116,12 +116,12 @@ export async function deleteActivities(req, res) {
     if (!createdActivity) {
         notify.error(res, "Une erreur est survenue lors de l'ajout de l'activité");
         notify.redirect(res);
-        res.redirect('/menu-administrateur/activites');
+        return res.redirect('/menu-administrateur/activites');
     }
 
     notify.success(res, "Activité ajoutée");
     notify.redirect(res);
-    res.redirect('/menu-administrateur/activites');
+    return res.redirect('/menu-administrateur/activites');
 }
 
 export async function updateActivities(req, res) {
@@ -143,5 +143,5 @@ export async function updateActivities(req, res) {
     // utiliser pour garder les notification apres un redirect
     notify.redirect(res);
 
-    res.redirect('/menu-administrateur/activites/' + req.params.id);
+    return res.redirect('/menu-administrateur/activites/' + req.params.id);
 };

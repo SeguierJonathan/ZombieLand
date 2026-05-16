@@ -6,7 +6,7 @@ import { notify } from "../utils/common.js";
 export async function getPricesAdmin(req, res) {
     const tarifId = req.params.id;
     const tarifs = await Tarif.findAll()
-    res.render('admin-tarif', { tarifs, tarifId })
+    return res.render('admin-tarif', { tarifs, tarifId })
 }
 
 export async function updatePricesAdmin(req, res) {

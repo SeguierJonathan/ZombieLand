@@ -38,7 +38,7 @@ export function isAllowed(requiredRole) {
         //verifie que req.session.user existe
         if (!req.session.user) {
             console.warm("isAuth middleware missing before isAllowed");
-            res.redirect("/connexion");
+            return res.redirect("/connexion");
         }
 
         //recupere le role de l'utilisateur suivant sont id
@@ -62,10 +62,8 @@ export function isAllowed(requiredRole) {
         if (user.role.name !== requiredRole) {
             return res.redirect("/403");
         }
-
+        
         next();
-
-
     }
 }
 
