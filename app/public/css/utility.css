@@ -1,0 +1,45 @@
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.gap-1-5 {
+    gap: 1.5rem;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
+.gap-2-5 {
+    gap: 2.5rem;
+}
+
+.gap-3 {
+    gap: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media (max-width: 481px) {
+
+    .flex-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

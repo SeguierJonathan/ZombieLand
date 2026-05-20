@@ -4,8 +4,8 @@
 <head>
     <%- include("partials/head") %>
 
-        <title>Zombieland - Utilisateurs</title>
-        <link rel="stylesheet" href="/css/admin-categories.css" />
+        <title>Zombieland - Catégories</title>
+        <link rel="stylesheet" href="/css/pages/admin-categories.css" />
         <script defer src="/js/common.js"></script>
         <script defer src="/js/modal.js"></script>
 
@@ -45,7 +45,7 @@
                                                         value="<%= categorie.description %>" hidden></textarea>
                                                 </p>
 
-                                                <button type="button" class="btn--update" onclick="toggleEdit(this)">
+                                                <button type="btn" class="btn--update" onclick="toggleEdit(this)">
                                                     Modifier
                                                 </button>
                                                 <button type="submit" class="btn--save" hidden>
