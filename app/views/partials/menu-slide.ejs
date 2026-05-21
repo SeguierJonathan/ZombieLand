@@ -6,14 +6,9 @@
                 <%if(!firstName){%>
                     <a class="btn" href="/connexion">Se connecter</a>
                     <%}else{%>
-                        <a href="/mon-compte">Bonjour, <span>
+                        <a class="btn--profil" href="/mon-compte">Bonjour, <span>
                                 <%= firstName%>
                             </span></a>
-                        <form action="/auth/logout" method="POST">
-                            <button class="btn-trans" type="submit">
-                                Se deconnecter
-                            </button>
-                        </form>
                         <%}%>
             </div>
             <button id="close-button" class="btn-icon" aria-label="Fermer le menu">

@@ -20,6 +20,7 @@
     border-color: var(--color-cream);
     box-shadow: 0px 0px 5px 5px;
     transition: all 0.3s ease-in-out;
+    text-decoration: none;
 }
 
 
@@ -88,4 +89,50 @@
 
 .btn-delete:hover {
     background-color: #c0392b;
+}
+
+.btn--link {
+    display: inline;
+    width: auto;
+    max-width: fit-content;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    color: #f44;
+    font: inherit;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn--link:hover {
+    text-decoration: underline;
+}
+
+.btn--profil {
+    display: inline;
+    width: auto;
+    max-width: fit-content;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    color: var(--color-cream);
+    font: inherit;
+
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+
+
+}
+
+.btn--profil:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
 }

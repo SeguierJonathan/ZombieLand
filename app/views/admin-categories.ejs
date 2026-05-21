@@ -42,10 +42,10 @@
                                                         <%= categorie.description %>
                                                     </span>
                                                     <textarea class="edit-mode" name="description"
-                                                        value="<%= categorie.description %>" hidden></textarea>
+                                                        hidden><%= categorie.description %></textarea>
                                                 </p>
 
-                                                <button type="btn" class="btn--update" onclick="toggleEdit(this)">
+                                                <button type="button" class="btn--update" onclick="toggleEdit(this)">
                                                     Modifier
                                                 </button>
                                                 <button type="submit" class="btn--save" hidden>

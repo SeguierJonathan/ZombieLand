@@ -40,8 +40,8 @@
                                 <fieldset>
                                     <legend>Sécurité</legend>
                                     <div class="flex-column">
-                                        <label for="oldPassword">Mot de passe actuel</label>
-                                        <input type="password" id="oldPassword" name="oldPassword"
+                                        <label for="password">Mot de passe actuel</label>
+                                        <input type="password" id="password" name="password"
                                             placeholder="Votre Ancien mot de passe" required>
                                     </div>
                                 </fieldset>
@@ -72,10 +72,14 @@
 
                         </div>
 
-                        <a href="/connexion">
+                        <button class="btn--link" type="submit" form="submitLougout" class="link-btn">
                             Me déconnecter
-                        </a>
+                        </button>
 
+
+                    </form>
+
+                    <form id="submitLougout" action="/auth/logout" method="POST">
 
                     </form>
 

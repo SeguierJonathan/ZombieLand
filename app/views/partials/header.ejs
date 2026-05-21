@@ -39,14 +39,9 @@
           <%if(!firstName){%>
             <a class="btn" href="/connexion">Se connecter</a>
             <%}else{%>
-              <a id="nom_connecté" href="/mon-compte">Bonjour, <span>
+              <a  class="btn--profil" href="/mon-compte">Bonjour, <span>
                   <%= firstName%>
                 </span></a>
-              <form action="/auth/logout" method="POST">
-                <button class="btn-trans" type="submit">
-                  Se deconnecter
-                </button>
-              </form>
 
               <%}%>
         </div>
