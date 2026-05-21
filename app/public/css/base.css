@@ -48,6 +48,27 @@ a:hover {
     text-decoration: underline;
 }
 
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 8px;
+    padding: 2rem;
+    background: linear-gradient(var(--color-redBrown) 0%, var(--color-redDark) 100%);
+    color: inherit;
+
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+fieldset {
+    min-width: 0;
+}
+
 h1,
 h2,
 h3 {
@@ -73,6 +94,30 @@ img {
     width: 100%;
     display: inline-block;
     margin: auto, 0;
+}
+
+section.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    min-width: 300px;
+    margin: 0;
+}
+
+section.modal-content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+
+}
+
+section.modal-content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
 ul {

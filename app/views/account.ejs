@@ -4,9 +4,7 @@
 <head>
     <%- include('partials/head') %>
         <title>Zombieland - Mon compte</title>
-        <link rel="stylesheet" href="/css/account.css">
-
-        <script defer src="/js/btnFormPassword.js"></script>
+        <link rel="stylesheet" href="/css/pages/account.css">
 </head>
 
 <body>
@@ -16,69 +14,75 @@
             <%- include('partials/notifications') %>
 
                 <main>
-                    <h1>Mon compte</h1>
+                    <h2 class="text-center">Mon compte</h2>
 
-                    <fieldset>
-                        <legend>Information personelle</legend>
-                        <form action="/mon-compte" method="POST">
-                            <div>
-                                <label for="firstName">Prénom :</label>
-                                <input type="text" name="firstName" value="<%= user.firstName %>">
+                    <form class="form--profil" action="/mon-compte" method="POST">
+                        <div class="flex-row gap-2">
+                            <fieldset class="flex-column flex-1">
+                                <legend>info personnel</legend>
+
+                                <div class="flex-column">
+                                    <label for="firstName">Prénom :</label>
+                                    <input type="text" name="firstName" value="<%= user.firstName %>">
+                                </div>
+
+                                <div class="flex-column">
+                                    <label for="lastName">Nom :</label>
+                                    <input type="text" name="lastName" value="<%= user.lastName %>">
+                                </div>
+
+                                <div class="flex-column">
+                                    <label for="email">Email :</label>
+                                    <input type="email" name="email" value="<%= user.email %>">
+                                </div>
+                            </fieldset>
+                            <div class="flex-1">
+                                <fieldset>
+                                    <legend>Sécurité</legend>
+                                    <div class="flex-column">
+                                        <label for="password">Mot de passe actuel</label>
+                                        <input type="password" id="password" name="password"
+                                            placeholder="Votre Ancien mot de passe" required>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="flex-column flex-1">
+                                    <legend>Changer mot de passe</legend>
+
+                                    <div class="flex-column">
+                                        <label for="newPassword">Nouveau mot de passe</label>
+                                        <input type="password" id="newPassword" placeholder="Votre mot de passe"
+                                            name="newPassword">
+                                    </div>
+
+                                    <div class="flex-column">
+                                        <label for="confirmPassword">Confirmer le mot de passe</label>
+                                        <input type="password" id="confirmPassword" name="confirmPassword"
+                                            placeholder="Confirmer votre mot de passe">
+                                    </div>
+                                </fieldset>
                             </div>
+                        </div>
 
-                            <div>
-                                <label for="lastName">Nom :</label>
-                                <input type="text" name="lastName" value="<%= user.lastName %>">
-                            </div>
-
-                            <div>
-                                <label for="email">Email :</label>
-                                <input type="email" name="email" value="<%= user.email %>">
-                            </div>
-
+                        <div>
                             <button type="submit">Modifier</button>
+                            <button>
+                                Supprimer mon compte
+                            </button>
 
-                    </fieldset>
-                    </form>
-                    <!-- Bouton pour afficher le formulaire -->
-                    <button type="button" id="togglePasswordBtn">
-                        Modifier mon mot de passe
-                    </button>
-
-
-                    <!-- Formulaire caché au départ -->
-                    <form action="/update-password" method="POST" class="hidden" id="passwordForm">
-
-                        <h3>Modifier le mot de passe</h3>
-
-                        <div class="form-group">
-                            <label for="oldPassword">Ancien mot de passe</label>
-                            <input type="password" id="oldPassword" name="oldPassword" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="newPassword">Nouveau mot de passe</label>
-                            <input type="password" id="newPassword" name="newPassword" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirmPassword">Confirmation du nouveau mot de passe</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" required>
-                        </div>
-
-                        <button type="submit">Enregistrer</button>
-                    </form>
-
-
-                    <a href="/connexion">
-                        <button type="button">Me déconnecter</button>
-                    </a>
-
-                    <form action="/user/delete" method="post">
-                        <button type="submit">
-                            Supprimer mon compte
+                        <button class="btn--link" type="submit" form="submitLougout" class="link-btn">
+                            Me déconnecter
                         </button>
+
+
                     </form>
+
+                    <form id="submitLougout" action="/auth/logout" method="POST">
+
+                    </form>
+
 
                 </main>
 

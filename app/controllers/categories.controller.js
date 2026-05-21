@@ -31,14 +31,13 @@ export async function createCategoriesAdmin(req, res) {
 export async function getAllCategoriesAdmin(req, res) {
 
     const categories = await Category.findAll();
-    return res.render("admin-categories", { categories: categories || [] });
+    return res.render("admin-categories", { categories: categories });
 
 }
 
 export async function updateCategoriesAdmin(req, res) {
 
     const categorieId = req.params.id;
-
     const [affectedCount] = await Category.update(req.body, {
         where: {
             id: categorieId,
@@ -58,13 +57,13 @@ export async function updateCategoriesAdmin(req, res) {
 
 export async function deleteCategoriesAdmin(req, res) {
     const categorieId = req.params.id;
-    const deteleCount = await Category.destroy({
+    const deleteCount = await Category.destroy({
         where: {
             id: categorieId,
         }
     });
 
-    if (deteleCount === 0) {
+    if (deleteCount === 0) {
         notify.error(res, "Une erreur est survenue lors de la suppression de la categorie");
         notify.redirect(res);
         return res.redirect('/menu-administrateur/categories');

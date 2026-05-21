@@ -4,7 +4,7 @@ import { notify } from "../utils/common.js";
 export function validateCategoriesUpdate(req, res, next) {
 
     const schemaCategories = Joi.object({
-        name: Joi.string().trim().min(2),
+        name: Joi.string().trim().min(2).required(),
         description: Joi.string().trim().min(2),
     })
 
@@ -23,7 +23,7 @@ export function validateCategoriesCreation(req, res, next) {
 
     const schemaCategories = Joi.object({
         name: Joi.string().trim().min(2).required(),
-        description: Joi.string().trim().min(2).required(),
+        description: Joi.string().trim().min(2),
     })
 
     const validation = schemaCategories.validate(req.body);

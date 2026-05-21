@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { createAccount, updateAccount, deleteAccount, deleteUsers, updateUserRole } from '../../controllers/users.controller.js';
-import { validateAuthLogin, validateAuthRegister, validateUpdateAccount } from '../../middlewares/auth.middleware.js';
+import { validateAuthLogin, validateAuthRegister } from '../../middlewares/auth.middleware.js';
+import { validateUpdateAccount } from "../../middlewares/user.middleware.js"
 import { login, logout } from '../../controllers/auth.controller.js';
 import { createBooking, updateBooking, deleteBooking, AdminUpdateBooking, AdminDeleteBooking } from '../../controllers/bookings.controller.js';
 import { validateBooking } from '../../middlewares/bookings.middleware.js';

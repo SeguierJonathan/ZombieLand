@@ -1,0 +1,138 @@
+/* === Primary button === */
+.btn {
+    display: block;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+
+    text-align: center;
+    font-weight: bold;
+
+    color: var(--color-cream);
+    background-color: var(--color-redBrown);
+
+    border: 1px solid var(--color-redDark);
+    border-radius: 5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    color: var(--color-cream);
+    border-color: var(--color-cream);
+    box-shadow: 0px 0px 5px 5px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+
+/* === Secondary button === */
+
+.btn-outline {
+    display: block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+
+    text-align: center;
+
+    color: var(--color-cream);
+    border: 1px solid var(--color-cream);
+    border-radius: 5rem;
+}
+
+.btn-outline:hover {
+    color: var(--color-orange);
+    border-color: var(--color-orange);
+    background-color: var(--color-cream);
+
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-icon {
+    background-color: inherit;
+    color: var(--color-cream);
+    height: 4rem;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-icon:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-trans {
+    background-color: inherit;
+    color: var(--color-cream);
+    height: 4rem;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-trans:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* === Bouton supprimer === */
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+.btn--link {
+    display: inline;
+    width: auto;
+    max-width: fit-content;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    color: #f44;
+    font: inherit;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn--link:hover {
+    text-decoration: underline;
+}
+
+.btn--profil {
+    display: inline;
+    width: auto;
+    max-width: fit-content;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    color: var(--color-cream);
+    font: inherit;
+
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+
+
+}
+
+.btn--profil:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
