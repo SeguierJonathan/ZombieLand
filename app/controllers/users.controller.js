@@ -6,62 +6,70 @@ import { notify } from "../utils/common.js";
 
 export async function accountPage(req, res) {
 
-    const user = await User.findByPk(req.session.user.id);
-    //!\\ il faut filtrer ou envoyer que les données utiles
-    return res.render("account", { user })
+  const user = await User.findByPk(req.session.user.id);
+  //!\\ il faut filtrer ou envoyer que les données utiles
+  return res.render("account", { user })
 }
 
 export async function createAccount(req, res) {
 
-    const role = await Role.findOne({ attributes: ["id"], where: { name: "user" } });
+  const role = await Role.findOne({ attributes: ["id"], where: { name: "user" } });
 
-    //hash password in body
-    req.body.password = await argon2.hash(req.body.password);
-    //insert in body roleId
-    req.body.roleId = role.id;
+  //hash password in body
+  req.body.password = await argon2.hash(req.body.password);
+  //insert in body roleId
+  req.body.roleId = role.id;
 
-    const user = await User.create(req.body);
+  const user = await User.create(req.body);
 
-    if (!user) {
-        notify.error(res, "Une erreur est survenue lors de la creation du compte. Veuillez contacter un administrateur.");
-        // utiliser pour garder les notification apres un redirect
-        notify.redirect(res);
-        return res.redirect("/inscription");
-    }
+  if (!user) {
+    notify.error(res, "Une erreur est survenue lors de la creation du compte. Veuillez contacter un administrateur.");
+    // utiliser pour garder les notification apres un redirect
+    notify.redirect(res);
+    return res.redirect("/inscription");
+  }
 
-    // regenere id-session pour eviter la faille de session fixation
-    req.session.regenerate((err) => {
-        if (err) {
-            console.warm("session regenerate: ", err);
-            return res.status(500).send("Erreur de session");
-        };
+  // regenere id-session pour eviter la faille de session fixation
+  req.session.regenerate((err) => {
+    if (err) {
+      console.warm("session regenerate: ", err);
+      return res.status(500).send("Erreur de session");
+    };
 
-        // Stocker l'utilisateur dans la nouvelle session
-        req.session.user = { id: user.id, firstName: user.firstName };
-        notify.success(res, "Creation du compte réussie.");
-        // utiliser pour garder les notification apres un redirect
-        notify.redirect(res);
-        // utiliser pour garder les notification apres un redirect
-        notify.redirect(res);
-        return res.redirect('/');
-    });
+    // Stocker l'utilisateur dans la nouvelle session
+    req.session.user = { id: user.id, firstName: user.firstName };
+    notify.success(res, "Creation du compte réussie.");
+    // utiliser pour garder les notification apres un redirect
+    notify.redirect(res);
+    // utiliser pour garder les notification apres un redirect
+    notify.redirect(res);
+    return res.redirect('/');
+  });
 };
 
 export async function updateAccount(req, res) {
-    const { firstName, lastName, email } = req.body;
+  const { firstName, lastName, email, password, newPassword, confirmPassword } = req.body;
+
+  const user = await User.findOne({
+    where: {
+      id: req.session.user.id
+    },
+  })
+
+  if (await argon2.verify(user.password, password)) {
     const [affectedCount, affectedRows] = await User.update(
-        { firstName, lastName, email },
-        {
-            where: { id: req.session.user.id },
-            returning: true
-        }
+      { firstName, lastName, email },
+      {
+        where: { id: req.session.user.id },
+        returning: true
+      }
     );
 
     if (affectedCount === 0) {
-        notify.error(res, "Erreur lors de la mise à jour des informations.");
-        // utiliser pour garder les notification apres un redirect
-        notify.redirect(res);
-        return res.redirect('/mon-compte')
+      notify.error(res, "Erreur lors de la mise à jour des informations.");
+      // utiliser pour garder les notification apres un redirect
+      notify.redirect(res);
+      return res.redirect('/mon-compte')
     }
 
     notify.success(res, "Mise à jour des informations effectuée.");
@@ -69,34 +77,46 @@ export async function updateAccount(req, res) {
     notify.redirect(res);
     req.session.user.firstName = affectedRows[0].firstName;
     return res.redirect('/mon-compte');
+
+  } else {
+
+    
+      notify.error(res, "Mot de passe incorecte");
+      notify.redirect(res);
+      return res.redirect('/mon-compte')
+
+
+  }
+
+
 };
 
 export async function deleteAccount(req, res) {
-    const result = await User.destroy({
-        where: {
-            id: req.session.user.id
-        }
-    });
-    if (result === 0) {
-        notify.error(res, "Une erreur est survenue lors de la suppression du compte. Veuillez contacter un administrateur.");
-        return res.redirect("/mon-compte");
+  const result = await User.destroy({
+    where: {
+      id: req.session.user.id
     }
-    req.session.destroy(function (err) {
-        console.warn("session destroy: ", err);
-        notify.success(res, "Suppression du compte réussie.");
-        // utiliser pour garder les notification apres un redirect
-        notify.redirect(res);
-        return res.redirect("/");
-    })
+  });
+  if (result === 0) {
+    notify.error(res, "Une erreur est survenue lors de la suppression du compte. Veuillez contacter un administrateur.");
+    return res.redirect("/mon-compte");
+  }
+  req.session.destroy(function (err) {
+    console.warn("session destroy: ", err);
+    notify.success(res, "Suppression du compte réussie.");
+    // utiliser pour garder les notification apres un redirect
+    notify.redirect(res);
+    return res.redirect("/");
+  })
 
 };
 
 export async function inscriptionPage(req, res) {
-    return res.render('inscription')
+  return res.render('inscription')
 };
 
 export async function logInPage(req, res) {
-    return res.render('log_in')
+  return res.render('log_in')
 };
 
 // Controllers pour l'ADMIN
@@ -106,7 +126,7 @@ export async function getAllUsers(req, res) {
     attributes: ["id", "firstName", "lastName", "email", "roleId"],
     include: {
       model: Role,
-      as: "role", 
+      as: "role",
       attributes: ["id", "name"]
     }
   });

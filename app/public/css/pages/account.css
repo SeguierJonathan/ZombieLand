@@ -1,14 +1,17 @@
-h2 {
-    text-align: center;
-}
-
-form {
+.form-group {
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+}
 
+/*card login/inscription/profil*/
+
+.form--profil {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
     width: 100%;
-    max-width: 350px;
+    max-width: 700px;
     padding: 3rem;
     border-radius: 2rem;
     background: rgba(20, 0, 0, 0.72);
@@ -20,7 +23,20 @@ form {
     overflow: hidden;
 }
 
-form>div {
+
+fieldset {
+    border-radius: 1rem;
+}
+
+
+
+.card--profil>fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card--profil>fieldset>div {
     display: flex;
     flex-direction: column;
 }
