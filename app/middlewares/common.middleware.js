@@ -99,6 +99,16 @@ export function initLocals(req, res, next) {
         });
     }
 
+    //info pour réafficher les info personnelle dans une redirection
+    res.locals.info = {
+        firstName: "",
+        firstName:"",
+        email: "",
+        password: "",
+        confirmPasword: "",
+        newPassword: ""
+    }
+
     next();
 }
 

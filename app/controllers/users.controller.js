@@ -56,9 +56,17 @@ export async function updateAccount(req, res) {
     },
   })
 
+
+
   if (await argon2.verify(user.password, password)) {
+    
+    const updateData = { firstName, lastName, email }
+    if(newPassword){
+      updateData.password = await argon2.hash(newPassword);
+    }
+
     const [affectedCount, affectedRows] = await User.update(
-      { firstName, lastName, email },
+      updateData,
       {
         where: { id: req.session.user.id },
         returning: true

@@ -22,28 +22,31 @@
 
                         <div>
                             <label for="lastName">Nom</label>
-                            <input id="lastName" type="lastName" name="lastName" placeholder="Nom" required>
+                            <input id="lastName" type="lastName" name="lastName" value="<%= info.lastName %>"
+                                placeholder="Nom">
                         </div>
 
                         <div>
                             <label for="firstName">Prénom</label>
-                            <input id="firstName" type="firstName" name="firstName" placeholder="Prénom" required>
+                            <input id="firstName" type="firstName" name="firstName" value="<%= info.firstName %> required"
+                                placeholder="Prénom">
                         </div>
                         <div>
                             <label for="email">E-mail</label>
-                            <input id="email" type="email" name="email" placeholder="Saisissez votre email..." required>
+                            <input id="email" type="email" name="email" autocomplete="off" value="<%= info.email %> required"
+                                placeholder="Saisissez votre email...">
                         </div>
 
                         <div>
                             <label for="password">Mot de passe</label>
-                            <input id="password" type="password" name="password" placeholder="Votre mot de passe"
-                                required>
+                            <input id="password" type="password" name="password" autocomplete="new-password"
+                                value="<%= info.password %>" placeholder="Votre mot de passe" required>
                         </div>
 
                         <div>
                             <label for="confirmPassword">Confirmer le mot de passe</label>
                             <input id="confirmPassword" type="password" name="confirmPassword"
-                                placeholder="Confirmer votre mot de passe" required>
+                                value="<%= info.confirmPassword %>" placeholder="Confirmer votre mot de passe" required>
                         </div>
 
                         <button type="submit">Créer le compte</button>
